@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -208,6 +208,13 @@ const QuotePage = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Scroll to top when showing Thank You page
+  useEffect(() => {
+    if (isSubmitted) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [isSubmitted]);
 
   if (isSubmitted) {
     return (
