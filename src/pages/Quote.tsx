@@ -27,6 +27,7 @@ import {
   ImageIcon
 } from 'lucide-react';
 import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 
 const services = [
   'Lawn Mowing & Edging',
@@ -138,11 +139,43 @@ const QuotePage = () => {
       // Validate form data
       const validatedData = quoteSchema.parse(formData);
       
-      // For now, simulate submission (will connect to Supabase later)
-      console.log('Form submitted:', validatedData);
-      
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Prepare extra data (image filenames for now, will add URLs when storage is set up)
+      const extraData = attachedImages.length > 0 
+        ? { pending_image_filenames: attachedImages.map(img => img.name) }
+        : null;
+
+      // Insert into Supabase
+      const { error: supabaseError } = await supabase
+        .from('quotes')
+        .insert({
+          full_name: validatedData.fullName,
+          email: validatedData.email,
+          phone: validatedData.phone,
+          service_requested: validatedData.service,
+          address_or_neighborhood: validatedData.address || null,
+          property_type: validatedData.propertyType || null,
+          preferred_contact_method: validatedData.contactMethod || null,
+          additional_details: validatedData.details || null,
+          extra: extraData,
+        });
+
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError);
+        throw new Error(supabaseError.message);
+      }
+
+      // Reset form on success
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        service: '',
+        address: '',
+        propertyType: 'residential',
+        contactMethod: 'phone',
+        details: '',
+      });
+      setAttachedImages([]);
 
       setIsSubmitted(true);
       toast({
@@ -164,6 +197,7 @@ const QuotePage = () => {
           variant: 'destructive',
         });
       } else {
+        console.error('Submission error:', error);
         toast({
           title: 'Something went wrong',
           description: 'Please try again or call us directly.',
