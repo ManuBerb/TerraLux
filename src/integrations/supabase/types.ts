@@ -26,6 +26,7 @@ export type Database = {
           phone: string
           preferred_contact_method: string | null
           property_type: string | null
+          quote_number: number
           service_requested: string
         }
         Insert: {
@@ -39,6 +40,7 @@ export type Database = {
           phone: string
           preferred_contact_method?: string | null
           property_type?: string | null
+          quote_number?: number
           service_requested: string
         }
         Update: {
@@ -52,6 +54,7 @@ export type Database = {
           phone?: string
           preferred_contact_method?: string | null
           property_type?: string | null
+          quote_number?: number
           service_requested?: string
         }
         Relationships: []
