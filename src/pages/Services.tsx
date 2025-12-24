@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileCTA } from '@/components/layout/MobileCTA';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
   Leaf, 
@@ -125,6 +126,29 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const location = useLocation();
+
+  // Handle hash scrolling on page load and navigation
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          const headerOffset = 100; // Account for fixed header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
+
   return (
     <>
       <Helmet>
