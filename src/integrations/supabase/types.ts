@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      quotes: {
+        Row: {
+          additional_details: string | null
+          address_or_neighborhood: string | null
+          created_at: string
+          email: string
+          extra: Json | null
+          full_name: string
+          id: string
+          phone: string
+          preferred_contact_method: string | null
+          property_type: string | null
+          service_requested: string
+        }
+        Insert: {
+          additional_details?: string | null
+          address_or_neighborhood?: string | null
+          created_at?: string
+          email: string
+          extra?: Json | null
+          full_name: string
+          id?: string
+          phone: string
+          preferred_contact_method?: string | null
+          property_type?: string | null
+          service_requested: string
+        }
+        Update: {
+          additional_details?: string | null
+          address_or_neighborhood?: string | null
+          created_at?: string
+          email?: string
+          extra?: Json | null
+          full_name?: string
+          id?: string
+          phone?: string
+          preferred_contact_method?: string | null
+          property_type?: string | null
+          service_requested?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
