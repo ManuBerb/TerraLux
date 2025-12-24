@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -21,7 +21,10 @@ import {
   Phone, 
   Mail,
   ArrowRight,
-  Loader2 
+  Loader2,
+  Upload,
+  X,
+  ImageIcon
 } from 'lucide-react';
 import { z } from 'zod';
 
@@ -65,6 +68,8 @@ const QuotePage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteFormData, string>>>({});
+  const [attachedImages, setAttachedImages] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '',
@@ -76,6 +81,45 @@ const QuotePage = () => {
     contactMethod: 'phone',
     details: '',
   });
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+    
+    const newImages = Array.from(files).filter(file => {
+      // Only accept image files under 5MB
+      if (!file.type.startsWith('image/')) {
+        toast({
+          title: 'Invalid file type',
+          description: 'Please upload image files only (JPG, PNG, etc.)',
+          variant: 'destructive',
+        });
+        return false;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        toast({
+          title: 'File too large',
+          description: 'Please upload images under 5MB',
+          variant: 'destructive',
+        });
+        return false;
+      }
+      return true;
+    });
+    
+    // Limit to 3 images total
+    const totalImages = [...attachedImages, ...newImages].slice(0, 3);
+    setAttachedImages(totalImages);
+    
+    // Reset input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const removeImage = (index: number) => {
+    setAttachedImages(prev => prev.filter((_, i) => i !== index));
+  };
 
   const handleInputChange = (field: keyof QuoteFormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -387,6 +431,57 @@ const QuotePage = () => {
                           value={formData.details}
                           onChange={(e) => handleInputChange('details', e.target.value)}
                         />
+                      </div>
+
+                      {/* Image Upload */}
+                      <div className="space-y-2 sm:col-span-2">
+                        <Label>Attach Photos (Optional)</Label>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Upload up to 3 photos of your yard or project area
+                        </p>
+                        
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          onChange={handleImageUpload}
+                          className="hidden"
+                          id="image-upload"
+                        />
+                        
+                        <div className="flex flex-wrap gap-3">
+                          {attachedImages.map((file, index) => (
+                            <div
+                              key={index}
+                              className="relative w-20 h-20 rounded-lg overflow-hidden border border-border bg-muted"
+                            >
+                              <img
+                                src={URL.createObjectURL(file)}
+                                alt={`Attachment ${index + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => removeImage(index)}
+                                className="absolute top-1 right-1 p-1 bg-destructive text-destructive-foreground rounded-full hover:bg-destructive/90 transition-colors"
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
+                            </div>
+                          ))}
+                          
+                          {attachedImages.length < 3 && (
+                            <button
+                              type="button"
+                              onClick={() => fileInputRef.current?.click()}
+                              className="w-20 h-20 rounded-lg border-2 border-dashed border-border hover:border-primary/50 bg-muted/50 hover:bg-muted flex flex-col items-center justify-center gap-1 transition-colors"
+                            >
+                              <Upload className="h-5 w-5 text-muted-foreground" />
+                              <span className="text-xs text-muted-foreground">Add</span>
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
