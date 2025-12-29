@@ -14,7 +14,7 @@ const steps = [
     number: '02',
     icon: Phone,
     title: 'We Contact You',
-    description: 'Our team will reach out within 24 hours to discuss your needs and schedule a free on-site estimate.',
+    description: 'Our team will reach out within 24 hours to discuss your needs and provide a personalized estimate.',
   },
   {
     number: '03',
