@@ -184,7 +184,7 @@ const services: {
       'Early morning readiness',
       'On duty all winter long',
     ],
-    benefits: 'A clear driveway and walkway ensures safe access to your home during winter months. Professional snow removal saves time and prevents injuries from slips and falls.',
+    benefits: 'Keep your driveway clear and accessible all winter long. Our reliable snow removal service is available for residential and commercial properties. We are on duty all season to ensure safe, timely access without the stress of doing it yourself.',
     seasons: ['coming-soon'],
   },
 ];
