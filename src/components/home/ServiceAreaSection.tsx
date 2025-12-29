@@ -50,7 +50,7 @@ export function ServiceAreaSection() {
           >
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d357453.4487658013!2d-73.6!3d45.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1704000000000!5m2!1sen!2sca"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d180000!2d-73.65!3d45.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1704000000000!5m2!1sen!2sca"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -61,11 +61,27 @@ export function ServiceAreaSection() {
                 className="absolute inset-0 pointer-events-none"
               />
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-primary-foreground/70">
-              <p>Not sure if you're in our service area?</p>
-              <Button asChild variant="outline" size="sm" className="border-lime text-lime hover:bg-lime hover:text-primary">
-                <Link to="/quote">Request a Free Quote</Link>
-              </Button>
+            
+            {/* Enhanced CTA Card */}
+            <div className="relative mt-2 p-5 rounded-2xl bg-gradient-to-br from-primary-foreground/10 to-primary-foreground/5 border border-primary-foreground/10 backdrop-blur-sm">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-lime/20 flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-lime" />
+                  </div>
+                  <div>
+                    <p className="font-display font-semibold text-primary-foreground mb-0.5">
+                      Not sure if you're in our service area?
+                    </p>
+                    <p className="text-sm text-primary-foreground/60">
+                      We'd love to check — get a free, no-obligation quote today.
+                    </p>
+                  </div>
+                </div>
+                <Button asChild variant="cta" size="lg" className="w-full sm:w-auto flex-shrink-0">
+                  <Link to="/quote">Request a Free Quote</Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>
