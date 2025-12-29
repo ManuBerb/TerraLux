@@ -105,7 +105,7 @@ const services: {
       'Post-installation care guide',
     ],
     benefits: 'Sod provides instant results - no waiting months for seed to grow. It also prevents erosion, is ready to use within 2-3 weeks, and establishes faster than seeded lawns.',
-    seasons: ['spring', 'summer', 'fall'],
+    seasons: ['spring', 'fall'],
   },
   {
     id: 'leaf-removal',
@@ -137,7 +137,7 @@ const services: {
       'All hedge types and sizes',
     ],
     benefits: 'Regular hedge maintenance promotes dense, healthy growth while maintaining clean property lines and enhancing curb appeal. Well-trimmed hedges also provide better privacy and wind protection.',
-    seasons: ['spring', 'summer', 'fall'],
+    seasons: ['spring', 'fall'],
   },
   {
     id: 'window-cleaning',
