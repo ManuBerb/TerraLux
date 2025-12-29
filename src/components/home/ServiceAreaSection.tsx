@@ -1,20 +1,7 @@
 import { MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const areas = [
-  'Montreal',
-  'Laval',
-  'Longueuil',
-  'Brossard',
-  'West Island',
-  'South Shore',
-  'North Shore',
-  'Terrebonne',
-  'Blainville',
-  'Saint-Laurent',
-  'Ville Mont-Royal',
-  'Verdun',
-];
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 export function ServiceAreaSection() {
   return (
@@ -36,11 +23,13 @@ export function ServiceAreaSection() {
               <br />
               <span className="text-lime">Greater Montreal</span>
             </h2>
-            <p className="text-lg text-primary-foreground/80 leading-relaxed mb-8">
+            <p className="text-lg text-primary-foreground/80 leading-relaxed mb-6">
+              Greater Montreal & Surrounding Regions
+            </p>
+            <p className="text-primary-foreground/70 leading-relaxed mb-8">
               From the heart of Montreal to surrounding suburbs, we bring 
               professional outdoor services to residential properties across 
-              the entire Greater Montreal region. If you're within our service 
-              area, we'd love to give you a free estimate.
+              the entire Greater Montreal region.
             </p>
             <div className="flex items-center gap-6">
               <div>
@@ -49,32 +38,44 @@ export function ServiceAreaSection() {
               </div>
               <div className="w-px h-12 bg-primary-foreground/20" />
               <div>
-                <div className="font-display text-4xl font-bold text-lime">12+</div>
-                <div className="text-sm text-primary-foreground/70">Communities</div>
+                <div className="font-display text-4xl font-bold text-lime">7+</div>
+                <div className="text-sm text-primary-foreground/70">Years Experience</div>
               </div>
             </div>
           </motion.div>
 
-          {/* Areas Grid */}
+          {/* Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-3 gap-3"
+            className="space-y-4"
           >
-            {areas.map((area, index) => (
-              <motion.div
-                key={area}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors"
-              >
-                <MapPin className="h-4 w-4 text-lime flex-shrink-0" />
-                <span className="font-medium text-sm">{area}</span>
-              </motion.div>
-            ))}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178784.94894372045!2d-73.87440459804693!3d45.55960815075954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1703000000000!5m2!1sen!2sca"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Terralux Service Area - Greater Montreal"
+                className="w-full aspect-[4/3] sm:aspect-video"
+              />
+            </div>
+            
+            {/* CTA Note */}
+            <div className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10">
+              <p className="text-sm text-primary-foreground/80 mb-3">
+                Not sure if you're in our service area? Request a free quote.
+              </p>
+              <Button variant="cta" size="sm" asChild>
+                <Link to="/quote">
+                  Get a Free Quote
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
