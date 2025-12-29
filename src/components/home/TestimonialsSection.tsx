@@ -6,7 +6,7 @@ const testimonials = [
     name: 'Marie-Claire Dubois',
     location: 'Laval',
     rating: 5,
-    text: "Welandscape transformed our backyard completely. The lawn looks better than it has in years, and their attention to detail with the edging is impressive. Highly recommend for anyone in the Greater Montreal area!",
+    text: "Terralux transformed our backyard completely. The lawn looks better than it has in years, and their attention to detail with the edging is impressive. Highly recommend for anyone in the Greater Montreal area!",
     service: 'Lawn Mowing & Edging',
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     name: 'Sophie Anderson',
     location: 'West Island',
     rating: 5,
-    text: "After trying several lawn care companies, Welandscape is by far the best. They actually listen to what you want and deliver consistently excellent results every single time.",
+    text: "After trying several lawn care companies, Terralux is by far the best. They actually listen to what you want and deliver consistently excellent results every single time.",
     service: 'Weekly Lawn Care',
   },
   {
@@ -41,7 +41,7 @@ const testimonials = [
     name: 'Robert Lefebvre',
     location: 'Saint-Laurent',
     rating: 5,
-    text: "I've been using Welandscape for two years now for regular lawn maintenance. They're reliable, fairly priced, and my lawn has never looked better. True professionals.",
+    text: "I've been using Terralux for two years now for regular lawn maintenance. They're reliable, fairly priced, and my lawn has never looked better. True professionals.",
     service: 'Lawn Maintenance',
   },
 ];
@@ -77,7 +77,7 @@ export function TestimonialsSection() {
             className="mt-4 text-lg text-muted-foreground"
           >
             Don't just take our word for it. Hear from homeowners across 
-            Greater Montreal who trust Welandscape with their outdoor spaces.
+            Greater Montreal who trust Terralux with their outdoor spaces.
           </motion.p>
         </div>
 

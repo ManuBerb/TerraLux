@@ -27,7 +27,7 @@ export function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/20 text-lime font-display text-sm font-semibold mb-6 backdrop-blur-sm">
               <CheckCircle2 className="h-4 w-4" />
-              Free Estimates for All Services
+              Complimentary Estimates for All Services
             </span>
           </motion.div>
 
@@ -37,9 +37,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            A Cleaner Yard.
+            Elevate Your
             <br />
-            <span className="text-lime">A Cleaner Home.</span>
+            <span className="text-lime">Outdoor Living.</span>
           </motion.h1>
 
           <motion.p
@@ -48,8 +48,8 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-primary-foreground/80 leading-relaxed max-w-xl"
           >
-            Professional lawn care and outdoor services for residential properties 
-            across Greater Montreal. Transform your outdoor space with our trusted team.
+            Premium lawn care and outdoor services for discerning homeowners 
+            across Greater Montreal. Experience the Terralux difference.
           </motion.p>
 
           <motion.div

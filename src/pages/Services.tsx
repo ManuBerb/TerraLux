@@ -152,12 +152,12 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services | Lawn Care & Landscaping Services | Welandscape Montreal</title>
+        <title>Our Services | Premium Lawn Care & Landscaping | Terralux Landscape Montreal</title>
         <meta 
           name="description" 
-          content="Explore our complete range of outdoor services: lawn mowing, overseeding, flower beds, mulch, sod installation, window cleaning, and pressure washing. Serving Greater Montreal." 
+          content="Explore our complete range of premium outdoor services: lawn mowing, overseeding, flower beds, mulch, sod installation, window cleaning, and pressure washing. Serving Greater Montreal." 
         />
-        <meta name="keywords" content="lawn mowing Montreal, landscaping services Laval, mulch installation, sod installation, pressure washing Montreal, window cleaning" />
+        <meta name="keywords" content="lawn mowing Montreal, landscaping services Laval, mulch installation, sod installation, pressure washing Montreal, window cleaning, premium landscaping" />
       </Helmet>
 
       <Header />
