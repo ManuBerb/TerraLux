@@ -15,7 +15,8 @@ import {
   Sparkles, 
   Droplets,
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Snowflake
 } from 'lucide-react';
 
 const services: {
@@ -171,6 +172,22 @@ const services: {
     benefits: 'Pressure washing removes years of dirt, mold, mildew, and stains that regular cleaning can\'t touch. It\'s the fastest way to dramatically improve your property\'s appearance.',
     seasons: ['spring', 'summer', 'fall'],
   },
+  {
+    id: 'snow-removal',
+    icon: Snowflake,
+    title: 'Snow Removal',
+    description: 'Professional driveway snow removal services planned for future winter seasons. Stay tuned for updates on this upcoming service.',
+    features: [
+      'Driveway clearing',
+      'Walkway snow removal',
+      'Salting and de-icing',
+      'Reliable winter service',
+      'Flexible scheduling',
+      'Residential properties',
+    ],
+    benefits: 'A clear driveway and walkway ensures safe access to your home during winter months. Professional snow removal saves time and prevents injuries from slips and falls.',
+    seasons: ['coming-soon'],
+  },
 ];
 
 const ServicesPage = () => {
@@ -265,12 +282,14 @@ const ServicesPage = () => {
                   <p className="text-foreground/80 mb-8 leading-relaxed">
                     {service.benefits}
                   </p>
-                  <Button variant="cta" size="lg" asChild>
-                    <Link to="/quote">
-                      Get a Free Quote
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
-                  </Button>
+                  {!service.seasons.includes('coming-soon') && (
+                    <Button variant="cta" size="lg" asChild>
+                      <Link to="/quote">
+                        Get a Free Quote
+                        <ArrowRight className="h-5 w-5" />
+                      </Link>
+                    </Button>
+                  )}
                 </div>
 
                 <div className={`bg-secondary rounded-2xl p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>

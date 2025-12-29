@@ -1,6 +1,6 @@
-import { Flower2, Sun, Leaf, Calendar } from 'lucide-react';
+import { Flower2, Sun, Leaf, Calendar, Clock } from 'lucide-react';
 
-export type Season = 'spring' | 'summer' | 'fall' | 'year-round';
+export type Season = 'spring' | 'summer' | 'fall' | 'year-round' | 'coming-soon';
 
 interface SeasonBadgeProps {
   season: Season;
@@ -26,6 +26,11 @@ const seasonConfig: Record<Season, { icon: typeof Flower2; label: string; classN
     icon: Calendar,
     label: 'Year-round',
     className: 'bg-secondary text-primary border-border',
+  },
+  'coming-soon': {
+    icon: Clock,
+    label: 'Coming Soon',
+    className: 'bg-gray-100 text-gray-600 border-gray-200',
   },
 };
 
