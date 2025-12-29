@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
   Leaf, 
   Sprout, 
@@ -12,13 +13,21 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const services = [
+const services: {
+  icon: typeof Leaf;
+  title: string;
+  description: string;
+  features: string[];
+  featured: boolean;
+  seasons: Season[];
+}[] = [
   {
     icon: Leaf,
     title: 'Lawn Mowing & Edging',
     description: 'Professional mowing with precision edging for a perfectly manicured lawn that enhances your curb appeal.',
     features: ['Weekly/bi-weekly service', 'Clean edge lines', 'Clippings removed'],
     featured: true,
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     icon: Sprout,
@@ -26,6 +35,7 @@ const services = [
     description: 'Revitalize thin or patchy lawns with premium grass seed to achieve a thick, lush carpet of green.',
     features: ['Premium seed blend', 'Soil preparation', 'Follow-up care'],
     featured: false,
+    seasons: ['spring', 'fall'],
   },
   {
     icon: Flower2,
@@ -33,6 +43,7 @@ const services = [
     description: 'Beautiful flower beds designed and installed to add color and character to your property.',
     features: ['Custom designs', 'Quality plants', 'Seasonal options'],
     featured: false,
+    seasons: ['spring', 'summer'],
   },
   {
     icon: TreeDeciduous,
@@ -40,6 +51,7 @@ const services = [
     description: 'Fresh mulch installation to protect plants, retain moisture, and create clean, defined garden beds.',
     features: ['Multiple colors', 'Weed prevention', 'Professional finish'],
     featured: false,
+    seasons: ['spring', 'fall'],
   },
   {
     icon: Droplets,
@@ -47,6 +59,7 @@ const services = [
     description: 'Instant lawn transformation with professionally installed, premium quality sod.',
     features: ['Same-day green lawn', 'Grade preparation', 'Watering guidance'],
     featured: false,
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     icon: Sparkles,
@@ -54,6 +67,7 @@ const services = [
     description: 'Crystal clear windows and spotless surfaces to make your entire property shine.',
     features: ['Streak-free finish', 'Deck & driveway', 'Safe techniques'],
     featured: false,
+    seasons: ['year-round'],
   },
 ];
 
@@ -135,7 +149,7 @@ export function ServicesSection() {
                 </div>
               )}
               <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
                   service.featured
                     ? 'bg-primary-foreground/20'
                     : 'bg-secondary'
@@ -146,6 +160,9 @@ export function ServicesSection() {
                     service.featured ? 'text-lime' : 'text-primary'
                   }`}
                 />
+              </div>
+              <div className="mb-3">
+                <SeasonBadges seasons={service.seasons} />
               </div>
               <h3
                 className={`font-display text-xl font-semibold mb-3 ${
