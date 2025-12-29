@@ -4,11 +4,13 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 const services = [
   { name: 'Lawn Mowing & Edging', href: '/services#lawn-mowing' },
   { name: 'Overseeding', href: '/services#overseeding' },
-  { name: 'Flower Bed Installations', href: '/services#flower-beds' },
+  { name: 'Flower Bed Installation', href: '/services#flower-beds' },
   { name: 'Mulch Beds', href: '/services#mulch-beds' },
   { name: 'Sod Installation', href: '/services#sod' },
   { name: 'Window Cleaning', href: '/services#window-cleaning' },
-  { name: 'Pressure Washing', href: '/services#pressure-washing' },
+  { name: 'Pressure Washing / Sanding', href: '/services#pressure-washing' },
+  { name: 'Leaf Removal & Raking', href: '/services#leaf-removal' },
+  { name: 'Hedging', href: '/services#hedging' },
 ];
 
 const company = [
