@@ -78,12 +78,12 @@ export function HeroSection() {
             className="mt-12 flex items-center gap-8"
           >
             <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">500+</div>
+              <div className="font-display text-3xl font-bold">100+</div>
               <div className="text-sm text-primary-foreground/70">Happy Customers</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20" />
             <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">10+</div>
+              <div className="font-display text-3xl font-bold">7+</div>
               <div className="text-sm text-primary-foreground/70">Years Experience</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20 hidden sm:block" />
