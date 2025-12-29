@@ -94,6 +94,21 @@ const services = [
     benefits: 'Sod provides instant results - no waiting months for seed to grow. It also prevents erosion, is ready to use within 2-3 weeks, and establishes faster than seeded lawns.',
   },
   {
+    id: 'leaf-removal',
+    icon: Leaf,
+    title: 'Leaf Removal & Raking',
+    description: 'Keep your property clean and your lawn healthy with our professional leaf removal services. We efficiently clear leaves from lawns, beds, and hard surfaces during the fall season.',
+    features: [
+      'Complete lawn and bed clearing',
+      'Hard surface cleanup (driveways, patios)',
+      'Gutter area clearing',
+      'Leaf bagging and removal',
+      'Final blow-off for clean finish',
+      'Flexible scheduling during peak season',
+    ],
+    benefits: 'Removing fallen leaves prevents lawn suffocation, reduces fungal diseases, and keeps your property looking well-maintained throughout autumn. A clean yard also deters pests seeking winter shelter.',
+  },
+  {
     id: 'window-cleaning',
     icon: Sparkles,
     title: 'Window Cleaning',

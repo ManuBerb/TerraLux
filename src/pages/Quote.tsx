@@ -33,6 +33,7 @@ const services = [
   'Lawn Mowing & Edging',
   'Overseeding',
   'Flower Bed Installations',
+  'Leaf Removal & Raking',
   'Mulch Beds',
   'Sod Installation',
   'Window Cleaning',
