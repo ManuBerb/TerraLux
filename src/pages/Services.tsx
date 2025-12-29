@@ -109,6 +109,21 @@ const services = [
     benefits: 'Removing fallen leaves prevents lawn suffocation, reduces fungal diseases, and keeps your property looking well-maintained throughout autumn. A clean yard also deters pests seeking winter shelter.',
   },
   {
+    id: 'hedging',
+    icon: TreeDeciduous,
+    title: 'Hedging',
+    description: 'Maintain the shape, health, and beauty of your hedges with our professional trimming and shaping services. We keep your hedges looking neat and well-defined throughout the growing season.',
+    features: [
+      'Precise shaping and trimming',
+      'Height and width control',
+      'Health assessment and care tips',
+      'Debris cleanup and removal',
+      'Seasonal maintenance scheduling',
+      'All hedge types and sizes',
+    ],
+    benefits: 'Regular hedge maintenance promotes dense, healthy growth while maintaining clean property lines and enhancing curb appeal. Well-trimmed hedges also provide better privacy and wind protection.',
+  },
+  {
     id: 'window-cleaning',
     icon: Sparkles,
     title: 'Window Cleaning',
