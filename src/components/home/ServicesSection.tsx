@@ -59,7 +59,7 @@ const services: {
     description: 'Instant lawn transformation with professionally installed, premium quality sod.',
     features: ['Same-day green lawn', 'Grade preparation', 'Watering guidance'],
     featured: false,
-    seasons: ['spring', 'summer', 'fall'],
+    seasons: ['spring', 'fall'],
   },
   {
     icon: Sparkles,
