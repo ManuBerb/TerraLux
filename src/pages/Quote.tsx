@@ -144,8 +144,8 @@ const QuotePage = () => {
         ? { pending_image_filenames: attachedImages.map(img => img.name) }
         : null;
 
-      // Insert into Supabase
-      const { error: supabaseError } = await supabase
+      // Insert into Supabase and get back the quote_number
+      const { data: insertedQuote, error: supabaseError } = await supabase
         .from('quotes')
         .insert({
           full_name: validatedData.fullName,
@@ -157,11 +157,34 @@ const QuotePage = () => {
           preferred_contact_method: validatedData.contactMethod || null,
           additional_details: validatedData.details || null,
           extra: extraData,
-        });
+        })
+        .select('quote_number')
+        .single();
 
       if (supabaseError) {
         console.error('Supabase error:', supabaseError);
         throw new Error(supabaseError.message);
+      }
+
+      // Send email notification (don't fail if email fails - data is already saved)
+      try {
+        await supabase.functions.invoke('send-quote-email', {
+          body: {
+            quoteNumber: insertedQuote.quote_number,
+            fullName: validatedData.fullName,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            serviceRequested: validatedData.service,
+            propertyType: validatedData.propertyType || undefined,
+            addressOrNeighborhood: validatedData.address || undefined,
+            preferredContactMethod: validatedData.contactMethod || undefined,
+            additionalDetails: validatedData.details || undefined,
+            imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
+          },
+        });
+        console.log('Quote email notification sent');
+      } catch (emailError) {
+        console.error('Email notification failed (quote still saved):', emailError);
       }
 
       // Reset form on success
