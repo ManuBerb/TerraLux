@@ -220,7 +220,7 @@ const QuotePage = () => {
     return (
       <>
         <Helmet>
-          <title>Thank You | Welandscape Montreal</title>
+          <title>Thank You | Terralux Landscape Montreal</title>
         </Helmet>
         <Header />
         <main className="pt-20 min-h-screen flex items-center justify-center bg-gradient-section">
@@ -280,10 +280,10 @@ const QuotePage = () => {
   return (
     <>
       <Helmet>
-        <title>Get a Free Quote | Welandscape Montreal</title>
+        <title>Request a Quote | Terralux Landscape Montreal</title>
         <meta 
           name="description" 
-          content="Request a free, no-obligation quote for lawn care and landscaping services in Greater Montreal. We'll contact you within 24 hours." 
+          content="Request a complimentary, no-obligation quote for premium lawn care and landscaping services in Greater Montreal. We'll contact you within 24 hours." 
         />
       </Helmet>
 
@@ -559,7 +559,7 @@ const QuotePage = () => {
               >
                 <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
                   <h3 className="font-display text-lg font-semibold mb-4">
-                    Why Choose Welandscape?
+                    Why Choose Terralux?
                   </h3>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">

@@ -14,13 +14,13 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Welandscape | Professional Lawn Care & Outdoor Services in Greater Montreal</title>
+        <title>Terralux Landscape | Premium Lawn Care & Outdoor Services in Greater Montreal</title>
         <meta 
           name="description" 
-          content="Transform your outdoor space with Welandscape. Professional lawn mowing, landscaping, mulch beds, sod installation, and pressure washing services across Greater Montreal. Free estimates!" 
+          content="Elevate your outdoor space with Terralux Landscape. Premium lawn mowing, landscaping, mulch beds, sod installation, and pressure washing services across Greater Montreal. Complimentary estimates." 
         />
-        <meta name="keywords" content="lawn care Montreal, landscaping Greater Montreal, lawn mowing Laval, mulch installation, sod installation Montreal, pressure washing" />
-        <link rel="canonical" href="https://welandscape.ca" />
+        <meta name="keywords" content="lawn care Montreal, landscaping Greater Montreal, lawn mowing Laval, mulch installation, sod installation Montreal, pressure washing, premium landscaping" />
+        <link rel="canonical" href="https://terraluxlandscape.ca" />
       </Helmet>
 
       <Header />

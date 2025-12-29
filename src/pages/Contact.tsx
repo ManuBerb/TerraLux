@@ -62,10 +62,10 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Welandscape Montreal</title>
+        <title>Contact Us | Terralux Landscape Montreal</title>
         <meta 
           name="description" 
-          content="Contact Welandscape for lawn care and landscaping services in Greater Montreal. Call us, email us, or send a message. Free estimates available." 
+          content="Contact Terralux Landscape for premium lawn care and landscaping services in Greater Montreal. Call us, email us, or send a message. Complimentary estimates available." 
         />
       </Helmet>
 
@@ -144,10 +144,10 @@ const ContactPage = () => {
                         Email
                       </h3>
                       <a
-                        href="mailto:info@welandscape.ca"
+                        href="mailto:info@terraluxlandscape.ca"
                         className="text-primary hover:text-forest-light transition-colors font-medium"
                       >
-                        info@welandscape.ca
+                        info@terraluxlandscape.ca
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
                         We respond within 24 hours

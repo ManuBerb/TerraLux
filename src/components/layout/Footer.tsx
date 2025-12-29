@@ -29,14 +29,14 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block">
               <span className="font-display text-2xl font-bold">
-                We<span className="text-lime">landscape</span>
+                Terra<span className="text-lime">lux</span>
               </span>
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
-              A cleaner yard. A cleaner home.
+              Elevate Your Outdoor Living.
             </p>
             <p className="mt-4 text-primary-foreground/70 text-sm">
-              Professional outdoor services for residential properties in Greater Montreal.
+              Premium outdoor services for discerning homeowners across Greater Montreal.
             </p>
           </div>
 
@@ -88,12 +88,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:info@welandscape.ca"
+              <a
+                  href="mailto:info@terraluxlandscape.ca"
                   className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-lime transition-colors"
                 >
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  info@welandscape.ca
+                  info@terraluxlandscape.ca
                 </a>
               </li>
               <li>
@@ -110,7 +110,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © {currentYear} Welandscape. All rights reserved.
+              © {currentYear} Terralux Landscape Inc. All rights reserved.
             </p>
             <p className="text-sm text-primary-foreground/60">
               Free estimates for all services
