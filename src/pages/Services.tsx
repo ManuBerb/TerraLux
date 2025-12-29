@@ -89,7 +89,7 @@ const services: {
       'Bed edging included',
     ],
     benefits: 'Mulch retains moisture, regulates soil temperature, prevents weeds, and gives your landscape a polished, professional look. Annual mulching also adds organic matter to improve soil health.',
-    seasons: ['spring', 'fall'],
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     id: 'sod',
@@ -137,7 +137,7 @@ const services: {
       'All hedge types and sizes',
     ],
     benefits: 'Regular hedge maintenance promotes dense, healthy growth while maintaining clean property lines and enhancing curb appeal. Well-trimmed hedges also provide better privacy and wind protection.',
-    seasons: ['spring', 'summer'],
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     id: 'window-cleaning',

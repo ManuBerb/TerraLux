@@ -51,7 +51,7 @@ const services: {
     description: 'Fresh mulch installation to protect plants, retain moisture, and create clean, defined garden beds.',
     features: ['Multiple colors', 'Weed prevention', 'Professional finish'],
     featured: false,
-    seasons: ['spring', 'fall'],
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     icon: Droplets,
