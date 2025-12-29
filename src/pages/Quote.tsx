@@ -586,13 +586,13 @@ const QuotePage = () => {
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-lime flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-primary-foreground/80">
-                        10+ years serving Greater Montreal
+                        7+ years serving Greater Montreal
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-lime flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-primary-foreground/80">
-                        500+ satisfied customers
+                        100+ satisfied customers
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
