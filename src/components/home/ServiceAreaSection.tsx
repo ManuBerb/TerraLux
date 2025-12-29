@@ -49,11 +49,11 @@ export function ServiceAreaSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 flex flex-col justify-center"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178784.94894372045!2d-73.87440459804693!3d45.55960815075954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1703000000000!5m2!1sen!2sca"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d178784.94894372045!2d-73.5674!3d45.5017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
