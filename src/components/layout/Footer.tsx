@@ -107,8 +107,8 @@ export function Footer() {
                   <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-primary-foreground block mb-1">Business Hours</span>
-                    <span>Monday – Friday: 9:00 AM – 6:00 PM</span><br />
-                    <span>Saturday – Sunday: 9:00 AM – 5:00 PM</span>
+                    <span className="whitespace-nowrap">Monday – Friday: 9:00 AM – 6:00 PM</span><br />
+                    <span className="whitespace-nowrap">Saturday – Sunday: 9:00 AM – 5:00 PM</span>
                   </div>
                 </div>
               </li>
