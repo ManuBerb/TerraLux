@@ -6,6 +6,7 @@ import { MobileCTA } from '@/components/layout/MobileCTA';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
   Leaf, 
   Sprout, 
@@ -17,7 +18,15 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-const services = [
+const services: {
+  id: string;
+  icon: typeof Leaf;
+  title: string;
+  description: string;
+  features: string[];
+  benefits: string;
+  seasons: Season[];
+}[] = [
   {
     id: 'lawn-mowing',
     icon: Leaf,
@@ -32,6 +41,7 @@ const services = [
       'Blow-off of all hard surfaces',
     ],
     benefits: 'A well-maintained lawn is the foundation of great curb appeal. Our regular mowing service ensures your grass stays healthy, dense, and weed-resistant while looking professionally maintained year-round.',
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     id: 'overseeding',
@@ -47,6 +57,7 @@ const services = [
       'Follow-up care recommendations',
     ],
     benefits: 'Overseeding fills in bare spots, thickens thin areas, and introduces newer grass varieties that are more disease and drought resistant. The result is a fuller, greener lawn that crowds out weeds naturally.',
+    seasons: ['spring', 'fall'],
   },
   {
     id: 'flower-beds',
@@ -62,6 +73,7 @@ const services = [
       'Care instructions provided',
     ],
     benefits: 'Well-designed flower beds create focal points, add seasonal color, and enhance your property\'s visual appeal. We select plants that thrive in our local conditions for long-lasting beauty.',
+    seasons: ['spring', 'summer'],
   },
   {
     id: 'mulch-beds',
@@ -77,6 +89,7 @@ const services = [
       'Bed edging included',
     ],
     benefits: 'Mulch retains moisture, regulates soil temperature, prevents weeds, and gives your landscape a polished, professional look. Annual mulching also adds organic matter to improve soil health.',
+    seasons: ['spring', 'fall'],
   },
   {
     id: 'sod',
@@ -92,6 +105,7 @@ const services = [
       'Post-installation care guide',
     ],
     benefits: 'Sod provides instant results - no waiting months for seed to grow. It also prevents erosion, is ready to use within 2-3 weeks, and establishes faster than seeded lawns.',
+    seasons: ['spring', 'summer', 'fall'],
   },
   {
     id: 'leaf-removal',
@@ -107,6 +121,7 @@ const services = [
       'Flexible scheduling during peak season',
     ],
     benefits: 'Removing fallen leaves prevents lawn suffocation, reduces fungal diseases, and keeps your property looking well-maintained throughout autumn. A clean yard also deters pests seeking winter shelter.',
+    seasons: ['fall'],
   },
   {
     id: 'hedging',
@@ -122,6 +137,7 @@ const services = [
       'All hedge types and sizes',
     ],
     benefits: 'Regular hedge maintenance promotes dense, healthy growth while maintaining clean property lines and enhancing curb appeal. Well-trimmed hedges also provide better privacy and wind protection.',
+    seasons: ['spring', 'summer'],
   },
   {
     id: 'window-cleaning',
@@ -137,6 +153,7 @@ const services = [
       'Safe techniques for all window types',
     ],
     benefits: 'Clean windows improve natural light, enhance your home\'s appearance, and extend window life by preventing etching from hard water and debris buildup.',
+    seasons: ['year-round'],
   },
   {
     id: 'pressure-washing',
@@ -152,6 +169,7 @@ const services = [
       'Environmentally safe methods',
     ],
     benefits: 'Pressure washing removes years of dirt, mold, mildew, and stains that regular cleaning can\'t touch. It\'s the fastest way to dramatically improve your property\'s appearance.',
+    seasons: ['spring', 'summer', 'fall'],
   },
 ];
 
@@ -230,13 +248,16 @@ const ServicesPage = () => {
                 }`}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center flex-shrink-0">
                       <service.icon className="h-8 w-8 text-primary" />
                     </div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
-                      {service.title}
-                    </h2>
+                    <div className="flex flex-col gap-2">
+                      <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                        {service.title}
+                      </h2>
+                      <SeasonBadges seasons={service.seasons} />
+                    </div>
                   </div>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                     {service.description}
