@@ -130,7 +130,7 @@ const ContactPage = () => {
                         (514) 293-5662
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Mon – Fri: 9am – 6pm | Sat: 9am – 5pm
+                        Monday – Friday: 8:00 AM – 6:00 PM | Saturday – Sunday: 9:00 AM – 5:00 PM
                       </p>
                     </div>
                   </div>
