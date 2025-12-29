@@ -139,53 +139,38 @@ const QuotePage = () => {
       // Validate form data
       const validatedData = quoteSchema.parse(formData);
       
-      // Prepare extra data (image filenames for now, will add URLs when storage is set up)
-      const extraData = attachedImages.length > 0 
-        ? { pending_image_filenames: attachedImages.map(img => img.name) }
-        : null;
+      console.log('Submitting quote to edge function...');
 
-      // Insert into Supabase and get back the quote_number
-      const { data: insertedQuote, error: supabaseError } = await supabase
-        .from('quotes')
-        .insert({
-          full_name: validatedData.fullName,
+      // Call edge function which handles both insert and email
+      const { data, error } = await supabase.functions.invoke('send-quote-email', {
+        body: {
+          fullName: validatedData.fullName,
           email: validatedData.email,
           phone: validatedData.phone,
-          service_requested: validatedData.service,
-          address_or_neighborhood: validatedData.address || null,
-          property_type: validatedData.propertyType || null,
-          preferred_contact_method: validatedData.contactMethod || null,
-          additional_details: validatedData.details || null,
-          extra: extraData,
-        })
-        .select('quote_number')
-        .single();
+          service: validatedData.service,
+          address: validatedData.address || undefined,
+          propertyType: validatedData.propertyType || undefined,
+          contactMethod: validatedData.contactMethod || undefined,
+          details: validatedData.details || undefined,
+          imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
+        },
+      });
 
-      if (supabaseError) {
-        console.error('Supabase error:', supabaseError);
-        throw new Error(supabaseError.message);
+      console.log('Edge function response:', data, error);
+
+      // Check for function invocation error
+      if (error) {
+        console.error('Edge function invocation error:', error);
+        throw new Error(error.message || 'Failed to submit quote');
       }
 
-      // Send email notification (don't fail if email fails - data is already saved)
-      try {
-        await supabase.functions.invoke('send-quote-email', {
-          body: {
-            quoteNumber: insertedQuote.quote_number,
-            fullName: validatedData.fullName,
-            email: validatedData.email,
-            phone: validatedData.phone,
-            serviceRequested: validatedData.service,
-            propertyType: validatedData.propertyType || undefined,
-            addressOrNeighborhood: validatedData.address || undefined,
-            preferredContactMethod: validatedData.contactMethod || undefined,
-            additionalDetails: validatedData.details || undefined,
-            imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
-          },
-        });
-        console.log('Quote email notification sent');
-      } catch (emailError) {
-        console.error('Email notification failed (quote still saved):', emailError);
+      // Check for application-level error in response
+      if (!data?.success) {
+        console.error('Edge function returned error:', data);
+        throw new Error(data?.error || 'Failed to save quote');
       }
+
+      console.log('Quote saved successfully, quote_number:', data.quote_number);
 
       // Reset form on success
       setFormData({
@@ -203,7 +188,7 @@ const QuotePage = () => {
       setIsSubmitted(true);
       toast({
         title: 'Quote Request Submitted!',
-        description: "We'll contact you within 24 hours to provide your free estimate.",
+        description: `Quote #${data.quote_number} received. We'll contact you within 24 hours.`,
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -220,10 +205,11 @@ const QuotePage = () => {
           variant: 'destructive',
         });
       } else {
-        console.error('Submission error:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        console.error('Submission error:', errorMessage);
         toast({
           title: 'Something went wrong',
-          description: 'Please try again or call us directly.',
+          description: errorMessage || 'Please try again or call us directly.',
           variant: 'destructive',
         });
       }
