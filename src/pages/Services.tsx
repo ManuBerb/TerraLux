@@ -176,7 +176,7 @@ const services: {
     id: 'snow-removal',
     icon: Snowflake,
     title: 'Snow Removal',
-    description: 'Professional driveway snow removal services planned for future winter seasons. Stay tuned for updates on this upcoming service.',
+    description: 'Keep your driveway clear and accessible all winter long. Our reliable snow removal service is available for residential and commercial properties. We are on duty all season to ensure safe, timely access without the stress of doing it yourself.',
     features: [
       'Driveway clearing',
       'Reliable winter service',
