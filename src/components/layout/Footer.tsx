@@ -102,6 +102,13 @@ export function Footer() {
                   <span>Serving Greater Montreal<br />& Surrounding Regions</span>
                 </div>
               </li>
+              <li>
+                <div className="text-sm text-primary-foreground/70 mt-2">
+                  <p className="font-medium text-primary-foreground/80 mb-1">Business Hours</p>
+                  <p>Monday – Friday: 8:00 AM – 6:00 PM</p>
+                  <p>Saturday – Sunday: 9:00 AM – 5:00 PM</p>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
