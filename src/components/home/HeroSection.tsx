@@ -75,15 +75,15 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 flex items-center gap-8"
+            className="mt-12 flex items-center justify-center gap-12 sm:gap-16"
           >
-            <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">7+</div>
+            <div className="text-primary-foreground text-center">
+              <div className="font-display text-3xl sm:text-4xl font-bold">7+</div>
               <div className="text-sm text-primary-foreground/70">Years Experience</div>
             </div>
-            <div className="w-px h-12 bg-primary-foreground/20" />
-            <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">4.9★</div>
+            <div className="w-px h-14 bg-primary-foreground/30" />
+            <div className="text-primary-foreground text-center">
+              <div className="font-display text-3xl sm:text-4xl font-bold">4.9★</div>
               <div className="text-sm text-primary-foreground/70">Average Rating</div>
             </div>
           </motion.div>
