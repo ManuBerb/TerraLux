@@ -52,6 +52,8 @@ export function ServiceAreaSection() {
             className="space-y-4 flex flex-col justify-center"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
+              {/* Hide "View larger map" link */}
+              <style>{`.gm-style-cc, a[href^="https://maps.google.com/maps"] { display: none !important; }`}</style>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d178784.94894372045!2d-73.5674!3d45.5017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca"
                 width="100%"
@@ -61,8 +63,10 @@ export function ServiceAreaSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Terralux Service Area - Greater Montreal"
-                className="w-full aspect-[4/3] sm:aspect-video"
+                className="w-full aspect-[4/3] sm:aspect-video [&+a]:hidden"
               />
+              {/* Overlay to block bottom-left Google branding link */}
+              <div className="absolute bottom-0 left-0 w-40 h-8 bg-[#e5e3df] pointer-events-none" />
             </div>
             
             {/* CTA Note */}
