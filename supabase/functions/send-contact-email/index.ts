@@ -39,8 +39,8 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const emailResponse = await resend.emails.send({
-      from: "We Landscape Contact Form <onboarding@resend.dev>",
-      to: ["contactwelandscape@gmail.com"],
+      from: "Terralux Landscape <info@terraluxlandscape.ca>",
+      to: ["terraluxlandscape@gmail.com"],
       reply_to: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
@@ -61,7 +61,7 @@ const handler = async (req: Request): Promise<Response> => {
           </div>
           
           <p style="color: #888; font-size: 12px; margin-top: 30px;">
-            This email was sent from the We Landscape website contact form.
+            This email was sent from the Terralux Landscape website contact form.
             <br>You can reply directly to this email to respond to ${name}.
           </p>
         </div>
@@ -69,6 +69,18 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     console.log("Email sent successfully:", emailResponse);
+
+    // Check for Resend errors in the response
+    if (emailResponse.error) {
+      console.error("Resend API error:", emailResponse.error);
+      return new Response(
+        JSON.stringify({ error: emailResponse.error.message || "Failed to send email" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     return new Response(JSON.stringify({ success: true, id: emailResponse.data?.id }), {
       status: 200,
