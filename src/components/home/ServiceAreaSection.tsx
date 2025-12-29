@@ -70,11 +70,11 @@ export function ServiceAreaSection() {
                     <MapPin className="h-5 w-5 text-lime" />
                   </div>
                   <div>
-                    <p className="font-display font-semibold text-primary-foreground mb-0.5">
+                    <p className="font-display font-semibold text-primary-foreground mb-0.5 whitespace-nowrap">
                       Not sure if you're in our service area?
                     </p>
                     <p className="text-sm text-primary-foreground/60">
-                      We'd love to check — get a free, no-obligation quote today.
+                      We'd love to check !
                     </p>
                   </div>
                 </div>
