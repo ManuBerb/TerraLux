@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const services = [
   { name: 'Lawn Mowing & Edging', href: '/services#lawn-mowing' },
@@ -100,6 +100,16 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
                   <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
                   <span>Serving Greater Montreal<br />& Surrounding Regions</span>
+                </div>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
+                  <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-primary-foreground block mb-1">Business Hours</span>
+                    <span>Monday – Friday: 9:00 AM – 6:00 PM</span><br />
+                    <span>Saturday – Sunday: 9:00 AM – 5:00 PM</span>
+                  </div>
                 </div>
               </li>
             </ul>
