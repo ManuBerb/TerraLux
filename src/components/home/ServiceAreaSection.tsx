@@ -63,6 +63,8 @@ export function ServiceAreaSection() {
                 title="Terralux Service Area - Greater Montreal"
                 className="w-full aspect-[4/3] sm:aspect-video"
               />
+              {/* Overlay to hide "View larger map" link */}
+              <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
             </div>
             
             {/* CTA Note */}
