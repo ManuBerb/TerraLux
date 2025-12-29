@@ -50,15 +50,15 @@ export function ServiceAreaSection() {
           >
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d357453.4487658013!2d-73.97627258750002!3d45.55975785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1704000000000!5m2!1sen!2sca"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d357453.4487658013!2d-73.6!3d45.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1704000000000!5m2!1sen!2sca"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen
+                allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="TerraLux Service Area - Greater Montreal"
-                className="absolute inset-0"
+                className="absolute inset-0 pointer-events-none"
               />
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-primary-foreground/70">
