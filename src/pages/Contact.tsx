@@ -167,9 +167,6 @@ const ContactPage = () => {
                       <p className="text-foreground/80">
                         Greater Montreal & Surrounding Regions
                       </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Montreal, Laval, Longueuil, West Island, South Shore, North Shore
-                      </p>
                     </div>
                   </div>
 
