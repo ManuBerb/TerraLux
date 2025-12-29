@@ -130,7 +130,7 @@ const ContactPage = () => {
                         (514) 293-5662
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Mon-Fri: 8am - 6pm, Sat: 9am - 4pm
+                        Mon – Fri: 9am – 6pm | Sat: 9am – 5pm
                       </p>
                     </div>
                   </div>
@@ -166,9 +166,6 @@ const ContactPage = () => {
                       <p className="text-foreground/80">
                         Greater Montreal & Surrounding Regions
                       </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Montreal, Laval, Longueuil, West Island, South Shore, North Shore
-                      </p>
                     </div>
                   </div>
 
@@ -181,9 +178,8 @@ const ContactPage = () => {
                         Business Hours
                       </h3>
                       <div className="text-foreground/80 text-sm space-y-1">
-                        <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                        <p>Saturday: 9:00 AM - 4:00 PM</p>
-                        <p>Sunday: Closed</p>
+                        <p>Monday – Friday: 8:00 AM – 6:00 PM</p>
+                        <p>Saturday – Sunday: 9:00 AM – 5:00 PM</p>
                       </div>
                     </div>
                   </div>
@@ -294,11 +290,11 @@ const ContactPage = () => {
               </div>
               <div className="flex items-center gap-2 text-foreground">
                 <CheckCircle2 className="h-5 w-5 text-lime" />
-                <span className="font-medium">10+ Years Experience</span>
+                <span className="font-medium">7+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2 text-foreground">
                 <CheckCircle2 className="h-5 w-5 text-lime" />
-                <span className="font-medium">500+ Happy Customers</span>
+                <span className="font-medium">100+ Happy Customers</span>
               </div>
             </div>
           </div>
