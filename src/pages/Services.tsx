@@ -184,7 +184,7 @@ const services: {
       'Early morning readiness',
       'On duty all winter long',
     ],
-    benefits: 'Keep your driveway clear and accessible all winter long. Our reliable snow removal service is available for residential and commercial properties. We are on duty all season to ensure safe, timely access without the stress of doing it yourself.',
+    benefits: 'Keep your driveway and property, residential or commercial, clear and accessible all winter long. We are on duty throughout the season to ensure safe and timely access without the stress.',
     seasons: ['coming-soon'],
   },
 ];
