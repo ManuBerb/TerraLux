@@ -139,38 +139,53 @@ const QuotePage = () => {
       // Validate form data
       const validatedData = quoteSchema.parse(formData);
       
-      console.log('Submitting quote to edge function...');
+      // Prepare extra data (image filenames for now, will add URLs when storage is set up)
+      const extraData = attachedImages.length > 0 
+        ? { pending_image_filenames: attachedImages.map(img => img.name) }
+        : null;
 
-      // Call edge function which handles both insert and email
-      const { data, error } = await supabase.functions.invoke('send-quote-email', {
-        body: {
-          fullName: validatedData.fullName,
+      // Insert into Supabase and get back the quote_number
+      const { data: insertedQuote, error: supabaseError } = await supabase
+        .from('quotes')
+        .insert({
+          full_name: validatedData.fullName,
           email: validatedData.email,
           phone: validatedData.phone,
-          service: validatedData.service,
-          address: validatedData.address || undefined,
-          propertyType: validatedData.propertyType || undefined,
-          contactMethod: validatedData.contactMethod || undefined,
-          details: validatedData.details || undefined,
-          imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
-        },
-      });
+          service_requested: validatedData.service,
+          address_or_neighborhood: validatedData.address || null,
+          property_type: validatedData.propertyType || null,
+          preferred_contact_method: validatedData.contactMethod || null,
+          additional_details: validatedData.details || null,
+          extra: extraData,
+        })
+        .select('quote_number')
+        .single();
 
-      console.log('Edge function response:', data, error);
-
-      // Check for function invocation error
-      if (error) {
-        console.error('Edge function invocation error:', error);
-        throw new Error(error.message || 'Failed to submit quote');
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError);
+        throw new Error(supabaseError.message);
       }
 
-      // Check for application-level error in response
-      if (!data?.success) {
-        console.error('Edge function returned error:', data);
-        throw new Error(data?.error || 'Failed to save quote');
+      // Send email notification (don't fail if email fails - data is already saved)
+      try {
+        await supabase.functions.invoke('send-quote-email', {
+          body: {
+            quoteNumber: insertedQuote.quote_number,
+            fullName: validatedData.fullName,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            serviceRequested: validatedData.service,
+            propertyType: validatedData.propertyType || undefined,
+            addressOrNeighborhood: validatedData.address || undefined,
+            preferredContactMethod: validatedData.contactMethod || undefined,
+            additionalDetails: validatedData.details || undefined,
+            imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
+          },
+        });
+        console.log('Quote email notification sent');
+      } catch (emailError) {
+        console.error('Email notification failed (quote still saved):', emailError);
       }
-
-      console.log('Quote saved successfully, quote_number:', data.quote_number);
 
       // Reset form on success
       setFormData({
@@ -188,7 +203,7 @@ const QuotePage = () => {
       setIsSubmitted(true);
       toast({
         title: 'Quote Request Submitted!',
-        description: `Quote #${data.quote_number} received. We'll contact you within 24 hours.`,
+        description: "We'll contact you within 24 hours to provide your free estimate.",
       });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -205,11 +220,10 @@ const QuotePage = () => {
           variant: 'destructive',
         });
       } else {
-        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-        console.error('Submission error:', errorMessage);
+        console.error('Submission error:', error);
         toast({
           title: 'Something went wrong',
-          description: errorMessage || 'Please try again or call us directly.',
+          description: 'Please try again or call us directly.',
           variant: 'destructive',
         });
       }
@@ -586,13 +600,13 @@ const QuotePage = () => {
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-lime flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-primary-foreground/80">
-                        7+ years serving Greater Montreal
+                        10+ years serving Greater Montreal
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-lime flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-primary-foreground/80">
-                        100+ satisfied customers
+                        500+ satisfied customers
                       </span>
                     </li>
                     <li className="flex items-start gap-3">
@@ -612,11 +626,11 @@ const QuotePage = () => {
                     Our team is available to discuss your project directly.
                   </p>
                   <a
-                    href="tel:5142935662"
+                    href="tel:+15141234567"
                     className="flex items-center gap-3 text-primary font-semibold hover:text-forest-light transition-colors"
                   >
                     <Phone className="h-5 w-5" />
-                    (514) 293-5662
+                    (514) 123-4567
                   </a>
                 </div>
 
@@ -625,7 +639,8 @@ const QuotePage = () => {
                     Service Area
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Greater Montreal & Surrounding Regions
+                    We proudly serve Montreal, Laval, Longueuil, Brossard, 
+                    West Island, South Shore, North Shore, and surrounding areas.
                   </p>
                 </div>
               </motion.div>
