@@ -43,7 +43,7 @@ const services: {
     description: 'Beautiful flower beds designed and installed to add color and character to your property.',
     features: ['Custom designs', 'Quality plants', 'Seasonal options'],
     featured: false,
-    seasons: ['spring', 'summer'],
+    seasons: ['spring', 'fall'],
   },
   {
     icon: TreeDeciduous,

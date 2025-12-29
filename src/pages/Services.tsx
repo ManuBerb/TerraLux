@@ -73,7 +73,7 @@ const services: {
       'Care instructions provided',
     ],
     benefits: 'Well-designed flower beds create focal points, add seasonal color, and enhance your property\'s visual appeal. We select plants that thrive in our local conditions for long-lasting beauty.',
-    seasons: ['spring', 'summer'],
+    seasons: ['spring', 'fall'],
   },
   {
     id: 'mulch-beds',
