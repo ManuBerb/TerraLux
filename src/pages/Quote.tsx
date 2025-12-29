@@ -625,8 +625,7 @@ const QuotePage = () => {
                     Service Area
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    We proudly serve Montreal, Laval, Longueuil, Brossard, 
-                    West Island, South Shore, North Shore, and surrounding areas.
+                    Greater Montreal & Surrounding Regions
                   </p>
                 </div>
               </motion.div>
