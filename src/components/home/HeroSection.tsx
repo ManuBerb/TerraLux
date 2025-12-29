@@ -77,17 +77,17 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 flex items-center gap-8"
           >
-            <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">500+</div>
+            <div className="text-primary-foreground text-center">
+              <div className="font-display text-3xl font-bold">100+</div>
               <div className="text-sm text-primary-foreground/70">Happy Customers</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20" />
-            <div className="text-primary-foreground">
-              <div className="font-display text-3xl font-bold">10+</div>
+            <div className="text-primary-foreground text-center">
+              <div className="font-display text-3xl font-bold">7+</div>
               <div className="text-sm text-primary-foreground/70">Years Experience</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20 hidden sm:block" />
-            <div className="text-primary-foreground hidden sm:block">
+            <div className="text-primary-foreground text-center hidden sm:block">
               <div className="font-display text-3xl font-bold">4.9★</div>
               <div className="text-sm text-primary-foreground/70">Average Rating</div>
             </div>
