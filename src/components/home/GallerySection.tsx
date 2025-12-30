@@ -1,53 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import beforeAfterLawn from '@/assets/before-after-lawn.jpg';
-import mulchBed from '@/assets/mulch-bed.jpg';
-import pressureWashing from '@/assets/pressure-washing.jpg';
+import lawnCareBefore1 from '@/assets/gallery/lawn-care-before-1.jpg';
+import lawnCareAfter1 from '@/assets/gallery/lawn-care-after-1.jpg';
 
-const categories = ['All', 'Lawn Care', 'Mulch Beds', 'Pressure Washing'];
+const categories = ['All', 'Lawn Care'];
 
 const galleryItems = [
   {
     id: 1,
-    image: beforeAfterLawn,
+    beforeImage: lawnCareBefore1,
+    afterImage: lawnCareAfter1,
     category: 'Lawn Care',
-    title: 'Complete Lawn Restoration',
-    location: 'Laval',
-  },
-  {
-    id: 2,
-    image: mulchBed,
-    category: 'Mulch Beds',
-    title: 'Fresh Mulch Installation',
-    location: 'Brossard',
-  },
-  {
-    id: 3,
-    image: pressureWashing,
-    category: 'Pressure Washing',
-    title: 'Driveway Transformation',
-    location: 'West Island',
-  },
-  {
-    id: 4,
-    image: beforeAfterLawn,
-    category: 'Lawn Care',
-    title: 'Weekly Mowing Results',
-    location: 'Longueuil',
-  },
-  {
-    id: 5,
-    image: mulchBed,
-    category: 'Mulch Beds',
-    title: 'Garden Bed Renovation',
-    location: 'Ville Mont-Royal',
-  },
-  {
-    id: 6,
-    image: pressureWashing,
-    category: 'Pressure Washing',
-    title: 'Patio Deep Clean',
-    location: 'Saint-Laurent',
+    title: 'Front Yard Transformation',
+    location: 'Greater Montreal',
   },
 ];
 
@@ -116,7 +81,7 @@ export function GallerySection() {
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -125,22 +90,38 @@ export function GallerySection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               layout
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-card"
+              className="group rounded-2xl overflow-hidden shadow-card bg-card"
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <span className="inline-block px-2 py-1 bg-lime/90 text-accent-foreground text-xs font-semibold rounded mb-2">
+              <div className="grid grid-cols-2 gap-1">
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-destructive/90 text-destructive-foreground text-xs font-semibold rounded">
+                    Before
+                  </span>
+                  <img
+                    src={item.beforeImage}
+                    alt={`${item.title} - Before`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded">
+                    After
+                  </span>
+                  <img
+                    src={item.afterImage}
+                    alt={`${item.title} - After`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="p-4">
+                <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded mb-2">
                   {item.category}
                 </span>
-                <h3 className="font-display text-lg font-semibold">
+                <h3 className="font-display text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
-                <p className="text-sm text-primary-foreground/80">
+                <p className="text-sm text-muted-foreground">
                   {item.location}
                 </p>
               </div>
