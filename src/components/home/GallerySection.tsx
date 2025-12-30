@@ -6,8 +6,10 @@ import lawnCareBefore2 from '@/assets/gallery/lawn-care-before-2.jpg';
 import lawnCareAfter2 from '@/assets/gallery/lawn-care-after-2.jpg';
 import hedgingBefore1 from '@/assets/gallery/hedging-before-1.jpg';
 import hedgingAfter1 from '@/assets/gallery/hedging-after-1.jpg';
+import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
+import overseedingAfter1 from '@/assets/gallery/overseeding-after-1.jpg';
 
-const categories = ['All', 'Lawn Care', 'Hedging'];
+const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding'];
 
 const galleryItems = [
   {
@@ -32,6 +34,14 @@ const galleryItems = [
     afterImage: hedgingAfter1,
     category: 'Hedging',
     title: 'Hedge Trimming',
+    location: 'Ville Saint-Laurent',
+  },
+  {
+    id: 4,
+    beforeImage: overseedingBefore1,
+    afterImage: overseedingAfter1,
+    category: 'Overseeding',
+    title: 'Lawn Restoration',
     location: 'Ville Saint-Laurent',
   },
 ];
