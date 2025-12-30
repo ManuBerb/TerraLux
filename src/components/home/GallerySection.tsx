@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import lawnCareBefore1 from '@/assets/gallery/lawn-care-before-1.jpg';
 import lawnCareAfter1 from '@/assets/gallery/lawn-care-after-1.jpg';
+import lawnCareBefore2 from '@/assets/gallery/lawn-care-before-2.jpg';
+import lawnCareAfter2 from '@/assets/gallery/lawn-care-after-2.jpg';
 
 const categories = ['All', 'Lawn Care'];
 
@@ -12,6 +14,14 @@ const galleryItems = [
     afterImage: lawnCareAfter1,
     category: 'Lawn Care',
     title: 'Front Yard Transformation',
+    location: 'Greater Montreal',
+  },
+  {
+    id: 2,
+    beforeImage: lawnCareBefore2,
+    afterImage: lawnCareAfter2,
+    category: 'Lawn Care',
+    title: 'Backyard Cleanup',
     location: 'Greater Montreal',
   },
 ];
