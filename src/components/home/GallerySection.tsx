@@ -1,7 +1,5 @@
-import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import lawnCareBefore1 from '@/assets/gallery/lawn-care-before-1.jpg';
 import lawnCareAfter1 from '@/assets/gallery/lawn-care-after-1.jpg';
 import lawnCareBefore2 from '@/assets/gallery/lawn-care-before-2.jpg';
@@ -12,8 +10,6 @@ import hedgingBefore1 from '@/assets/gallery/hedging-before-1.jpg';
 import hedgingAfter1 from '@/assets/gallery/hedging-after-1.jpg';
 import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
 import overseedingAfter1 from '@/assets/gallery/overseeding-after-1.jpg';
-
-const ITEMS_PER_PAGE = 6;
 
 const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding'];
 
@@ -62,27 +58,11 @@ const galleryItems = [
 
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
-  const filteredItems = useMemo(() => {
-    return activeCategory === 'All'
+  const filteredItems =
+    activeCategory === 'All'
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
-
-  // Reset visible count when category changes
-  const handleCategoryChange = (category: string) => {
-    setActiveCategory(category);
-    setVisibleCount(ITEMS_PER_PAGE);
-  };
-
-  const visibleItems = filteredItems.slice(0, visibleCount);
-  const hasMoreItems = visibleCount < filteredItems.length;
-  const remainingCount = filteredItems.length - visibleCount;
-
-  const handleShowMore = () => {
-    setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
-  };
 
   return (
     <section className="section-padding bg-background">
@@ -128,7 +108,7 @@ export function GallerySection() {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => handleCategoryChange(category)}
+              onClick={() => setActiveCategory(category)}
               className={`px-5 py-2.5 rounded-full font-display text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? 'bg-primary text-primary-foreground shadow-lg'
@@ -142,76 +122,52 @@ export function GallerySection() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <AnimatePresence mode="popLayout">
-            {visibleItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ delay: index * 0.05 }}
-                layout
-                className="group rounded-2xl overflow-hidden shadow-card bg-card"
-              >
-                <div className="grid grid-cols-2 gap-1">
-                  <div className="relative aspect-[4/3]">
-                    <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-destructive/90 text-destructive-foreground text-xs font-semibold rounded">
-                      Before
-                    </span>
-                    <img
-                      src={item.beforeImage}
-                      alt={`${item.title} - Before`}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3]">
-                    <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded">
-                      After
-                    </span>
-                    <img
-                      src={item.afterImage}
-                      alt={`${item.title} - After`}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="p-4">
-                  <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded mb-2">
-                    {item.category}
-                  </span>
-                  <h3 className="font-display text-lg font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.location}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Show More Button */}
-        {hasMoreItems && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex justify-center mt-10"
-          >
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={handleShowMore}
-              className="gap-2 font-display"
+          {filteredItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              layout
+              className="group rounded-2xl overflow-hidden shadow-card bg-card"
             >
-              Show More
-              <span className="text-muted-foreground">({remainingCount} remaining)</span>
-              <ChevronDown className="w-4 h-4" />
-            </Button>
-          </motion.div>
-        )}
+              <div className="grid grid-cols-2 gap-1">
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-destructive/90 text-destructive-foreground text-xs font-semibold rounded">
+                    Before
+                  </span>
+                  <img
+                    src={item.beforeImage}
+                    alt={`${item.title} - Before`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded">
+                    After
+                  </span>
+                  <img
+                    src={item.afterImage}
+                    alt={`${item.title} - After`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="p-4">
+                <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded mb-2">
+                  {item.category}
+                </span>
+                <h3 className="font-display text-lg font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {item.location}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
