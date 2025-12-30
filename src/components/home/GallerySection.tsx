@@ -14,7 +14,7 @@ const galleryItems = [
     afterImage: lawnCareAfter1,
     category: 'Lawn Care',
     title: 'Front Yard Transformation',
-    location: 'Greater Montreal',
+    location: 'Ville Saint-Laurent',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const galleryItems = [
     afterImage: lawnCareAfter2,
     category: 'Lawn Care',
     title: 'Backyard Cleanup',
-    location: 'Greater Montreal',
+    location: 'Ville Saint-Laurent',
   },
 ];
 
