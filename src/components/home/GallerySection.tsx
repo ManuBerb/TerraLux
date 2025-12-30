@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import lawnCareBefore1 from '@/assets/gallery/lawn-care-before-1.jpg';
 import lawnCareAfter1 from '@/assets/gallery/lawn-care-after-1.jpg';
 import lawnCareBefore2 from '@/assets/gallery/lawn-care-before-2.jpg';
@@ -10,6 +11,8 @@ import hedgingBefore1 from '@/assets/gallery/hedging-before-1.jpg';
 import hedgingAfter1 from '@/assets/gallery/hedging-after-1.jpg';
 import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
 import overseedingAfter1 from '@/assets/gallery/overseeding-after-1.jpg';
+
+const ITEMS_PER_PAGE = 6;
 
 const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding'];
 
@@ -58,11 +61,24 @@ const galleryItems = [
 
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   const filteredItems =
     activeCategory === 'All'
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeCategory);
+
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredItems.length;
+
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+    setVisibleCount(ITEMS_PER_PAGE);
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+  };
 
   return (
     <section className="section-padding bg-background">
@@ -108,7 +124,7 @@ export function GallerySection() {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-5 py-2.5 rounded-full font-display text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? 'bg-primary text-primary-foreground shadow-lg'
@@ -122,7 +138,7 @@ export function GallerySection() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredItems.map((item, index) => (
+          {visibleItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -140,6 +156,7 @@ export function GallerySection() {
                   <img
                     src={item.beforeImage}
                     alt={`${item.title} - Before`}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -150,6 +167,7 @@ export function GallerySection() {
                   <img
                     src={item.afterImage}
                     alt={`${item.title} - After`}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -168,6 +186,25 @@ export function GallerySection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Show More Button */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-10"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={handleShowMore}
+              className="font-display font-semibold"
+            >
+              Show More Projects
+            </Button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
