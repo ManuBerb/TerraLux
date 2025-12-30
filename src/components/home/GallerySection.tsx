@@ -4,6 +4,8 @@ import lawnCareBefore1 from '@/assets/gallery/lawn-care-before-1.jpg';
 import lawnCareAfter1 from '@/assets/gallery/lawn-care-after-1.jpg';
 import lawnCareBefore2 from '@/assets/gallery/lawn-care-before-2.jpg';
 import lawnCareAfter2 from '@/assets/gallery/lawn-care-after-2.jpg';
+import lawnCareBefore3 from '@/assets/gallery/lawn-care-before-3.jpg';
+import lawnCareAfter3 from '@/assets/gallery/lawn-care-after-3.jpg';
 import hedgingBefore1 from '@/assets/gallery/hedging-before-1.jpg';
 import hedgingAfter1 from '@/assets/gallery/hedging-after-1.jpg';
 import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
@@ -30,6 +32,14 @@ const galleryItems = [
   },
   {
     id: 3,
+    beforeImage: lawnCareBefore3,
+    afterImage: lawnCareAfter3,
+    category: 'Lawn Care',
+    title: 'Front Lawn Mowing',
+    location: 'Ville Saint-Laurent',
+  },
+  {
+    id: 4,
     beforeImage: hedgingBefore1,
     afterImage: hedgingAfter1,
     category: 'Hedging',
@@ -37,7 +47,7 @@ const galleryItems = [
     location: 'Ville Saint-Laurent',
   },
   {
-    id: 4,
+    id: 5,
     beforeImage: overseedingBefore1,
     afterImage: overseedingAfter1,
     category: 'Overseeding',
