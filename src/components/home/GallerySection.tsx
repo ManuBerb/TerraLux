@@ -13,6 +13,8 @@ import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
 import overseedingAfter1 from '@/assets/gallery/overseeding-after-1.jpg';
 import windowCleaningBefore1 from '@/assets/gallery/window-cleaning-before-1.jpg';
 import windowCleaningAfter1 from '@/assets/gallery/window-cleaning-after-1.jpg';
+import windowCleaningBefore2 from '@/assets/gallery/window-cleaning-before-2.jpg';
+import windowCleaningAfter2 from '@/assets/gallery/window-cleaning-after-2.jpg';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -66,6 +68,14 @@ const galleryItems = [
     category: 'Window Cleaning',
     title: 'Window Cleaning',
     location: 'Mont-Royal',
+  },
+  {
+    id: 7,
+    beforeImage: windowCleaningBefore2,
+    afterImage: windowCleaningAfter2,
+    category: 'Window Cleaning',
+    title: 'Window Cleaning',
+    location: 'Downtown Montreal',
   },
 ];
 
