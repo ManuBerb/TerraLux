@@ -11,10 +11,12 @@ import hedgingBefore1 from '@/assets/gallery/hedging-before-1.jpg';
 import hedgingAfter1 from '@/assets/gallery/hedging-after-1.jpg';
 import overseedingBefore1 from '@/assets/gallery/overseeding-before-1.jpg';
 import overseedingAfter1 from '@/assets/gallery/overseeding-after-1.jpg';
+import windowCleaningBefore1 from '@/assets/gallery/window-cleaning-before-1.jpg';
+import windowCleaningAfter1 from '@/assets/gallery/window-cleaning-after-1.jpg';
 
 const ITEMS_PER_PAGE = 6;
 
-const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding'];
+const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding', 'Window Cleaning'];
 
 const galleryItems = [
   {
@@ -56,6 +58,14 @@ const galleryItems = [
     category: 'Overseeding',
     title: 'Lawn Restoration',
     location: 'Ville Saint-Laurent',
+  },
+  {
+    id: 6,
+    beforeImage: windowCleaningBefore1,
+    afterImage: windowCleaningAfter1,
+    category: 'Window Cleaning',
+    title: 'Window Cleaning',
+    location: 'Mont-Royal',
   },
 ];
 
