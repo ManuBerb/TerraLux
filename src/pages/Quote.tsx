@@ -141,6 +141,24 @@ const QuotePage = () => {
       // Validate form data
       const validatedData = quoteSchema.parse(formData);
 
+      // Upload images to Supabase Storage first
+      let imagePaths: string[] = [];
+      if (attachedImages.length > 0) {
+        for (const file of attachedImages) {
+          const fileName = `${Date.now()}-${file.name}`;
+          const { error: uploadError } = await supabase.storage
+            .from('quotes')
+            .upload(fileName, file);
+          
+          if (uploadError) {
+            console.error('Image upload error:', uploadError);
+            // Continue without this image but log it
+          } else {
+            imagePaths.push(fileName);
+          }
+        }
+      }
+
       // Call Edge Function to insert quote and send email
       const { data, error } = await supabase.functions.invoke('send-quote-email', {
         body: {
@@ -152,7 +170,7 @@ const QuotePage = () => {
           addressOrNeighborhood: validatedData.address || undefined,
           preferredContactMethod: validatedData.contactMethod || undefined,
           additionalDetails: validatedData.details || undefined,
-          imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
+          imagePaths: imagePaths.length > 0 ? imagePaths : undefined,
         },
       });
 
