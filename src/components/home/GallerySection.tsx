@@ -15,10 +15,12 @@ import windowCleaningBefore1 from '@/assets/gallery/window-cleaning-before-1.jpg
 import windowCleaningAfter1 from '@/assets/gallery/window-cleaning-after-1.jpg';
 import windowCleaningBefore2 from '@/assets/gallery/window-cleaning-before-2.jpg';
 import windowCleaningAfter2 from '@/assets/gallery/window-cleaning-after-2.jpg';
+import pressureWashingBefore1 from '@/assets/gallery/pressure-washing-before-1.jpg';
+import pressureWashingAfter1 from '@/assets/gallery/pressure-washing-after-1.jpg';
 
 const ITEMS_PER_PAGE = 6;
 
-const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding', 'Window Cleaning'];
+const categories = ['All', 'Lawn Care', 'Hedging', 'Overseeding', 'Window Cleaning', 'Pressure Washing'];
 
 const galleryItems = [
   {
@@ -76,6 +78,14 @@ const galleryItems = [
     category: 'Window Cleaning',
     title: 'Window Cleaning',
     location: 'Downtown Montreal',
+  },
+  {
+    id: 8,
+    beforeImage: pressureWashingBefore1,
+    afterImage: pressureWashingAfter1,
+    category: 'Pressure Washing',
+    title: 'Patio Pressure Washing',
+    location: 'Westmount',
   },
 ];
 
