@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
+import { Resend } from "https://esm.sh/resend@2.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -8,8 +9,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface QuoteEmailRequest {
-  quoteNumber: number;
+interface QuoteRequest {
   fullName: string;
   email: string;
   phone: string;
@@ -29,11 +29,10 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const data: QuoteEmailRequest = await req.json();
-    console.log("Received quote data:", { quoteNumber: data.quoteNumber, fullName: data.fullName });
+    const data: QuoteRequest = await req.json();
+    console.log("Received quote data:", { fullName: data.fullName, email: data.email });
 
     const {
-      quoteNumber,
       fullName,
       email,
       phone,
@@ -45,6 +44,54 @@ const handler = async (req: Request): Promise<Response> => {
       imageNames,
     } = data;
 
+    // Validate required fields
+    if (!fullName || !email || !phone || !serviceRequested) {
+      console.error("Missing required fields");
+      return new Response(
+        JSON.stringify({ error: "Missing required fields: fullName, email, phone, serviceRequested" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Create Supabase client with service role for admin access
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Prepare extra data for images
+    const extraData = imageNames && imageNames.length > 0 
+      ? { pending_image_filenames: imageNames }
+      : null;
+
+    // Insert quote into database
+    const { data: insertedQuote, error: insertError } = await supabase
+      .from("quotes")
+      .insert({
+        full_name: fullName,
+        email: email,
+        phone: phone,
+        service_requested: serviceRequested,
+        address_or_neighborhood: addressOrNeighborhood || null,
+        property_type: propertyType || null,
+        preferred_contact_method: preferredContactMethod || null,
+        additional_details: additionalDetails || null,
+        extra: extraData,
+      })
+      .select("quote_number")
+      .single();
+
+    if (insertError) {
+      console.error("Database insert error:", insertError);
+      return new Response(
+        JSON.stringify({ error: "Failed to save quote: " + insertError.message }),
+        { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    const quoteNumber = insertedQuote.quote_number;
+    console.log("Quote saved with number:", quoteNumber);
+
+    // Build email HTML
     const emailHtml = `
       <!DOCTYPE html>
       <html>
@@ -123,6 +170,7 @@ const handler = async (req: Request): Promise<Response> => {
       </html>
     `;
 
+    // Send email notification
     const emailResponse = await resend.emails.send({
       from: "Terralux Landscape <info@terraluxlandscape.ca>",
       to: ["terraluxlandscape@gmail.com"],
@@ -130,28 +178,36 @@ const handler = async (req: Request): Promise<Response> => {
       html: emailHtml,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Email response:", emailResponse);
 
     if (emailResponse.error) {
       console.error("Resend API error:", emailResponse.error);
-      throw new Error(emailResponse.error.message || "Failed to send email");
+      // Quote is saved, but email failed - still return success with warning
+      return new Response(
+        JSON.stringify({ 
+          success: true, 
+          quoteNumber,
+          emailSent: false,
+          warning: "Quote saved but email notification failed"
+        }),
+        { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
     }
 
     return new Response(
-      JSON.stringify({ success: true, emailId: emailResponse.data?.id }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      JSON.stringify({ 
+        success: true, 
+        quoteNumber,
+        emailSent: true,
+        emailId: emailResponse.data?.id 
+      }),
+      { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   } catch (error: any) {
     console.error("Error in send-quote-email function:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 };

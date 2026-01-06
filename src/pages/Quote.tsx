@@ -140,54 +140,33 @@ const QuotePage = () => {
     try {
       // Validate form data
       const validatedData = quoteSchema.parse(formData);
-      
-      // Prepare extra data (image filenames for now, will add URLs when storage is set up)
-      const extraData = attachedImages.length > 0 
-        ? { pending_image_filenames: attachedImages.map(img => img.name) }
-        : null;
 
-      // Insert into Supabase and get back the quote_number
-      const { data: insertedQuote, error: supabaseError } = await supabase
-        .from('quotes')
-        .insert({
-          full_name: validatedData.fullName,
+      // Call Edge Function to insert quote and send email
+      const { data, error } = await supabase.functions.invoke('send-quote-email', {
+        body: {
+          fullName: validatedData.fullName,
           email: validatedData.email,
           phone: validatedData.phone,
-          service_requested: validatedData.service,
-          address_or_neighborhood: validatedData.address || null,
-          property_type: validatedData.propertyType || null,
-          preferred_contact_method: validatedData.contactMethod || null,
-          additional_details: validatedData.details || null,
-          extra: extraData,
-        })
-        .select('quote_number')
-        .single();
+          serviceRequested: validatedData.service,
+          propertyType: validatedData.propertyType || undefined,
+          addressOrNeighborhood: validatedData.address || undefined,
+          preferredContactMethod: validatedData.contactMethod || undefined,
+          additionalDetails: validatedData.details || undefined,
+          imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
+        },
+      });
 
-      if (supabaseError) {
-        console.error('Supabase error:', supabaseError);
-        throw new Error(supabaseError.message);
+      if (error) {
+        console.error('Edge function error:', error);
+        throw new Error(error.message);
       }
 
-      // Send email notification (don't fail if email fails - data is already saved)
-      try {
-        await supabase.functions.invoke('send-quote-email', {
-          body: {
-            quoteNumber: insertedQuote.quote_number,
-            fullName: validatedData.fullName,
-            email: validatedData.email,
-            phone: validatedData.phone,
-            serviceRequested: validatedData.service,
-            propertyType: validatedData.propertyType || undefined,
-            addressOrNeighborhood: validatedData.address || undefined,
-            preferredContactMethod: validatedData.contactMethod || undefined,
-            additionalDetails: validatedData.details || undefined,
-            imageNames: attachedImages.length > 0 ? attachedImages.map(img => img.name) : undefined,
-          },
-        });
-        console.log('Quote email notification sent');
-      } catch (emailError) {
-        console.error('Email notification failed (quote still saved):', emailError);
+      if (!data?.success) {
+        console.error('Quote submission failed:', data?.error);
+        throw new Error(data?.error || 'Failed to submit quote');
       }
+
+      console.log('Quote submitted successfully:', data);
 
       // Reset form on success
       setFormData({
