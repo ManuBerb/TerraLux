@@ -17,6 +17,8 @@ import windowCleaningBefore2 from '@/assets/gallery/window-cleaning-before-2.jpg
 import windowCleaningAfter2 from '@/assets/gallery/window-cleaning-after-2.jpg';
 import pressureWashingBefore1 from '@/assets/gallery/pressure-washing-before-1.jpg';
 import pressureWashingAfter1 from '@/assets/gallery/pressure-washing-after-1.jpg';
+import pressureWashingBefore2 from '@/assets/gallery/pressure-washing-before-2.jpg';
+import pressureWashingAfter2 from '@/assets/gallery/pressure-washing-after-2.jpg';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -85,6 +87,14 @@ const galleryItems = [
     afterImage: pressureWashingAfter1,
     category: 'Pressure Washing',
     title: 'Patio Pressure Washing',
+    location: 'Westmount',
+  },
+  {
+    id: 9,
+    beforeImage: pressureWashingBefore2,
+    afterImage: pressureWashingAfter2,
+    category: 'Pressure Washing',
+    title: 'Walkway Pressure Washing',
     location: 'Westmount',
   },
 ];
