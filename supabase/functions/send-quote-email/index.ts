@@ -18,7 +18,7 @@ interface QuoteRequest {
   addressOrNeighborhood?: string;
   preferredContactMethod?: string;
   additionalDetails?: string;
-  imageNames?: string[];
+  imagePaths?: string[];
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -41,7 +41,7 @@ const handler = async (req: Request): Promise<Response> => {
       addressOrNeighborhood,
       preferredContactMethod,
       additionalDetails,
-      imageNames,
+      imagePaths,
     } = data;
 
     // Validate required fields
@@ -58,10 +58,15 @@ const handler = async (req: Request): Promise<Response> => {
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Prepare extra data for images
-    const extraData = imageNames && imageNames.length > 0 
-      ? { pending_image_filenames: imageNames }
+    // Prepare extra data for images (store storage paths)
+    const extraData = imagePaths && imagePaths.length > 0 
+      ? { image_paths: imagePaths }
       : null;
+
+    // Build image URLs for email
+    const imageUrls = imagePaths?.map(path => 
+      `${supabaseUrl}/storage/v1/object/public/quotes/${path}`
+    ) || [];
 
     // Insert quote into database
     const { data: insertedQuote, error: insertError } = await supabase
@@ -155,9 +160,15 @@ const handler = async (req: Request): Promise<Response> => {
           <p style="background: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #e0e7e0; margin: 0;">${additionalDetails}</p>
           ` : ''}
 
-          ${imageNames && imageNames.length > 0 ? `
-          <h2 style="color: #2d5a27; margin-top: 25px; font-size: 18px; border-bottom: 2px solid #2d5a27; padding-bottom: 10px;">Attached Images</h2>
-          <p style="color: #666; margin: 0;">${imageNames.length} image(s) attached: ${imageNames.join(', ')}</p>
+          ${imageUrls.length > 0 ? `
+          <h2 style="color: #2d5a27; margin-top: 25px; font-size: 18px; border-bottom: 2px solid #2d5a27; padding-bottom: 10px;">Attached Images (${imageUrls.length})</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+            ${imageUrls.map((url, i) => `
+              <a href="${url}" target="_blank" style="display: inline-block; text-decoration: none;">
+                <img src="${url}" alt="Photo ${i + 1}" style="max-width: 180px; max-height: 180px; border-radius: 8px; border: 1px solid #e0e7e0; object-fit: cover;" />
+              </a>
+            `).join('')}
+          </div>
           ` : ''}
         </div>
 
