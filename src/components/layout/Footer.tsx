@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { TerraluxLogo } from '@/components/TerraluxLogo';
 
 const services = [
   { name: 'Lawn Mowing & Edging', href: '/services#lawn-mowing' },
@@ -30,9 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block">
-              <span className="font-display text-2xl font-bold">
-                Terra<span className="text-lime">lux</span>
-              </span>
+              <TerraluxLogo variant="full" light className="h-10 w-auto" />
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
               Elevate Your Outdoor Living.
