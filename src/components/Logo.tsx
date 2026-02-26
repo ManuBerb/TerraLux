@@ -1,0 +1,70 @@
+interface LogoProps {
+  className?: string;
+  iconOnly?: boolean;
+}
+
+export function Logo({ className = '', iconOnly = false }: LogoProps) {
+  if (iconOnly) {
+    return (
+      <svg
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+      >
+        <path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill="#90a991" />
+        <path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill="#707b7c" />
+        <path d="M250 310L50 410V495L250 395L450 495V410L250 310Z" fill="#4d5459" />
+      </svg>
+    );
+  }
+
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      {/* Icon */}
+      <svg
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-auto"
+        style={{ height: '100%' }}
+      >
+        <path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill="#90a991" />
+        <path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill="#707b7c" />
+        <path d="M250 310L50 410V495L250 395L450 495V410L250 310Z" fill="#4d5459" />
+      </svg>
+      {/* Text */}
+      <svg
+        viewBox="0 0 600 200"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-auto"
+        style={{ height: '100%' }}
+      >
+        <text
+          x="300"
+          y="95"
+          fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+          fontWeight="800"
+          fontSize="72"
+          fill="#404245"
+          textAnchor="middle"
+          letterSpacing="0.05em"
+        >
+          TERRALUX
+        </text>
+        <text
+          x="300"
+          y="150"
+          fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
+          fontWeight="800"
+          fontSize="42"
+          fill="#404245"
+          textAnchor="middle"
+          letterSpacing="0.12em"
+        >
+          LANDSCAPE INC.
+        </text>
+      </svg>
+    </div>
+  );
+}

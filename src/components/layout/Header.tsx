@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/Logo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navigation = [
@@ -38,10 +39,8 @@ export function Header() {
       <nav className="container-custom" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="font-display text-2xl font-bold text-primary">
-              Terra<span className="text-lime">lux</span>
-            </span>
+          <Link to="/" className="flex items-center">
+            <Logo className="h-10 md:h-12" />
           </Link>
 
           {/* Desktop Navigation */}
