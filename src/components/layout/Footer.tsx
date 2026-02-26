@@ -31,7 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block">
-              <Logo className="h-10" />
+              <Logo className="h-10 md:h-12" />
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
               Elevate Your Outdoor Living.
