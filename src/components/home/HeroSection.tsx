@@ -13,6 +13,7 @@ export function HeroSection() {
           src={heroImage}
           alt="Beautiful professionally maintained lawn with crisp edges"
           className="w-full h-full object-cover"
+          style={{ objectPosition: 'center calc(50% + 80px)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
       </div>
