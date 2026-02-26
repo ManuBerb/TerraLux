@@ -40,7 +40,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
       >
         <text
           x="5"
-          y="75"
+          y="85"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="72"
@@ -52,7 +52,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
         </text>
         <text
           x="5"
-          y="130"
+          y="140"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="42"
