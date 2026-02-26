@@ -34,13 +34,13 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
       </svg>
       {/* Text */}
       <svg
-        viewBox="0 0 430 160"
+        viewBox="0 0 430 180"
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto shrink-0"
       >
         <text
           x="5"
-          y="75"
+          y="90"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="72"
@@ -52,7 +52,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
         </text>
         <text
           x="5"
-          y="130"
+          y="145"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="42"
