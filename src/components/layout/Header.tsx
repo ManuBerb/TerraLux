@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TerraluxLogo } from '@/components/TerraluxLogo';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -38,10 +39,8 @@ export function Header() {
       <nav className="container-custom" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="font-display text-2xl font-bold text-primary">
-              Terra<span className="text-lime">lux</span>
-            </span>
+          <Link to="/" className="flex items-center">
+            <TerraluxLogo variant="full" className="h-10 sm:h-11 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
