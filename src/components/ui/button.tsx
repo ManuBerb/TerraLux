@@ -16,8 +16,8 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent/20 hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Welandscape Custom Variants
-        cta: "bg-lime text-accent-foreground hover:bg-lime-light shadow-glow hover:shadow-[0_0_50px_hsl(85_55%_50%_/_0.4)] font-bold",
-        hero: "bg-gradient-cta text-accent-foreground shadow-glow hover:shadow-[0_0_60px_hsl(85_55%_50%_/_0.5)] font-bold transform hover:scale-105",
+        cta: "bg-primary text-primary-foreground hover:bg-forest-light shadow-glow hover:shadow-[0_0_50px_hsl(145_25%_42%_/_0.4)] font-bold",
+        hero: "bg-gradient-cta text-primary-foreground shadow-glow hover:shadow-[0_0_60px_hsl(145_25%_42%_/_0.5)] font-bold transform hover:scale-105",
         "hero-outline": "border-2 border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground backdrop-blur-sm hover:bg-primary-foreground/20 hover:border-primary-foreground/50",
         nav: "bg-transparent text-foreground hover:text-primary font-medium",
         "nav-cta": "bg-primary text-primary-foreground hover:bg-forest-light font-semibold",
