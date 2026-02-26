@@ -20,14 +20,13 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
   }
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
+    <div className={`flex items-center gap-1.5 ${className}`}>
       {/* Icon */}
       <svg
         viewBox="0 0 500 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-auto"
-        style={{ height: '100%' }}
+        className="h-full w-auto shrink-0"
       >
         <path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill="#90a991" />
         <path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill="#707b7c" />
@@ -35,31 +34,30 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
       </svg>
       {/* Text */}
       <svg
-        viewBox="0 0 600 200"
+        viewBox="0 0 430 160"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-auto"
-        style={{ height: '100%' }}
+        className="h-full w-auto shrink-0"
       >
         <text
-          x="300"
-          y="95"
+          x="5"
+          y="75"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="72"
           fill="#404245"
-          textAnchor="middle"
+          textAnchor="start"
           letterSpacing="0.05em"
         >
           TERRALUX
         </text>
         <text
-          x="300"
-          y="150"
+          x="5"
+          y="130"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="42"
           fill="#404245"
-          textAnchor="middle"
+          textAnchor="start"
           letterSpacing="0.12em"
         >
           LANDSCAPE INC.
