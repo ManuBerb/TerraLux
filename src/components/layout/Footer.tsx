@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import logoFull from '@/assets/logo-full.png';
 
 const services = [
   { name: 'Lawn Mowing & Edging', href: '/services#lawn-mowing' },
@@ -31,11 +30,9 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block">
-              <img
-                src={logoFull}
-                alt="Terralux Landscape"
-                className="h-12 w-auto object-contain brightness-0 invert"
-              />
+              <span className="font-display text-2xl font-bold">
+                Terra<span className="text-lime">lux</span>
+              </span>
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
               Elevate Your Outdoor Living.
