@@ -9,17 +9,29 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface QuoteRequest {
-  fullName: string;
-  email: string;
-  phone: string;
-  serviceRequested: string;
-  propertyType?: string;
-  addressOrNeighborhood?: string;
-  preferredContactMethod?: string;
-  additionalDetails?: string;
-  imagePaths?: string[];
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const ALLOWED_SERVICES = [
+  "Lawn Mowing & Edging",
+  "Overseeding",
+  "Flower Bed Installations",
+  "Hedging",
+  "Leaf Removal & Raking",
+  "Mulch Beds",
+  "Sod Installation",
+  "Window Cleaning",
+  "Pressure Washing & Sanding",
+  "Multiple Services",
+];
 
 const handler = async (req: Request): Promise<Response> => {
   console.log("send-quote-email function invoked");
@@ -29,57 +41,80 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const data: QuoteRequest = await req.json();
-    console.log("Received quote data:", { fullName: data.fullName, email: data.email });
+    const body = await req.json();
 
-    const {
-      fullName,
-      email,
-      phone,
-      serviceRequested,
-      propertyType,
-      addressOrNeighborhood,
-      preferredContactMethod,
-      additionalDetails,
-      imagePaths,
-    } = data;
+    // Honeypot check
+    if (body._hp) {
+      return new Response(JSON.stringify({ success: true, quoteNumber: 0 }), {
+        status: 200,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Extract and sanitize fields
+    const fullName = String(body.fullName || "").trim();
+    const email = String(body.email || "").trim();
+    const phone = String(body.phone || "").trim();
+    const serviceRequested = String(body.serviceRequested || "").trim();
+    const propertyType = body.propertyType ? String(body.propertyType).trim() : null;
+    const addressOrNeighborhood = body.addressOrNeighborhood ? String(body.addressOrNeighborhood).trim() : null;
+    const preferredContactMethod = body.preferredContactMethod ? String(body.preferredContactMethod).trim() : null;
+    const additionalDetails = body.additionalDetails ? String(body.additionalDetails).trim() : null;
+    const imagePaths: string[] = Array.isArray(body.imagePaths)
+      ? body.imagePaths.filter((p: unknown) => typeof p === "string").slice(0, 3)
+      : [];
 
     // Validate required fields
     if (!fullName || !email || !phone || !serviceRequested) {
-      console.error("Missing required fields");
       return new Response(
         JSON.stringify({ error: "Missing required fields: fullName, email, phone, serviceRequested" }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
-    // Create Supabase client with service role for admin access
+    // Length limits
+    if (fullName.length > 100) {
+      return new Response(JSON.stringify({ error: "Name is too long (max 100)" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (email.length > 255 || !EMAIL_REGEX.test(email)) {
+      return new Response(JSON.stringify({ error: "Invalid email address" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (phone.length > 20) {
+      return new Response(JSON.stringify({ error: "Phone is too long (max 20)" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (!ALLOWED_SERVICES.includes(serviceRequested)) {
+      return new Response(JSON.stringify({ error: "Invalid service requested" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (addressOrNeighborhood && addressOrNeighborhood.length > 500) {
+      return new Response(JSON.stringify({ error: "Address is too long (max 500)" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+    if (additionalDetails && additionalDetails.length > 2000) {
+      return new Response(JSON.stringify({ error: "Details are too long (max 2000)" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    }
+
+    // Create Supabase client
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Prepare extra data for images (store storage paths)
-    const extraData = imagePaths && imagePaths.length > 0 
-      ? { image_paths: imagePaths }
-      : null;
+    const extraData = imagePaths.length > 0 ? { image_paths: imagePaths } : null;
 
-    // Build image URLs for email
-    const imageUrls = imagePaths?.map(path => 
+    const imageUrls = imagePaths.map(path =>
       `${supabaseUrl}/storage/v1/object/public/quotes/${path}`
-    ) || [];
+    );
 
     // Insert quote into database
     const { data: insertedQuote, error: insertError } = await supabase
       .from("quotes")
       .insert({
         full_name: fullName,
-        email: email,
-        phone: phone,
+        email,
+        phone,
         service_requested: serviceRequested,
-        address_or_neighborhood: addressOrNeighborhood || null,
-        property_type: propertyType || null,
-        preferred_contact_method: preferredContactMethod || null,
-        additional_details: additionalDetails || null,
+        address_or_neighborhood: addressOrNeighborhood,
+        property_type: propertyType,
+        preferred_contact_method: preferredContactMethod,
+        additional_details: additionalDetails,
         extra: extraData,
       })
       .select("quote_number")
@@ -96,7 +131,16 @@ const handler = async (req: Request): Promise<Response> => {
     const quoteNumber = insertedQuote.quote_number;
     console.log("Quote saved with number:", quoteNumber);
 
-    // Build email HTML
+    // Escape user inputs for HTML email
+    const safeName = escapeHtml(fullName);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeService = escapeHtml(serviceRequested);
+    const safePropertyType = propertyType ? escapeHtml(propertyType) : null;
+    const safeAddress = addressOrNeighborhood ? escapeHtml(addressOrNeighborhood) : null;
+    const safeContactMethod = preferredContactMethod ? escapeHtml(preferredContactMethod) : null;
+    const safeDetails = additionalDetails ? escapeHtml(additionalDetails) : null;
+
     const emailHtml = `
       <!DOCTYPE html>
       <html>
@@ -116,20 +160,20 @@ const handler = async (req: Request): Promise<Response> => {
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 8px 0; color: #666; width: 140px;">Name:</td>
-              <td style="padding: 8px 0; font-weight: 500;">${fullName}</td>
+              <td style="padding: 8px 0; font-weight: 500;">${safeName}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #666;">Email:</td>
-              <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #2d5a27; text-decoration: none;">${email}</a></td>
+              <td style="padding: 8px 0;"><a href="mailto:${safeEmail}" style="color: #2d5a27; text-decoration: none;">${safeEmail}</a></td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #666;">Phone:</td>
-              <td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #2d5a27; text-decoration: none;">${phone}</a></td>
+              <td style="padding: 8px 0;"><a href="tel:${safePhone}" style="color: #2d5a27; text-decoration: none;">${safePhone}</a></td>
             </tr>
-            ${preferredContactMethod ? `
+            ${safeContactMethod ? `
             <tr>
               <td style="padding: 8px 0; color: #666;">Preferred Contact:</td>
-              <td style="padding: 8px 0;">${preferredContactMethod}</td>
+              <td style="padding: 8px 0;">${safeContactMethod}</td>
             </tr>
             ` : ''}
           </table>
@@ -139,25 +183,25 @@ const handler = async (req: Request): Promise<Response> => {
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 8px 0; color: #666; width: 140px;">Service:</td>
-              <td style="padding: 8px 0; font-weight: 500;">${serviceRequested}</td>
+              <td style="padding: 8px 0; font-weight: 500;">${safeService}</td>
             </tr>
-            ${propertyType ? `
+            ${safePropertyType ? `
             <tr>
               <td style="padding: 8px 0; color: #666;">Property Type:</td>
-              <td style="padding: 8px 0;">${propertyType}</td>
+              <td style="padding: 8px 0;">${safePropertyType}</td>
             </tr>
             ` : ''}
-            ${addressOrNeighborhood ? `
+            ${safeAddress ? `
             <tr>
               <td style="padding: 8px 0; color: #666;">Location:</td>
-              <td style="padding: 8px 0;">${addressOrNeighborhood}</td>
+              <td style="padding: 8px 0;">${safeAddress}</td>
             </tr>
             ` : ''}
           </table>
 
-          ${additionalDetails ? `
+          ${safeDetails ? `
           <h2 style="color: #2d5a27; margin-top: 25px; font-size: 18px; border-bottom: 2px solid #2d5a27; padding-bottom: 10px;">Additional Notes</h2>
-          <p style="background: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #e0e7e0; margin: 0;">${additionalDetails}</p>
+          <p style="background: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #e0e7e0; margin: 0;">${safeDetails}</p>
           ` : ''}
 
           ${imageUrls.length > 0 ? `
@@ -181,7 +225,6 @@ const handler = async (req: Request): Promise<Response> => {
       </html>
     `;
 
-    // Send email notification
     const emailResponse = await resend.emails.send({
       from: "Terralux Landscape <info@terraluxlandscape.ca>",
       to: ["terraluxlandscape@gmail.com"],
@@ -193,25 +236,14 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (emailResponse.error) {
       console.error("Resend API error:", emailResponse.error);
-      // Quote is saved, but email failed - still return success with warning
       return new Response(
-        JSON.stringify({ 
-          success: true, 
-          quoteNumber,
-          emailSent: false,
-          warning: "Quote saved but email notification failed"
-        }),
+        JSON.stringify({ success: true, quoteNumber, emailSent: false, warning: "Quote saved but email notification failed" }),
         { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        quoteNumber,
-        emailSent: true,
-        emailId: emailResponse.data?.id 
-      }),
+      JSON.stringify({ success: true, quoteNumber, emailSent: true, emailId: emailResponse.data?.id }),
       { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   } catch (error: any) {

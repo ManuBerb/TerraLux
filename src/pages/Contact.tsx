@@ -15,11 +15,20 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().min(1, 'Name is required').max(100),
+  email: z.string().email('Please enter a valid email').max(255),
+  phone: z.string().max(20).optional(),
+  message: z.string().min(1, 'Message is required').max(5000),
+});
 
 const ContactPage = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,8 +41,9 @@ const ContactPage = () => {
     setIsSubmitting(true);
     
     try {
+      contactSchema.parse(formData);
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
+        body: { ...formData, _hp: honeypot },
       });
       if (error) throw error;
       toast({
@@ -166,6 +176,16 @@ const ContactPage = () => {
                 <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-card">
                   <h2 className="font-display text-xl font-semibold text-foreground mb-6">{t('contactPage.sendMessage')}</h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <input
+                      type="text"
+                      name="_hp"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      style={{ position: 'absolute', left: '-9999px' }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
                     <div className="space-y-2">
                       <Label htmlFor="name">{t('contactPage.nameLabel')}</Label>
                       <Input id="name" type="text" placeholder={t('contactPage.namePlaceholder')} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
