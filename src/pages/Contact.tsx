@@ -41,8 +41,9 @@ const ContactPage = () => {
     setIsSubmitting(true);
     
     try {
+      contactSchema.parse(formData);
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
+        body: { ...formData, _hp: honeypot },
       });
       if (error) throw error;
       toast({
