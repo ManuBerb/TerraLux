@@ -47,24 +47,24 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
           y="95"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
-          fontSize="72"
+          fontSize={isFr ? "52" : "72"}
           fill="#404245"
           textAnchor="start"
           letterSpacing="0.05em"
         >
-          TERRALUX
+          {isFr ? 'PAYSAGEMENT' : 'TERRALUX'}
         </text>
         <text
           x="5"
           y="150"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
-          fontSize="42"
+          fontSize={isFr ? "52" : "42"}
           fill="#404245"
           textAnchor="start"
           letterSpacing="0.12em"
         >
-          LANDSCAPE INC.
+          {isFr ? 'TERRALUX INC.' : 'LANDSCAPE INC.'}
         </text>
       </svg>
     </div>
