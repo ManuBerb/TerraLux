@@ -49,8 +49,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-primary-foreground/80 leading-relaxed max-w-xl"
           >
-            Premium lawn care and outdoor services for discerning homeowners 
-            across Greater Montreal. Experience the Terralux difference.
+            No time? No stress. TerraLux handles the rest.
           </motion.p>
 
           <motion.div
