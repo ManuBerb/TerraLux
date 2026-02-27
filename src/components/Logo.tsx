@@ -1,15 +1,9 @@
-import { useTranslation } from 'react-i18next';
-
 interface LogoProps {
   className?: string;
   iconOnly?: boolean;
 }
 
 export function Logo({ className = '', iconOnly = false }: LogoProps) {
-  const { i18n } = useTranslation();
-  const isFr = i18n.language === 'fr';
-  const line1 = isFr ? 'PAYSAGEMENT' : 'TERRALUX';
-  const line2 = isFr ? 'TERRALUX INC.' : 'LANDSCAPE INC.';
   if (iconOnly) {
     return (
       <svg
@@ -40,7 +34,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
       </svg>
       {/* Text */}
       <svg
-        viewBox={isFr ? "0 0 520 160" : "0 0 430 160"}
+        viewBox="0 0 430 160"
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto shrink-0"
       >
@@ -54,19 +48,19 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
           textAnchor="start"
           letterSpacing="0.05em"
         >
-          {line1}
+          TERRALUX
         </text>
         <text
           x="5"
           y="150"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
-          fontSize={isFr ? "36" : "42"}
+          fontSize="42"
           fill="#404245"
           textAnchor="start"
           letterSpacing="0.12em"
         >
-          {line2}
+          LANDSCAPE INC.
         </text>
       </svg>
     </div>
