@@ -176,6 +176,16 @@ const ContactPage = () => {
                 <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-card">
                   <h2 className="font-display text-xl font-semibold text-foreground mb-6">{t('contactPage.sendMessage')}</h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <input
+                      type="text"
+                      name="_hp"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      style={{ position: 'absolute', left: '-9999px' }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
                     <div className="space-y-2">
                       <Label htmlFor="name">{t('contactPage.nameLabel')}</Label>
                       <Input id="name" type="text" placeholder={t('contactPage.namePlaceholder')} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
