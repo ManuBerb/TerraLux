@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface LogoProps {
   className?: string;
   iconOnly?: boolean;
