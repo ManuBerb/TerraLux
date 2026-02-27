@@ -1,5 +1,6 @@
 import { Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const testimonials = [
   {
@@ -47,10 +48,11 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="section-padding bg-gradient-section overflow-hidden">
       <div className="container-custom">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +60,7 @@ export function TestimonialsSection() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary font-display text-sm font-semibold mb-4"
           >
-            Testimonials
+            {t('testimonials.badge')}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +69,7 @@ export function TestimonialsSection() {
             transition={{ delay: 0.1 }}
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
           >
-            What Our Customers Say
+            {t('testimonials.title')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -76,12 +78,10 @@ export function TestimonialsSection() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-lg text-muted-foreground"
           >
-            Don't just take our word for it. Hear from homeowners across 
-            Greater Montreal who trust Terralux with their outdoor spaces.
+            {t('testimonials.subtitle')}
           </motion.p>
         </div>
 
-        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -98,10 +98,7 @@ export function TestimonialsSection() {
                 </div>
                 <div className="flex gap-0.5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-lime text-lime"
-                    />
+                    <Star key={i} className="h-4 w-4 fill-lime text-lime" />
                   ))}
                 </div>
               </div>
@@ -125,7 +122,6 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Trust Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,11 +135,11 @@ export function TestimonialsSection() {
               ))}
             </div>
             <span className="text-foreground font-display font-semibold">
-              4.9/5 Average Rating
+              {t('testimonials.averageRating')}
             </span>
             <span className="text-muted-foreground">•</span>
             <span className="text-muted-foreground">
-              500+ Happy Customers
+              {t('testimonials.happyCustomers')}
             </span>
           </div>
         </motion.div>

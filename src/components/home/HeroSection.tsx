@@ -3,8 +3,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-lawn.jpg';
+import { useTranslation } from 'react-i18next';
 
 export function HeroSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Image */}
@@ -28,7 +31,7 @@ export function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/20 text-lime font-display text-sm font-semibold mb-6 backdrop-blur-sm">
               <CheckCircle2 className="h-4 w-4" />
-              Complimentary Estimates for All Services
+              {t('hero.badge')}
             </span>
           </motion.div>
 
@@ -38,9 +41,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            Elevate Your
+            {t('hero.title1')}
             <br />
-            <span className="text-lime">Outdoor Living.</span>
+            <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
 
           <motion.p
@@ -49,7 +52,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-primary-foreground/80 leading-relaxed max-w-xl"
           >
-            No time? No stress. TerraLux handles the rest.
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.div
@@ -60,13 +63,13 @@ export function HeroSection() {
           >
             <Button variant="hero" size="xl" asChild>
               <Link to="/quote">
-                Get a Free Quote
+                {t('hero.ctaQuote')}
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
               <Link to="/services">
-                View Our Services
+                {t('hero.ctaServices')}
               </Link>
             </Button>
           </motion.div>
@@ -79,17 +82,17 @@ export function HeroSection() {
           >
             <div className="text-primary-foreground text-center">
               <div className="font-display text-3xl font-bold">100+</div>
-              <div className="text-sm text-primary-foreground/70">Happy Customers</div>
+              <div className="text-sm text-primary-foreground/70">{t('hero.happyCustomers')}</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20" />
             <div className="text-primary-foreground text-center">
               <div className="font-display text-3xl font-bold">7+</div>
-              <div className="text-sm text-primary-foreground/70">Years Experience</div>
+              <div className="text-sm text-primary-foreground/70">{t('hero.yearsExperience')}</div>
             </div>
             <div className="w-px h-12 bg-primary-foreground/20 hidden sm:block" />
             <div className="text-primary-foreground text-center hidden sm:block">
               <div className="font-display text-3xl font-bold">4.9★</div>
-              <div className="text-sm text-primary-foreground/70">Average Rating</div>
+              <div className="text-sm text-primary-foreground/70">{t('hero.averageRating')}</div>
             </div>
           </motion.div>
         </div>

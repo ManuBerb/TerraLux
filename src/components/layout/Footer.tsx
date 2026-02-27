@@ -1,28 +1,30 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Logo } from '@/components/Logo';
+import { useTranslation } from 'react-i18next';
 
-const services = [
-  { name: 'Lawn Mowing & Edging', href: '/services#lawn-mowing' },
-  { name: 'Overseeding', href: '/services#overseeding' },
-  { name: 'Flower Bed Installation', href: '/services#flower-beds' },
-  { name: 'Mulch Beds', href: '/services#mulch-beds' },
-  { name: 'Sod Installation', href: '/services#sod' },
-  { name: 'Window Cleaning', href: '/services#window-cleaning' },
-  { name: 'Pressure Washing / Sanding', href: '/services#pressure-washing' },
-  { name: 'Leaf Removal & Raking', href: '/services#leaf-removal' },
-  { name: 'Hedging', href: '/services#hedging' },
+const serviceLinks = [
+  { key: 'lawnMowing', href: '/services#lawn-mowing' },
+  { key: 'overseeding', href: '/services#overseeding' },
+  { key: 'flowerBeds', href: '/services#flower-beds' },
+  { key: 'mulchBeds', href: '/services#mulch-beds' },
+  { key: 'sod', href: '/services#sod' },
+  { key: 'windowCleaning', href: '/services#window-cleaning' },
+  { key: 'pressureWashing', href: '/services#pressure-washing' },
+  { key: 'leafRemoval', href: '/services#leaf-removal' },
+  { key: 'hedging', href: '/services#hedging' },
 ];
 
-const company = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Get a Quote', href: '/quote' },
-  { name: 'Contact', href: '/contact' },
+const companyLinks = [
+  { key: 'home', href: '/' },
+  { key: 'services', href: '/services' },
+  { key: 'getQuote', href: '/quote' },
+  { key: 'contact', href: '/contact' },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -34,24 +36,24 @@ export function Footer() {
               <Logo className="h-10 md:h-12" />
             </Link>
             <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
-              Elevate Your Outdoor Living.
+              {t('footer.tagline')}
             </p>
             <p className="mt-4 text-primary-foreground/70 text-sm">
-              Premium outdoor services for discerning homeowners across Greater Montreal.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">Services</h3>
+            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.servicesTitle')}</h3>
             <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service.name}>
+              {serviceLinks.map((service) => (
+                <li key={service.key}>
                   <Link
                     to={service.href}
                     className="text-sm text-primary-foreground/70 hover:text-lime transition-colors"
                   >
-                    {service.name}
+                    {t(`footer.serviceLinks.${service.key}`)}
                   </Link>
                 </li>
               ))}
@@ -60,15 +62,15 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">Company</h3>
+            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.companyTitle')}</h3>
             <ul className="space-y-2">
-              {company.map((item) => (
-                <li key={item.name}>
+              {companyLinks.map((item) => (
+                <li key={item.key}>
                   <Link
                     to={item.href}
                     className="text-sm text-primary-foreground/70 hover:text-lime transition-colors"
                   >
-                    {item.name}
+                    {t(`footer.companyLinks.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -77,7 +79,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.contactTitle')}</h3>
             <ul className="space-y-4">
               <li>
                 <a
@@ -89,7 +91,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-              <a
+                <a
                   href="mailto:info@terraluxlandscape.ca"
                   className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-lime transition-colors"
                 >
@@ -100,16 +102,16 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
                   <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                  <span>Serving Greater Montreal<br />& Surrounding Regions</span>
+                  <span>{t('footer.servingArea')}<br />{t('footer.servingArea2')}</span>
                 </div>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
                   <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-primary-foreground block mb-1">Business Hours</span>
-                    <span className="whitespace-nowrap">Monday – Friday: 9:00 AM – 6:00 PM</span><br />
-                    <span className="whitespace-nowrap">Saturday – Sunday: 9:00 AM – 5:00 PM</span>
+                    <span className="font-semibold text-primary-foreground block mb-1">{t('footer.businessHours')}</span>
+                    <span className="whitespace-nowrap">{t('footer.monFri')}</span><br />
+                    <span className="whitespace-nowrap">{t('footer.satSun')}</span>
                   </div>
                 </div>
               </li>
@@ -121,10 +123,10 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © {currentYear} Terralux Landscape Inc. All rights reserved.
+              {t('footer.copyright', { year: currentYear })}
             </p>
             <p className="text-sm text-primary-foreground/60">
-              Free estimates for all services
+              {t('footer.freeEstimates')}
             </p>
           </div>
         </div>
