@@ -1,0 +1,343 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "getQuote": "Get a Free Quote",
+    "phone": "(514) 293-5662"
+  },
+  "hero": {
+    "badge": "Complimentary Estimates for All Services",
+    "title1": "Elevate Your",
+    "title2": "Outdoor Living.",
+    "subtitle": "No time? No stress. TerraLux handles the rest.",
+    "ctaQuote": "Get a Free Quote",
+    "ctaServices": "View Our Services",
+    "happyCustomers": "Happy Customers",
+    "yearsExperience": "Years Experience",
+    "averageRating": "Average Rating"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Complete Outdoor Care for Your Home",
+    "subtitle": "From regular lawn maintenance to complete landscape transformations, we offer everything you need for a beautiful outdoor space.",
+    "viewAll": "View All Services",
+    "mostPopular": "Most Popular",
+    "lawnMowing": {
+      "title": "Lawn Mowing & Edging",
+      "description": "Professional mowing with precision edging for a perfectly manicured lawn that enhances your curb appeal.",
+      "features": ["Weekly/bi-weekly service", "Clean edge lines", "Clippings removed"]
+    },
+    "overseeding": {
+      "title": "Overseeding",
+      "description": "Revitalize thin or patchy lawns with premium grass seed to achieve a thick, lush carpet of green.",
+      "features": ["Premium seed blend", "Soil preparation", "Follow-up care"]
+    },
+    "flowerBeds": {
+      "title": "Flower Bed Installations",
+      "description": "Beautiful flower beds designed and installed to add color and character to your property.",
+      "features": ["Custom designs", "Quality plants", "Seasonal options"]
+    },
+    "mulchBeds": {
+      "title": "Mulch Beds",
+      "description": "Fresh mulch installation to protect plants, retain moisture, and create clean, defined garden beds.",
+      "features": ["Multiple colors", "Weed prevention", "Professional finish"]
+    },
+    "sodInstallation": {
+      "title": "Sod Installation",
+      "description": "Instant lawn transformation with professionally installed, premium quality sod.",
+      "features": ["Same-day green lawn", "Grade preparation", "Watering guidance"]
+    },
+    "windowPressure": {
+      "title": "Window & Pressure Washing",
+      "description": "Crystal clear windows and spotless surfaces to make your entire property shine.",
+      "features": ["Streak-free finish", "Deck & driveway", "Safe techniques"]
+    }
+  },
+  "howItWorks": {
+    "badge": "How It Works",
+    "title": "Getting Started is Easy",
+    "subtitle": "Three simple steps to a beautiful yard. We make the process seamless so you can enjoy your outdoor space without the hassle.",
+    "step1Title": "Request a Quote",
+    "step1Desc": "Fill out our simple form with your service needs and property details. It takes less than 2 minutes.",
+    "step2Title": "We Contact You",
+    "step2Desc": "Our team will reach out within 24 hours to discuss your needs and provide a personalized estimate.",
+    "step3Title": "Service Completed",
+    "step3Desc": "Sit back and relax as our professional team transforms your outdoor space to perfection.",
+    "cta": "Start Your Free Quote",
+    "noObligation": "No obligation. Free estimates for all services."
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What Our Customers Say",
+    "subtitle": "Don't just take our word for it. Hear from homeowners across Greater Montreal who trust Terralux with their outdoor spaces.",
+    "averageRating": "4.9/5 Average Rating",
+    "happyCustomers": "500+ Happy Customers"
+  },
+  "gallery": {
+    "badge": "Our Work",
+    "title": "Before & After Gallery",
+    "subtitle": "See the transformation we bring to properties across Greater Montreal. Real results from real projects.",
+    "before": "Before",
+    "after": "After",
+    "showMore": "Show More Projects",
+    "categories": {
+      "All": "All",
+      "Lawn Care": "Lawn Care",
+      "Hedging": "Hedging",
+      "Overseeding": "Overseeding",
+      "Window Cleaning": "Window Cleaning",
+      "Pressure Washing": "Pressure Washing"
+    }
+  },
+  "serviceArea": {
+    "badge": "Service Area",
+    "title1": "Proudly Serving",
+    "title2": "Greater Montreal",
+    "description": "Greater Montreal & Surrounding Regions. From the heart of Montreal to surrounding suburbs, we bring professional outdoor services to residential properties across the entire region.",
+    "serviceRadius": "Service Radius",
+    "communities": "Communities",
+    "notSure": "Not sure if you're in our service area?",
+    "loveToCheck": "We'd love to check!",
+    "requestQuote": "Request a Free Quote"
+  },
+  "cta": {
+    "title1": "Ready to Transform Your",
+    "title2": "Outdoor Space?",
+    "subtitle": "Get a free, no-obligation estimate for your property. Our team will contact you within 24 hours to discuss your needs.",
+    "button": "Get Your Free Quote Now",
+    "freeEstimates": "Free Estimates",
+    "noObligation": "No Obligation",
+    "response24hr": "24hr Response"
+  },
+  "mobileCTA": {
+    "button": "Get a Free Quote"
+  },
+  "footer": {
+    "tagline": "Elevate Your Outdoor Living.",
+    "description": "Premium outdoor services for discerning homeowners across Greater Montreal.",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "contactTitle": "Contact Us",
+    "businessHours": "Business Hours",
+    "monFri": "Monday – Friday: 9:00 AM – 6:00 PM",
+    "satSun": "Saturday – Sunday: 9:00 AM – 5:00 PM",
+    "servingArea": "Serving Greater Montreal",
+    "servingArea2": "& Surrounding Regions",
+    "copyright": "© {{year}} Terralux Landscape Inc. All rights reserved.",
+    "freeEstimates": "Free estimates for all services",
+    "serviceLinks": {
+      "lawnMowing": "Lawn Mowing & Edging",
+      "overseeding": "Overseeding",
+      "flowerBeds": "Flower Bed Installation",
+      "mulchBeds": "Mulch Beds",
+      "sod": "Sod Installation",
+      "windowCleaning": "Window Cleaning",
+      "pressureWashing": "Pressure Washing / Sanding",
+      "leafRemoval": "Leaf Removal & Raking",
+      "hedging": "Hedging"
+    },
+    "companyLinks": {
+      "home": "Home",
+      "services": "Services",
+      "getQuote": "Get a Quote",
+      "contact": "Contact"
+    }
+  },
+  "contactPage": {
+    "metaTitle": "Contact Us | Terralux Landscape Montreal",
+    "metaDesc": "Contact Terralux Landscape for premium lawn care and landscaping services in Greater Montreal. Call us, email us, or send a message. Complimentary estimates available.",
+    "heroTitle": "Contact",
+    "heroTitle2": "Us",
+    "heroSubtitle": "Have questions? We're here to help. Reach out to us through any of the methods below.",
+    "getInTouch": "Get in Touch",
+    "getInTouchDesc": "Whether you have a question about our services, want to request a quote, or just want to say hello, we'd love to hear from you.",
+    "phone": "Phone",
+    "email": "Email",
+    "serviceArea": "Service Area",
+    "serviceAreaValue": "Greater Montreal & Surrounding Regions",
+    "businessHours": "Business Hours",
+    "monFri": "Monday – Friday: 8:00 AM – 6:00 PM",
+    "satSun": "Saturday – Sunday: 9:00 AM – 5:00 PM",
+    "respondTime": "We respond within 24 hours",
+    "lookingForQuote": "Looking for a Quote?",
+    "lookingForQuoteDesc": "For the fastest response on service quotes, use our dedicated quote form.",
+    "getQuote": "Get a Free Quote",
+    "sendMessage": "Send Us a Message",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phoneLabel": "Phone (Optional)",
+    "phonePlaceholder": "(514) 000-0000",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can we help you?",
+    "sendButton": "Send Message",
+    "sending": "Sending...",
+    "messageSent": "Message Sent!",
+    "messageSentDesc": "We'll get back to you as soon as possible.",
+    "error": "Error",
+    "errorDesc": "Failed to send message. Please try again or call us directly.",
+    "freeEstimates": "Free Estimates",
+    "response24hr": "24hr Response Time",
+    "yearsExperience": "7+ Years Experience",
+    "happyCustomers": "100+ Happy Customers"
+  },
+  "quotePage": {
+    "metaTitle": "Request a Quote | Terralux Landscape Montreal",
+    "metaDesc": "Request a complimentary, no-obligation quote for premium lawn care and landscaping services in Greater Montreal. We'll contact you within 24 hours.",
+    "heroTitle": "Get Your",
+    "heroTitle2": "Free Quote",
+    "heroSubtitle": "Fill out the form below and we'll get back to you within 24 hours with a free, no-obligation estimate.",
+    "contactInfo": "Contact Information",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "(514) 000-0000",
+    "serviceLabel": "Service Needed",
+    "servicePlaceholder": "Select a service",
+    "additionalDetails": "Additional Details",
+    "optional": "(Optional)",
+    "addressLabel": "Address or Neighborhood",
+    "addressPlaceholder": "e.g., 123 Main St, Laval or West Island",
+    "propertyType": "Property Type",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "contactMethod": "Preferred Contact Method",
+    "phoneCall": "Phone Call",
+    "textMessage": "Text Message",
+    "emailMethod": "Email",
+    "projectDetails": "Project Details or Notes",
+    "projectPlaceholder": "Tell us more about your project, yard size, specific needs, etc.",
+    "attachPhotos": "Attach Photos (Optional)",
+    "attachPhotosDesc": "Upload up to 3 photos of your yard or project area",
+    "add": "Add",
+    "submitButton": "Submit Quote Request",
+    "submitting": "Submitting...",
+    "whyChoose": "Why Choose Terralux?",
+    "whyFreeEstimates": "Free, no-obligation estimates",
+    "whyResponse": "Response within 24 hours",
+    "whyExperience": "7+ years serving Greater Montreal",
+    "whySatisfied": "100+ satisfied customers",
+    "whyRating": "4.9★ average customer rating",
+    "preferCall": "Prefer to Call?",
+    "preferCallDesc": "Our team is available to discuss your project directly.",
+    "serviceAreaTitle": "Service Area",
+    "serviceAreaValue": "Greater Montreal & Surrounding Regions",
+    "thankYouTitle": "Thank You!",
+    "thankYouDesc": "Your quote request has been received. We'll contact you within <strong>24 hours</strong> to provide your free estimate.",
+    "whatNext": "What Happens Next?",
+    "nextReview": "Our team reviews your request",
+    "nextContact": "We contact you to discuss details and schedule an on-site visit if needed",
+    "nextEstimate": "You receive your free, no-obligation estimate",
+    "returnHome": "Return to Home",
+    "submitted": "Quote Request Submitted!",
+    "submittedDesc": "We'll contact you within 24 hours to provide your free estimate.",
+    "checkForm": "Please check your form",
+    "checkFormDesc": "Some fields need your attention.",
+    "somethingWrong": "Something went wrong",
+    "somethingWrongDesc": "Please try again or call us directly.",
+    "invalidFile": "Invalid file type",
+    "invalidFileDesc": "Please upload image files only (JPG, PNG, etc.)",
+    "fileTooLarge": "File too large",
+    "fileTooLargeDesc": "Please upload images under 5MB",
+    "services": {
+      "lawnMowing": "Lawn Mowing & Edging",
+      "overseeding": "Overseeding",
+      "flowerBeds": "Flower Bed Installations",
+      "hedging": "Hedging",
+      "leafRemoval": "Leaf Removal & Raking",
+      "mulchBeds": "Mulch Beds",
+      "sodInstallation": "Sod Installation",
+      "windowCleaning": "Window Cleaning",
+      "pressureWashing": "Pressure Washing & Sanding",
+      "multipleServices": "Multiple Services"
+    }
+  },
+  "servicesPage": {
+    "metaTitle": "Our Services | Premium Lawn Care & Landscaping | Terralux Landscape Montreal",
+    "metaDesc": "Explore our complete range of premium outdoor services: lawn mowing, overseeding, flower beds, mulch, sod installation, window cleaning, and pressure washing. Serving Greater Montreal.",
+    "heroTitle": "Our",
+    "heroTitle2": "Services",
+    "heroSubtitle": "Complete outdoor care solutions for residential properties across Greater Montreal. All services include free estimates.",
+    "whatsIncluded": "What's Included",
+    "getQuote": "Get a Free Quote",
+    "readyTitle": "Ready to Get Started?",
+    "readySubtitle": "Request your free estimate today. We'll contact you within 24 hours to discuss your needs.",
+    "readyCta": "Get Your Free Quote",
+    "lawnMowing": {
+      "title": "Lawn Mowing & Edging",
+      "description": "Keep your lawn looking pristine with our professional mowing and precision edging services. We ensure clean, consistent cuts and crisp edge lines that make your property stand out.",
+      "benefits": "A well-maintained lawn is the foundation of great curb appeal. Our regular mowing service ensures your grass stays healthy, dense, and weed-resistant while looking professionally maintained year-round.",
+      "features": ["Weekly or bi-weekly service options", "Precision edging along driveways, walkways, and beds", "Grass clippings bagged or mulched", "Consistent mowing height for healthy growth", "Trimming around obstacles and tight spaces", "Blow-off of all hard surfaces"]
+    },
+    "overseeding": {
+      "title": "Overseeding",
+      "description": "Revitalize thin, patchy, or worn lawns with our professional overseeding service. We use premium grass seed blends suited for the Montreal climate to create a thick, lush lawn.",
+      "benefits": "Overseeding fills in bare spots, thickens thin areas, and introduces newer grass varieties that are more disease and drought resistant. The result is a fuller, greener lawn that crowds out weeds naturally.",
+      "features": ["Soil analysis and preparation", "Premium cool-season grass seed blends", "Proper seed-to-soil contact techniques", "Fertilizer application included", "Watering schedule guidance", "Follow-up care recommendations"]
+    },
+    "flowerBeds": {
+      "title": "Flower Bed Installations",
+      "description": "Add color, texture, and character to your landscape with custom-designed flower beds. We create beautiful arrangements using quality plants selected for our Montreal climate.",
+      "benefits": "Well-designed flower beds create focal points, add seasonal color, and enhance your property's visual appeal. We select plants that thrive in our local conditions for long-lasting beauty.",
+      "features": ["Custom design consultation", "Quality perennials and annuals", "Seasonal color options", "Proper soil preparation", "Mulch finishing included", "Care instructions provided"]
+    },
+    "mulchBeds": {
+      "title": "Mulch Beds",
+      "description": "Protect your plants and beautify your landscape with fresh mulch installation. We offer various mulch types and colors to complement your home's aesthetic.",
+      "benefits": "Mulch retains moisture, regulates soil temperature, prevents weeds, and gives your landscape a polished, professional look. Annual mulching also adds organic matter to improve soil health.",
+      "features": ["Multiple mulch color options", "Proper depth application (2-3 inches)", "Edge definition and clean lines", "Weed barrier option available", "Old mulch removal if needed", "Bed edging included"]
+    },
+    "sodInstallation": {
+      "title": "Sod Installation",
+      "description": "Transform your yard instantly with professional sod installation. Whether you're starting fresh or replacing damaged areas, we deliver a beautiful green lawn in just one day.",
+      "benefits": "Sod provides instant results - no waiting months for seed to grow. It also prevents erosion, is ready to use within 2-3 weeks, and establishes faster than seeded lawns.",
+      "features": ["Grade preparation and leveling", "Premium quality sod delivery", "Professional installation technique", "Seam rolling for root contact", "Initial watering included", "Post-installation care guide"]
+    },
+    "leafRemoval": {
+      "title": "Leaf Removal & Raking",
+      "description": "Keep your property clean and your lawn healthy with our professional leaf removal services. We efficiently clear leaves from lawns, beds, and hard surfaces during the fall season.",
+      "benefits": "Removing fallen leaves prevents lawn suffocation, reduces fungal diseases, and keeps your property looking well-maintained throughout autumn. A clean yard also deters pests seeking winter shelter.",
+      "features": ["Complete lawn and bed clearing", "Hard surface cleanup (driveways, patios)", "Gutter area clearing", "Leaf bagging and removal", "Final blow-off for clean finish", "Flexible scheduling during peak season"]
+    },
+    "hedging": {
+      "title": "Hedging",
+      "description": "Maintain the shape, health, and beauty of your hedges with our professional trimming and shaping services. We keep your hedges looking neat and well-defined throughout the growing season.",
+      "benefits": "Regular hedge maintenance promotes dense, healthy growth while maintaining clean property lines and enhancing curb appeal. Well-trimmed hedges also provide better privacy and wind protection.",
+      "features": ["Precise shaping and trimming", "Height and width control", "Health assessment and care tips", "Debris cleanup and removal", "Seasonal maintenance scheduling", "All hedge types and sizes"]
+    },
+    "windowCleaning": {
+      "title": "Window Cleaning",
+      "description": "Crystal clear windows make your entire home shine. Our professional window cleaning service removes dirt, grime, and water spots for a streak-free finish.",
+      "benefits": "Clean windows improve natural light, enhance your home's appearance, and extend window life by preventing etching from hard water and debris buildup.",
+      "features": ["Interior and exterior cleaning", "Screen cleaning included", "Track and sill wiping", "Streak-free finish guaranteed", "Hard water stain removal", "Safe techniques for all window types"]
+    },
+    "pressureWashing": {
+      "title": "Pressure Washing & Sanding",
+      "description": "Restore your outdoor surfaces to like-new condition. We safely and effectively clean driveways, patios, decks, siding, and more.",
+      "benefits": "Pressure washing removes years of dirt, mold, mildew, and stains that regular cleaning can't touch. It's the fastest way to dramatically improve your property's appearance.",
+      "features": ["Driveway and walkway cleaning", "Deck and patio restoration", "Fence and siding washing", "Polymeric sand application", "Pre-treatment for stains", "Environmentally safe methods"]
+    },
+    "snowRemoval": {
+      "title": "Snow Removal",
+      "description": "Professional driveway snow removal services planned for future winter seasons. Stay tuned for updates on this upcoming service.",
+      "benefits": "Keep your driveway and property, residential or commercial, clear and accessible all winter long. We are on duty throughout the season to ensure safe and timely access without the stress.",
+      "features": ["Driveway clearing", "Reliable winter service", "Residential & commercial coverage", "Early morning readiness", "On duty all winter long"]
+    }
+  },
+  "seasons": {
+    "spring": "Spring",
+    "summer": "Summer",
+    "fall": "Fall",
+    "year-round": "Year-round",
+    "coming-soon": "Coming Soon"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}

@@ -1,4 +1,5 @@
 import { Flower2, Sun, Leaf, Calendar, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export type Season = 'spring' | 'summer' | 'fall' | 'year-round' | 'coming-soon';
 
@@ -6,35 +7,31 @@ interface SeasonBadgeProps {
   season: Season;
 }
 
-const seasonConfig: Record<Season, { icon: typeof Flower2; label: string; className: string }> = {
+const seasonConfig: Record<Season, { icon: typeof Flower2; className: string }> = {
   spring: {
     icon: Flower2,
-    label: 'Spring',
     className: 'bg-pink-100 text-pink-700 border-pink-200',
   },
   summer: {
     icon: Sun,
-    label: 'Summer',
     className: 'bg-amber-100 text-amber-700 border-amber-200',
   },
   fall: {
     icon: Leaf,
-    label: 'Fall',
     className: 'bg-orange-100 text-orange-700 border-orange-200',
   },
   'year-round': {
     icon: Calendar,
-    label: 'Year-round',
     className: 'bg-secondary text-primary border-border',
   },
   'coming-soon': {
     icon: Clock,
-    label: 'Coming Soon',
     className: 'bg-gray-100 text-gray-600 border-gray-200',
   },
 };
 
 export function SeasonBadge({ season }: SeasonBadgeProps) {
+  const { t } = useTranslation();
   const config = seasonConfig[season];
   const Icon = config.icon;
 
@@ -43,7 +40,7 @@ export function SeasonBadge({ season }: SeasonBadgeProps) {
       className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full border ${config.className}`}
     >
       <Icon className="h-3 w-3" />
-      {config.label}
+      {t(`seasons.${season}`)}
     </span>
   );
 }

@@ -3,18 +3,21 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/Logo';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Contact', href: '/contact' },
-];
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
+
+  const navigation = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.services'), href: '/services' },
+    { name: t('nav.contact'), href: '/contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +48,7 @@ export function Header() {
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 to={item.href}
                 className={`font-display text-sm font-medium transition-colors hover:text-primary ${
                   location.pathname === item.href
@@ -60,31 +63,35 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
+            <LanguageToggle />
             <a
               href="tel:+15142935662"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4" />
-              (514) 293-5662
+              {t('nav.phone')}
             </a>
             <Button variant="cta" size="lg" asChild>
-              <Link to="/quote">Get a Free Quote</Link>
+              <Link to="/quote">{t('nav.getQuote')}</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 -m-2 text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Toggle menu</span>
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center gap-3">
+            <LanguageToggle />
+            <button
+              type="button"
+              className="p-2 -m-2 text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="sr-only">Toggle menu</span>
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -100,7 +107,7 @@ export function Header() {
             <div className="container-custom py-6 space-y-4">
               {navigation.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   to={item.href}
                   className={`block font-display text-lg font-medium py-2 transition-colors ${
                     location.pathname === item.href
@@ -117,10 +124,10 @@ export function Header() {
                   className="flex items-center gap-2 text-muted-foreground"
                 >
                   <Phone className="h-5 w-5" />
-                  (514) 293-5662
+                  {t('nav.phone')}
                 </a>
                 <Button variant="cta" size="lg" className="w-full" asChild>
-                  <Link to="/quote">Get a Free Quote</Link>
+                  <Link to="/quote">{t('nav.getQuote')}</Link>
                 </Button>
               </div>
             </div>

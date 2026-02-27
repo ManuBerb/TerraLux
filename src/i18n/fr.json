@@ -1,0 +1,343 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "contact": "Contact",
+    "getQuote": "Soumission gratuite",
+    "phone": "(514) 293-5662"
+  },
+  "hero": {
+    "badge": "Estimations gratuites pour tous les services",
+    "title1": "Sublimez votre",
+    "title2": "espace extérieur.",
+    "subtitle": "Pas le temps ? Pas de stress. TerraLux s'occupe du reste.",
+    "ctaQuote": "Soumission gratuite",
+    "ctaServices": "Voir nos services",
+    "happyCustomers": "Clients satisfaits",
+    "yearsExperience": "Ans d'expérience",
+    "averageRating": "Note moyenne"
+  },
+  "services": {
+    "badge": "Nos services",
+    "title": "Entretien extérieur complet pour votre maison",
+    "subtitle": "De l'entretien régulier de pelouse aux transformations paysagères complètes, nous offrons tout ce dont vous avez besoin pour un bel espace extérieur.",
+    "viewAll": "Voir tous les services",
+    "mostPopular": "Le plus populaire",
+    "lawnMowing": {
+      "title": "Tonte & bordure de pelouse",
+      "description": "Tonte professionnelle avec bordure de précision pour une pelouse parfaitement entretenue qui rehausse l'attrait de votre propriété.",
+      "features": ["Service hebdomadaire/bimensuel", "Bordures nettes", "Résidus ramassés"]
+    },
+    "overseeding": {
+      "title": "Sursemis",
+      "description": "Revitalisez les pelouses clairsemées avec des semences de gazon premium pour obtenir un tapis vert dense et luxuriant.",
+      "features": ["Mélange de semences premium", "Préparation du sol", "Suivi d'entretien"]
+    },
+    "flowerBeds": {
+      "title": "Installation de plates-bandes",
+      "description": "De magnifiques plates-bandes conçues et installées pour ajouter couleur et caractère à votre propriété.",
+      "features": ["Designs personnalisés", "Plantes de qualité", "Options saisonnières"]
+    },
+    "mulchBeds": {
+      "title": "Paillis",
+      "description": "Installation de paillis frais pour protéger les plantes, retenir l'humidité et créer des plates-bandes propres et définies.",
+      "features": ["Plusieurs couleurs", "Prévention des mauvaises herbes", "Finition professionnelle"]
+    },
+    "sodInstallation": {
+      "title": "Pose de gazon en plaques",
+      "description": "Transformation instantanée de votre pelouse avec du gazon en plaques de qualité premium, installé professionnellement.",
+      "features": ["Pelouse verte le jour même", "Préparation du terrain", "Conseils d'arrosage"]
+    },
+    "windowPressure": {
+      "title": "Lavage de vitres & haute pression",
+      "description": "Des vitres cristallines et des surfaces impeccables pour faire briller toute votre propriété.",
+      "features": ["Finition sans traces", "Terrasse & allée", "Techniques sécuritaires"]
+    }
+  },
+  "howItWorks": {
+    "badge": "Comment ça marche",
+    "title": "Commencer est facile",
+    "subtitle": "Trois étapes simples vers un beau jardin. Nous simplifions le processus pour que vous puissiez profiter de votre espace extérieur sans tracas.",
+    "step1Title": "Demandez une soumission",
+    "step1Desc": "Remplissez notre formulaire simple avec vos besoins et les détails de votre propriété. Ça prend moins de 2 minutes.",
+    "step2Title": "Nous vous contactons",
+    "step2Desc": "Notre équipe vous contactera dans les 24 heures pour discuter de vos besoins et fournir une estimation personnalisée.",
+    "step3Title": "Service complété",
+    "step3Desc": "Détendez-vous pendant que notre équipe professionnelle transforme votre espace extérieur à la perfection.",
+    "cta": "Demandez votre soumission gratuite",
+    "noObligation": "Sans obligation. Estimations gratuites pour tous les services."
+  },
+  "testimonials": {
+    "badge": "Témoignages",
+    "title": "Ce que disent nos clients",
+    "subtitle": "Ne nous croyez pas sur parole. Écoutez les propriétaires du Grand Montréal qui font confiance à Terralux pour leurs espaces extérieurs.",
+    "averageRating": "4.9/5 Note moyenne",
+    "happyCustomers": "500+ Clients satisfaits"
+  },
+  "gallery": {
+    "badge": "Nos réalisations",
+    "title": "Galerie avant & après",
+    "subtitle": "Voyez la transformation que nous apportons aux propriétés du Grand Montréal. De vrais résultats de vrais projets.",
+    "before": "Avant",
+    "after": "Après",
+    "showMore": "Voir plus de projets",
+    "categories": {
+      "All": "Tous",
+      "Lawn Care": "Entretien de pelouse",
+      "Hedging": "Taille de haies",
+      "Overseeding": "Sursemis",
+      "Window Cleaning": "Lavage de vitres",
+      "Pressure Washing": "Lavage haute pression"
+    }
+  },
+  "serviceArea": {
+    "badge": "Zone de service",
+    "title1": "Fièrement au service du",
+    "title2": "Grand Montréal",
+    "description": "Grand Montréal et régions avoisinantes. Du cœur de Montréal aux banlieues environnantes, nous apportons des services extérieurs professionnels aux propriétés résidentielles de toute la région.",
+    "serviceRadius": "Rayon de service",
+    "communities": "Communautés",
+    "notSure": "Pas certain d'être dans notre zone de service ?",
+    "loveToCheck": "On vérifie avec plaisir !",
+    "requestQuote": "Demander une soumission gratuite"
+  },
+  "cta": {
+    "title1": "Prêt à transformer votre",
+    "title2": "espace extérieur ?",
+    "subtitle": "Obtenez une estimation gratuite et sans obligation pour votre propriété. Notre équipe vous contactera dans les 24 heures pour discuter de vos besoins.",
+    "button": "Obtenez votre soumission gratuite",
+    "freeEstimates": "Estimations gratuites",
+    "noObligation": "Sans obligation",
+    "response24hr": "Réponse en 24h"
+  },
+  "mobileCTA": {
+    "button": "Soumission gratuite"
+  },
+  "footer": {
+    "tagline": "Sublimez votre espace extérieur.",
+    "description": "Services extérieurs premium pour les propriétaires exigeants du Grand Montréal.",
+    "servicesTitle": "Services",
+    "companyTitle": "Entreprise",
+    "contactTitle": "Nous joindre",
+    "businessHours": "Heures d'ouverture",
+    "monFri": "Lundi – Vendredi : 9h00 – 18h00",
+    "satSun": "Samedi – Dimanche : 9h00 – 17h00",
+    "servingArea": "Desservant le Grand Montréal",
+    "servingArea2": "et les régions avoisinantes",
+    "copyright": "© {{year}} Terralux Landscape Inc. Tous droits réservés.",
+    "freeEstimates": "Estimations gratuites pour tous les services",
+    "serviceLinks": {
+      "lawnMowing": "Tonte & bordure de pelouse",
+      "overseeding": "Sursemis",
+      "flowerBeds": "Installation de plates-bandes",
+      "mulchBeds": "Paillis",
+      "sod": "Pose de gazon en plaques",
+      "windowCleaning": "Lavage de vitres",
+      "pressureWashing": "Lavage haute pression / Sablage",
+      "leafRemoval": "Ramassage de feuilles",
+      "hedging": "Taille de haies"
+    },
+    "companyLinks": {
+      "home": "Accueil",
+      "services": "Services",
+      "getQuote": "Soumission",
+      "contact": "Contact"
+    }
+  },
+  "contactPage": {
+    "metaTitle": "Nous joindre | Terralux Landscape Montréal",
+    "metaDesc": "Contactez Terralux Landscape pour des services d'entretien de pelouse et d'aménagement paysager premium dans le Grand Montréal. Appelez-nous, écrivez-nous ou envoyez un message.",
+    "heroTitle": "Nous",
+    "heroTitle2": "joindre",
+    "heroSubtitle": "Vous avez des questions ? Nous sommes là pour vous aider. Contactez-nous par l'une des méthodes ci-dessous.",
+    "getInTouch": "Entrer en contact",
+    "getInTouchDesc": "Que vous ayez une question sur nos services, souhaitiez demander une soumission ou simplement dire bonjour, nous serions ravis de vous entendre.",
+    "phone": "Téléphone",
+    "email": "Courriel",
+    "serviceArea": "Zone de service",
+    "serviceAreaValue": "Grand Montréal et régions avoisinantes",
+    "businessHours": "Heures d'ouverture",
+    "monFri": "Lundi – Vendredi : 8h00 – 18h00",
+    "satSun": "Samedi – Dimanche : 9h00 – 17h00",
+    "respondTime": "Nous répondons dans les 24 heures",
+    "lookingForQuote": "Vous cherchez une soumission ?",
+    "lookingForQuoteDesc": "Pour la réponse la plus rapide, utilisez notre formulaire de soumission dédié.",
+    "getQuote": "Soumission gratuite",
+    "sendMessage": "Envoyez-nous un message",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Votre nom",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "vous@exemple.com",
+    "phoneLabel": "Téléphone (Facultatif)",
+    "phonePlaceholder": "(514) 000-0000",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Comment pouvons-nous vous aider ?",
+    "sendButton": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "messageSent": "Message envoyé !",
+    "messageSentDesc": "Nous vous répondrons dès que possible.",
+    "error": "Erreur",
+    "errorDesc": "Échec de l'envoi du message. Veuillez réessayer ou nous appeler directement.",
+    "freeEstimates": "Estimations gratuites",
+    "response24hr": "Réponse en 24h",
+    "yearsExperience": "7+ ans d'expérience",
+    "happyCustomers": "100+ Clients satisfaits"
+  },
+  "quotePage": {
+    "metaTitle": "Demander une soumission | Terralux Landscape Montréal",
+    "metaDesc": "Demandez une soumission gratuite et sans obligation pour des services d'entretien de pelouse et d'aménagement paysager premium dans le Grand Montréal.",
+    "heroTitle": "Obtenez votre",
+    "heroTitle2": "soumission gratuite",
+    "heroSubtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures avec une estimation gratuite et sans obligation.",
+    "contactInfo": "Coordonnées",
+    "fullName": "Nom complet",
+    "fullNamePlaceholder": "Votre nom complet",
+    "emailLabel": "Courriel",
+    "emailPlaceholder": "vous@exemple.com",
+    "phoneLabel": "Numéro de téléphone",
+    "phonePlaceholder": "(514) 000-0000",
+    "serviceLabel": "Service désiré",
+    "servicePlaceholder": "Sélectionner un service",
+    "additionalDetails": "Détails supplémentaires",
+    "optional": "(Facultatif)",
+    "addressLabel": "Adresse ou quartier",
+    "addressPlaceholder": "ex. : 123 rue Principale, Laval ou Ouest-de-l'Île",
+    "propertyType": "Type de propriété",
+    "residential": "Résidentiel",
+    "commercial": "Commercial",
+    "contactMethod": "Mode de contact préféré",
+    "phoneCall": "Appel téléphonique",
+    "textMessage": "Message texte",
+    "emailMethod": "Courriel",
+    "projectDetails": "Détails du projet ou notes",
+    "projectPlaceholder": "Dites-nous en plus sur votre projet, la taille de votre terrain, vos besoins spécifiques, etc.",
+    "attachPhotos": "Joindre des photos (Facultatif)",
+    "attachPhotosDesc": "Téléversez jusqu'à 3 photos de votre terrain ou de la zone du projet",
+    "add": "Ajouter",
+    "submitButton": "Soumettre la demande",
+    "submitting": "Soumission en cours...",
+    "whyChoose": "Pourquoi choisir Terralux ?",
+    "whyFreeEstimates": "Estimations gratuites et sans obligation",
+    "whyResponse": "Réponse dans les 24 heures",
+    "whyExperience": "7+ ans au service du Grand Montréal",
+    "whySatisfied": "100+ clients satisfaits",
+    "whyRating": "4.9★ note moyenne des clients",
+    "preferCall": "Préférez appeler ?",
+    "preferCallDesc": "Notre équipe est disponible pour discuter de votre projet directement.",
+    "serviceAreaTitle": "Zone de service",
+    "serviceAreaValue": "Grand Montréal et régions avoisinantes",
+    "thankYouTitle": "Merci !",
+    "thankYouDesc": "Votre demande de soumission a été reçue. Nous vous contacterons dans les <strong>24 heures</strong> pour fournir votre estimation gratuite.",
+    "whatNext": "Que se passe-t-il ensuite ?",
+    "nextReview": "Notre équipe examine votre demande",
+    "nextContact": "Nous vous contactons pour discuter des détails et planifier une visite si nécessaire",
+    "nextEstimate": "Vous recevez votre estimation gratuite et sans obligation",
+    "returnHome": "Retour à l'accueil",
+    "submitted": "Demande soumise !",
+    "submittedDesc": "Nous vous contacterons dans les 24 heures pour fournir votre estimation gratuite.",
+    "checkForm": "Veuillez vérifier votre formulaire",
+    "checkFormDesc": "Certains champs nécessitent votre attention.",
+    "somethingWrong": "Une erreur s'est produite",
+    "somethingWrongDesc": "Veuillez réessayer ou nous appeler directement.",
+    "invalidFile": "Type de fichier invalide",
+    "invalidFileDesc": "Veuillez téléverser uniquement des images (JPG, PNG, etc.)",
+    "fileTooLarge": "Fichier trop volumineux",
+    "fileTooLargeDesc": "Veuillez téléverser des images de moins de 5 Mo",
+    "services": {
+      "lawnMowing": "Tonte & bordure de pelouse",
+      "overseeding": "Sursemis",
+      "flowerBeds": "Installation de plates-bandes",
+      "hedging": "Taille de haies",
+      "leafRemoval": "Ramassage de feuilles",
+      "mulchBeds": "Paillis",
+      "sodInstallation": "Pose de gazon en plaques",
+      "windowCleaning": "Lavage de vitres",
+      "pressureWashing": "Lavage haute pression & Sablage",
+      "multipleServices": "Plusieurs services"
+    }
+  },
+  "servicesPage": {
+    "metaTitle": "Nos services | Entretien de pelouse & aménagement paysager premium | Terralux Landscape Montréal",
+    "metaDesc": "Découvrez notre gamme complète de services extérieurs premium : tonte de pelouse, sursemis, plates-bandes, paillis, pose de gazon, lavage de vitres et lavage haute pression. Grand Montréal.",
+    "heroTitle": "Nos",
+    "heroTitle2": "services",
+    "heroSubtitle": "Solutions complètes d'entretien extérieur pour propriétés résidentielles dans le Grand Montréal. Tous les services incluent des estimations gratuites.",
+    "whatsIncluded": "Ce qui est inclus",
+    "getQuote": "Soumission gratuite",
+    "readyTitle": "Prêt à commencer ?",
+    "readySubtitle": "Demandez votre estimation gratuite aujourd'hui. Nous vous contacterons dans les 24 heures pour discuter de vos besoins.",
+    "readyCta": "Obtenez votre soumission gratuite",
+    "lawnMowing": {
+      "title": "Tonte & bordure de pelouse",
+      "description": "Gardez votre pelouse impeccable grâce à nos services professionnels de tonte et de bordure de précision. Nous assurons des coupes nettes et régulières qui font ressortir votre propriété.",
+      "benefits": "Une pelouse bien entretenue est la base d'un bel attrait visuel. Notre service de tonte régulière assure que votre gazon reste sain, dense et résistant aux mauvaises herbes tout au long de l'année.",
+      "features": ["Options de service hebdomadaire ou bimensuel", "Bordure de précision le long des allées et plates-bandes", "Résidus de tonte ensachés ou paillés", "Hauteur de tonte constante pour une croissance saine", "Taille autour des obstacles et espaces restreints", "Soufflage de toutes les surfaces dures"]
+    },
+    "overseeding": {
+      "title": "Sursemis",
+      "description": "Revitalisez les pelouses clairsemées ou usées avec notre service professionnel de sursemis. Nous utilisons des mélanges de semences premium adaptés au climat montréalais.",
+      "benefits": "Le sursemis comble les zones dégarnies, épaissit les zones clairsemées et introduit des variétés de gazon plus résistantes aux maladies et à la sécheresse.",
+      "features": ["Analyse et préparation du sol", "Mélanges de semences premium pour climat froid", "Techniques de contact semence-sol appropriées", "Application d'engrais incluse", "Guide d'arrosage", "Recommandations de suivi"]
+    },
+    "flowerBeds": {
+      "title": "Installation de plates-bandes",
+      "description": "Ajoutez couleur, texture et caractère à votre paysage avec des plates-bandes conçues sur mesure. Nous créons de beaux arrangements avec des plantes de qualité sélectionnées pour notre climat.",
+      "benefits": "Des plates-bandes bien conçues créent des points focaux, ajoutent de la couleur saisonnière et rehaussent l'attrait visuel de votre propriété.",
+      "features": ["Consultation de design personnalisé", "Vivaces et annuelles de qualité", "Options de couleurs saisonnières", "Préparation adéquate du sol", "Paillage de finition inclus", "Instructions d'entretien fournies"]
+    },
+    "mulchBeds": {
+      "title": "Paillis",
+      "description": "Protégez vos plantes et embellissez votre paysage avec une installation de paillis frais. Nous offrons plusieurs types et couleurs de paillis.",
+      "benefits": "Le paillis retient l'humidité, régule la température du sol, prévient les mauvaises herbes et donne à votre paysage un aspect soigné et professionnel.",
+      "features": ["Plusieurs options de couleurs", "Application à la profondeur adéquate (2-3 pouces)", "Définition des bordures et lignes nettes", "Option de barrière anti-mauvaises herbes", "Retrait de l'ancien paillis si nécessaire", "Bordure de plates-bandes incluse"]
+    },
+    "sodInstallation": {
+      "title": "Pose de gazon en plaques",
+      "description": "Transformez votre cour instantanément avec une pose professionnelle de gazon en plaques. Que vous partiez de zéro ou remplaciez des zones endommagées, nous livrons une belle pelouse verte en une journée.",
+      "benefits": "Le gazon en plaques donne des résultats instantanés — pas d'attente de mois pour que les semences poussent. Il prévient aussi l'érosion et est prêt à utiliser en 2-3 semaines.",
+      "features": ["Préparation et nivellement du terrain", "Livraison de gazon de qualité premium", "Technique d'installation professionnelle", "Roulage des joints pour contact racinaire", "Arrosage initial inclus", "Guide d'entretien post-installation"]
+    },
+    "leafRemoval": {
+      "title": "Ramassage de feuilles",
+      "description": "Gardez votre propriété propre et votre pelouse en santé avec nos services professionnels de ramassage de feuilles en automne.",
+      "benefits": "Le ramassage des feuilles mortes prévient l'étouffement de la pelouse, réduit les maladies fongiques et garde votre propriété bien entretenue tout l'automne.",
+      "features": ["Nettoyage complet de la pelouse et des plates-bandes", "Nettoyage des surfaces dures (allées, terrasses)", "Nettoyage des zones de gouttières", "Ensachage et retrait des feuilles", "Soufflage final pour une finition propre", "Horaire flexible en haute saison"]
+    },
+    "hedging": {
+      "title": "Taille de haies",
+      "description": "Maintenez la forme, la santé et la beauté de vos haies avec nos services professionnels de taille et de mise en forme.",
+      "benefits": "Un entretien régulier des haies favorise une croissance dense et saine tout en maintenant des lignes de propriété nettes. Des haies bien taillées offrent aussi une meilleure intimité.",
+      "features": ["Mise en forme et taille précises", "Contrôle de la hauteur et de la largeur", "Évaluation de la santé et conseils", "Nettoyage et retrait des débris", "Planification d'entretien saisonnier", "Tous types et tailles de haies"]
+    },
+    "windowCleaning": {
+      "title": "Lavage de vitres",
+      "description": "Des vitres cristallines font briller toute votre maison. Notre service professionnel élimine saleté, crasse et taches d'eau pour une finition sans traces.",
+      "benefits": "Des vitres propres améliorent la lumière naturelle, rehaussent l'apparence de votre maison et prolongent la durée de vie des fenêtres.",
+      "features": ["Nettoyage intérieur et extérieur", "Nettoyage des moustiquaires inclus", "Essuyage des rails et rebords", "Finition sans traces garantie", "Élimination des taches d'eau dure", "Techniques sécuritaires pour tous types de fenêtres"]
+    },
+    "pressureWashing": {
+      "title": "Lavage haute pression & Sablage",
+      "description": "Restaurez vos surfaces extérieures à l'état neuf. Nous nettoyons efficacement allées, terrasses, clôtures et plus encore.",
+      "benefits": "Le lavage haute pression élimine des années de saleté, moisissure et taches que le nettoyage régulier ne peut atteindre. C'est le moyen le plus rapide d'améliorer l'apparence de votre propriété.",
+      "features": ["Nettoyage d'allées et de trottoirs", "Restauration de terrasses et patios", "Lavage de clôtures et revêtements", "Application de sable polymère", "Prétraitement des taches", "Méthodes respectueuses de l'environnement"]
+    },
+    "snowRemoval": {
+      "title": "Déneigement",
+      "description": "Services professionnels de déneigement d'entrées prévus pour les prochaines saisons hivernales. Restez à l'affût pour les mises à jour.",
+      "benefits": "Gardez votre entrée et votre propriété, résidentielle ou commerciale, dégagées et accessibles tout l'hiver. Nous sommes de service toute la saison.",
+      "features": ["Déneigement d'entrée", "Service hivernal fiable", "Couverture résidentielle et commerciale", "Prêt tôt le matin", "De service tout l'hiver"]
+    }
+  },
+  "seasons": {
+    "spring": "Printemps",
+    "summer": "Été",
+    "fall": "Automne",
+    "year-round": "Toute l'année",
+    "coming-soon": "Bientôt disponible"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oups ! Page introuvable",
+    "returnHome": "Retour à l'accueil"
+  }
+}
