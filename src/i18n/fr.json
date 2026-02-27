@@ -292,10 +292,10 @@
       "features": ["Plusieurs options de couleurs", "Application à la profondeur adéquate (2-3 pouces)", "Définition des bordures et lignes nettes", "Option de barrière anti-mauvaises herbes", "Retrait de l'ancien paillis si nécessaire", "Bordure de plates-bandes incluse"]
     },
     "sodInstallation": {
-      "title": "Pose de gazon en plaques",
-      "description": "Transformez votre cour instantanément avec une pose professionnelle de gazon en plaques. Que vous partiez de zéro ou remplaciez des zones endommagées, nous livrons une belle pelouse verte en une journée.",
-      "benefits": "Le gazon en plaques donne des résultats instantanés — pas d'attente de mois pour que les semences poussent. Il prévient aussi l'érosion et est prêt à utiliser en 2-3 semaines.",
-      "features": ["Préparation et nivellement du terrain", "Livraison de gazon de qualité premium", "Technique d'installation professionnelle", "Roulage des joints pour contact racinaire", "Arrosage initial inclus", "Guide d'entretien post-installation"]
+      "title": "Installation de tourbe",
+      "description": "Transformez votre cour instantanément avec une installation professionnelle de tourbe. Que vous partiez de zéro ou remplaciez des zones endommagées, nous livrons une belle pelouse verte en une journée.",
+      "benefits": "La tourbe donne des résultats instantanés — pas d'attente de mois pour que les semences poussent. Elle prévient aussi l'érosion et est prête à utiliser en 2-3 semaines.",
+      "features": ["Préparation et nivellement du terrain", "Livraison de tourbe de qualité premium", "Technique d'installation professionnelle", "Roulage des joints pour contact racinaire", "Arrosage initial inclus", "Guide d'entretien post-installation"]
     },
     "leafRemoval": {
       "title": "Ramassage de feuilles",
