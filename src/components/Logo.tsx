@@ -54,19 +54,19 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
           textAnchor="start"
           letterSpacing="0.05em"
         >
-          TERRALUX
+          {line1}
         </text>
         <text
           x="5"
           y="150"
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
-          fontSize="42"
+          fontSize={isFr ? "36" : "42"}
           fill="#404245"
           textAnchor="start"
           letterSpacing="0.12em"
         >
-          LANDSCAPE INC.
+          {line2}
         </text>
       </svg>
     </div>
