@@ -110,6 +110,7 @@ const QuotePage = () => {
           preferredContactMethod: validatedData.contactMethod || undefined,
           additionalDetails: validatedData.details || undefined,
           imagePaths: imagePaths.length > 0 ? imagePaths : undefined,
+          _hp: honeypot,
         },
       });
 
