@@ -38,7 +38,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
       </svg>
       {/* Text */}
       <svg
-        viewBox={isFr ? "0 0 520 160" : "0 0 430 160"}
+        viewBox={isFr ? "0 0 560 160" : "0 0 430 160"}
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto shrink-0"
       >
