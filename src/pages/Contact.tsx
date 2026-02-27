@@ -15,6 +15,14 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().min(1, 'Name is required').max(100),
+  email: z.string().email('Please enter a valid email').max(255),
+  phone: z.string().max(20).optional(),
+  message: z.string().min(1, 'Message is required').max(5000),
+});
 
 const ContactPage = () => {
   const { toast } = useToast();
