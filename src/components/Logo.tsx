@@ -6,6 +6,10 @@ interface LogoProps {
 }
 
 export function Logo({ className = '', iconOnly = false }: LogoProps) {
+  const { i18n } = useTranslation();
+  const isFr = i18n.language === 'fr';
+  const line1 = isFr ? 'PAYSAGEMENT' : 'TERRALUX';
+  const line2 = isFr ? 'TERRALUX INC.' : 'LANDSCAPE INC.';
   if (iconOnly) {
     return (
       <svg
