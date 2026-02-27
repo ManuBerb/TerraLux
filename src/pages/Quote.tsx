@@ -52,7 +52,7 @@ const QuotePage = () => {
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteFormData, string>>>({});
   const [attachedImages, setAttachedImages] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+  const [honeypot, setHoneypot] = useState('');
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '', email: '', phone: '', service: '',
     address: '', propertyType: 'residential', contactMethod: 'phone', details: '',
