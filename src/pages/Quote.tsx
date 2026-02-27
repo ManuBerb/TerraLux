@@ -625,11 +625,11 @@ const QuotePage = () => {
                     Our team is available to discuss your project directly.
                   </p>
                   <a
-                    href="tel:+15141234567"
+                    href="tel:+15142935662"
                     className="flex items-center gap-3 text-primary font-semibold hover:text-forest-light transition-colors"
                   >
                     <Phone className="h-5 w-5" />
-                    (514) 123-4567
+                    (514) 293-5662
                   </a>
                 </div>
 
