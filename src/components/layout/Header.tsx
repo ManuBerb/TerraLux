@@ -113,11 +113,11 @@ export function Header() {
               ))}
               <div className="pt-4 border-t border-border space-y-4">
                 <a
-                  href="tel:+15141234567"
+                  href="tel:+15142935662"
                   className="flex items-center gap-2 text-muted-foreground"
                 >
                   <Phone className="h-5 w-5" />
-                  (514) 123-4567
+                  (514) 293-5662
                 </a>
                 <Button variant="cta" size="lg" className="w-full" asChild>
                   <Link to="/quote">Get a Free Quote</Link>

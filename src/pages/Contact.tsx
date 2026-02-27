@@ -124,10 +124,10 @@ const ContactPage = () => {
                         Phone
                       </h3>
                       <a
-                        href="tel:+15141234567"
+                        href="tel:+15142935662"
                         className="text-primary hover:text-forest-light transition-colors font-medium"
                       >
-                        (514) 123-4567
+                        (514) 293-5662
                       </a>
                       <div className="text-sm text-muted-foreground mt-1 space-y-1">
                         <p>Monday – Friday: 8:00 AM – 6:00 PM</p>
