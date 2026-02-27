@@ -289,7 +289,7 @@
       "title": "Paillis",
       "description": "Protégez vos plantes et embellissez votre paysage avec une installation de paillis frais. Nous offrons plusieurs types et couleurs de paillis.",
       "benefits": "Le paillis retient l'humidité, régule la température du sol, prévient les mauvaises herbes et donne à votre paysage un aspect soigné et professionnel.",
-      "features": ["Plusieurs options de couleurs", "Application à la profondeur adéquate (2-3 pouces)", "Définition des bordures et lignes nettes", "Option de barrière anti-mauvaises herbes", "Retrait de l'ancien paillis si nécessaire", "Bordure de plates-bandes incluse"]
+      "features": ["Plusieurs options de couleurs", ""features": ["Plusieurs options de couleurs", "Application à la profondeur adéquate", "Définition des bordures et lignes nettes", "Option de barrière anti-mauvaises herbes", "Retrait de l'ancien paillis si nécessaire", "Bordure de plates-bandes incluse"]", "Définition des bordures et lignes nettes", "Option de barrière anti-mauvaises herbes", "Retrait de l'ancien paillis si nécessaire", "Bordure de plates-bandes incluse"]
     },
     "sodInstallation": {
       "title": "Pose de gazon en plaques",
