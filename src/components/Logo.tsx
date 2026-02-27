@@ -1,9 +1,13 @@
+import { useTranslation } from 'react-i18next';
+
 interface LogoProps {
   className?: string;
   iconOnly?: boolean;
 }
 
 export function Logo({ className = '', iconOnly = false }: LogoProps) {
+  const { i18n } = useTranslation();
+  const isFr = i18n.language?.startsWith('fr');
   if (iconOnly) {
     return (
       <svg
