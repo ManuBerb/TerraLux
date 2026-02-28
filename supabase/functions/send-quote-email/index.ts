@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     const body = await req.json();
 
     // Honeypot check
-    if (body._hp) {
+    if (body.website_url) {
       return new Response(JSON.stringify({ success: true, quoteNumber: 0 }), {
         status: 200,
         headers: { "Content-Type": "application/json", ...corsHeaders },

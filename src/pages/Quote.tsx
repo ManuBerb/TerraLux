@@ -110,7 +110,7 @@ const QuotePage = () => {
           preferredContactMethod: validatedData.contactMethod || undefined,
           additionalDetails: validatedData.details || undefined,
           imagePaths: imagePaths.length > 0 ? imagePaths : undefined,
-          _hp: honeypot,
+          website_url: honeypot,
         },
       });
 
@@ -206,16 +206,16 @@ const QuotePage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-2">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <input
-                    type="text"
-                    name="_hp"
-                    value={honeypot}
-                    onChange={(e) => setHoneypot(e.target.value)}
-                    style={{ position: 'absolute', left: '-9999px' }}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website_url"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="new-password"
+                    />
+                  </div>
                   <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-card space-y-6">
                     <h2 className="font-display text-xl font-semibold text-foreground">{t('quotePage.contactInfo')}</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
