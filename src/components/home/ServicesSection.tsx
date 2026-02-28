@@ -16,8 +16,11 @@ import { useTranslation } from 'react-i18next';
 
 const serviceKeys = [
   { key: 'lawnMowing', icon: Leaf, featured: true, seasons: ['spring', 'summer', 'fall'] as Season[] },
-  { key: 'leafRemoval', icon: TreeDeciduous, featured: false, seasons: ['fall'] as Season[] },
+  { key: 'overseeding', icon: Sprout, featured: false, seasons: ['spring', 'fall'] as Season[] },
+  { key: 'flowerBeds', icon: Flower2, featured: false, seasons: ['spring', 'fall'] as Season[] },
+  { key: 'mulchBeds', icon: TreeDeciduous, featured: false, seasons: ['spring', 'summer', 'fall'] as Season[] },
   { key: 'sodInstallation', icon: Droplets, featured: false, seasons: ['spring', 'fall'] as Season[] },
+  { key: 'windowPressure', icon: Sparkles, featured: false, seasons: ['year-round'] as Season[] },
 ];
 
 const containerVariants = {
