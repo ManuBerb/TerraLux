@@ -48,10 +48,10 @@
       "description": "Transformation instantanée de votre pelouse avec de la tourbe de qualité premium, installée professionnellement.",
       "features": ["Pelouse verte le jour même", "Préparation du terrain", "Conseils d'arrosage"]
     },
-    "windowPressure": {
-      "title": "Lavage de vitres & haute pression",
-      "description": "Des vitres cristallines et des surfaces impeccables pour faire briller toute votre propriété.",
-      "features": ["Finition sans traces", "Terrasse & allée", "Techniques sécuritaires"]
+    "leafRemoval": {
+      "title": "Ramassage de feuilles",
+      "description": "Gardez votre propriété propre et votre pelouse en santé avec notre service professionnel de ramassage de feuilles en automne.",
+      "features": ["Nettoyage complet de la pelouse", "Plates-bandes et surfaces", "Débris ramassés"]
     }
   },
   "howItWorks": {
