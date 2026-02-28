@@ -1,6 +1,8 @@
 import { Star, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, type CarouselApi } from '@/components/ui/carousel';
+import { useState, useEffect, useCallback } from 'react';
 
 const testimonials = [
   {
@@ -47,8 +49,60 @@ const testimonials = [
   },
 ];
 
+function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
+  return (
+    <div className="bg-card rounded-2xl p-6 shadow-card hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+      <div className="flex items-start gap-4 mb-4">
+        <div className="flex-shrink-0">
+          <Quote className="h-8 w-8 text-lime/30" />
+        </div>
+        <div className="flex gap-0.5">
+          {[...Array(testimonial.rating)].map((_, i) => (
+            <Star key={i} className="h-4 w-4 fill-lime text-lime" />
+          ))}
+        </div>
+      </div>
+      <p className="text-foreground/80 leading-relaxed mb-6 flex-1">
+        "{testimonial.text}"
+      </p>
+      <div className="flex items-center justify-between pt-4 border-t border-border">
+        <div>
+          <div className="font-display font-semibold text-foreground">
+            {testimonial.name}
+          </div>
+          <div className="text-sm text-muted-foreground">
+            {testimonial.location}
+          </div>
+        </div>
+        <span className="text-xs px-2 py-1 rounded-full bg-secondary text-primary font-medium">
+          {testimonial.service}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function TestimonialsSection() {
   const { t } = useTranslation();
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    setCount(api.scrollSnapList().length);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    onSelect();
+    api.on('select', onSelect);
+    api.on('reInit', onSelect);
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api, onSelect]);
 
   return (
     <section className="section-padding bg-gradient-section overflow-hidden">
@@ -82,45 +136,44 @@ export function TestimonialsSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-card rounded-2xl p-6 shadow-card hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="flex-shrink-0">
-                  <Quote className="h-8 w-8 text-lime/30" />
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-lime text-lime" />
-                  ))}
-                </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <Carousel
+            setApi={setApi}
+            opts={{ align: 'start', loop: true }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial) => (
+                <CarouselItem
+                  key={testimonial.name}
+                  className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                >
+                  <TestimonialCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <CarouselPrevious className="static translate-y-0 h-10 w-10" />
+              <div className="flex gap-2">
+                {Array.from({ length: count }).map((_, i) => (
+                  <button
+                    key={i}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === current ? 'w-6 bg-primary' : 'w-2 bg-muted-foreground/30'
+                    }`}
+                    onClick={() => api?.scrollTo(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
               </div>
-              <p className="text-foreground/80 leading-relaxed mb-6">
-                "{testimonial.text}"
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <div>
-                  <div className="font-display font-semibold text-foreground">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {testimonial.location}
-                  </div>
-                </div>
-                <span className="text-xs px-2 py-1 rounded-full bg-secondary text-primary font-medium">
-                  {testimonial.service}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              <CarouselNext className="static translate-y-0 h-10 w-10" />
+            </div>
+          </Carousel>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
