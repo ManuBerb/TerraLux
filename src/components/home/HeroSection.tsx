@@ -78,21 +78,19 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 flex items-center gap-8"
+            className="mt-12 grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8"
           >
             <div className="text-primary-foreground text-center">
-              <div className="font-display text-3xl font-bold">100+</div>
-              <div className="text-sm text-primary-foreground/70">{t('hero.happyCustomers')}</div>
+              <div className="font-display text-2xl sm:text-3xl font-bold">100+</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.happyCustomers')}</div>
             </div>
-            <div className="w-px h-12 bg-primary-foreground/20" />
-            <div className="text-primary-foreground text-center">
-              <div className="font-display text-3xl font-bold">7+</div>
-              <div className="text-sm text-primary-foreground/70">{t('hero.yearsExperience')}</div>
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
+              <div className="font-display text-2xl sm:text-3xl font-bold">7+</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.yearsExperience')}</div>
             </div>
-            <div className="w-px h-12 bg-primary-foreground/20 hidden sm:block" />
-            <div className="text-primary-foreground text-center hidden sm:block">
-              <div className="font-display text-3xl font-bold">4.9★</div>
-              <div className="text-sm text-primary-foreground/70">{t('hero.averageRating')}</div>
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
+              <div className="font-display text-2xl sm:text-3xl font-bold">4.9★</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.averageRating')}</div>
             </div>
           </motion.div>
         </div>
