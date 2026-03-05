@@ -59,27 +59,28 @@ const ServicesPage = () => {
       <Header />
 
       <main className="pt-20">
-        <section className="bg-gradient-hero text-primary-foreground section-padding">
-          <div className="container-custom text-center">
+        {/* Hero - dark forest green with grain */}
+        <section className="bg-primary text-parchment section-padding relative grain-texture overflow-hidden">
+          <div className="container-custom text-center relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
             >
-              {t('servicesPage.heroTitle')} <span className="text-lime">{t('servicesPage.heroTitle2')}</span>
+              {t('servicesPage.heroTitle')} <span className="text-warm-tan">{t('servicesPage.heroTitle2')}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-primary-foreground/80 max-w-2xl mx-auto"
+              transition={{ delay: 0.12 }}
+              className="text-xl text-parchment/70 max-w-2xl mx-auto"
             >
               {t('servicesPage.heroSubtitle')}
             </motion.p>
           </div>
         </section>
 
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-parchment">
           <div className="container-custom space-y-24">
             {serviceKeys.map((service, index) => {
               const title = t(`servicesPage.${service.key}.title`);
@@ -100,7 +101,7 @@ const ServicesPage = () => {
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center flex-shrink-0">
+                      <div className="w-16 h-16 rounded-lg bg-card flex items-center justify-center flex-shrink-0 border border-warm-tan">
                         <service.icon className="h-8 w-8 text-primary" />
                       </div>
                       <div className="flex flex-col gap-2">
@@ -122,14 +123,14 @@ const ServicesPage = () => {
                     )}
                   </div>
 
-                  <div className={`bg-secondary rounded-2xl p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className={`bg-card rounded-lg p-8 border border-warm-tan ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <h3 className="font-display text-lg font-semibold text-foreground mb-6">
                       {t('servicesPage.whatsIncluded')}
                     </h3>
                     <ul className="space-y-4">
                       {features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="h-5 w-5 text-lime flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-5 w-5 text-earth flex-shrink-0 mt-0.5" />
                           <span className="text-foreground/80">{feature}</span>
                         </li>
                       ))}
@@ -141,12 +142,13 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="section-padding bg-primary">
-          <div className="container-custom text-center">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
+        {/* CTA section */}
+        <section className="section-padding bg-primary relative grain-texture overflow-hidden">
+          <div className="container-custom text-center relative z-10">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-parchment mb-6">
               {t('servicesPage.readyTitle')}
             </h2>
-            <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-parchment/70 mb-8 max-w-xl mx-auto">
               {t('servicesPage.readySubtitle')}
             </p>
             <Button variant="hero" size="xl" asChild>
