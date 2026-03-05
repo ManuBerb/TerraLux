@@ -121,12 +121,14 @@ const QuotePage = () => {
       setAttachedImages([]);
       setIsSubmitted(true);
       toast({ title: t('quotePage.submitted'), description: t('quotePage.submittedDesc') });
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Partial<Record<keyof QuoteFormData, string>> = {};
         error.errors.forEach((err) => { if (err.path[0]) fieldErrors[err.path[0] as keyof QuoteFormData] = err.message; });
         setErrors(fieldErrors);
         toast({ title: t('quotePage.checkForm'), description: t('quotePage.checkFormDesc'), variant: 'destructive' });
+      } else if (error?.message?.includes('429') || error?.status === 429) {
+        toast({ title: t('quotePage.somethingWrong'), description: t('errors.rateLimit'), variant: 'destructive' });
       } else {
         toast({ title: t('quotePage.somethingWrong'), description: t('quotePage.somethingWrongDesc'), variant: 'destructive' });
       }

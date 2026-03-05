@@ -53,11 +53,19 @@ const ContactPage = () => {
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error: any) {
       console.error('Error sending message:', error);
-      toast({
-        title: t('contactPage.error'),
-        description: t('contactPage.errorDesc'),
-        variant: 'destructive',
-      });
+      if (error?.message?.includes('429') || error?.status === 429) {
+        toast({
+          title: t('contactPage.error'),
+          description: t('errors.rateLimit'),
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: t('contactPage.error'),
+          description: t('contactPage.errorDesc'),
+          variant: 'destructive',
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }

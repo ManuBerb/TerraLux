@@ -339,5 +339,8 @@
     "title": "404",
     "message": "Oops! Page not found",
     "returnHome": "Return to Home"
+  },
+  "errors": {
+    "rateLimit": "Too many submissions. Please wait a while before trying again."
   }
 }

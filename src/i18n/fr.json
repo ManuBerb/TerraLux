@@ -339,5 +339,8 @@
     "title": "404",
     "message": "Oups ! Page introuvable",
     "returnHome": "Retour à l'accueil"
+  },
+  "errors": {
+    "rateLimit": "Trop de soumissions. Veuillez patienter avant de réessayer."
   }
 }
