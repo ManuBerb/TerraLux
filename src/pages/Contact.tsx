@@ -42,10 +42,16 @@ const ContactPage = () => {
     
     try {
       contactSchema.parse(formData);
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const response = await supabase.functions.invoke('send-contact-email', {
         body: { ...formData, _hp: honeypot },
       });
-      if (error) throw error;
+      if (response.error) {
+        const errorBody = response.data;
+        if (errorBody?.error?.includes('Too many requests')) {
+          throw Object.assign(new Error('Rate limited'), { status: 429 });
+        }
+        throw response.error;
+      }
       toast({
         title: t('contactPage.messageSent'),
         description: t('contactPage.messageSentDesc'),

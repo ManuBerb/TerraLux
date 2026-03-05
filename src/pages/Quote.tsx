@@ -102,7 +102,7 @@ const QuotePage = () => {
         }
       }
 
-      const { data, error } = await supabase.functions.invoke('send-quote-email', {
+      const response = await supabase.functions.invoke('send-quote-email', {
         body: {
           fullName: validatedData.fullName, email: validatedData.email, phone: validatedData.phone,
           serviceRequested: validatedData.service, propertyType: validatedData.propertyType || undefined,
@@ -114,7 +114,14 @@ const QuotePage = () => {
         },
       });
 
-      if (error) throw new Error(error.message);
+      if (response.error) {
+        const errorBody = response.data;
+        if (errorBody?.error?.includes('Too many requests')) {
+          throw Object.assign(new Error('Rate limited'), { status: 429 });
+        }
+        throw new Error(response.error.message);
+      }
+      const data = response.data;
       if (!data?.success) throw new Error(data?.error || 'Failed to submit quote');
 
       setFormData({ fullName: '', email: '', phone: '', service: '', address: '', propertyType: 'residential', contactMethod: 'phone', details: '' });
