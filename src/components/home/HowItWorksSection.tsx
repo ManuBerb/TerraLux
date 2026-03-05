@@ -14,14 +14,14 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-[#10221e]">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary font-display text-sm font-semibold mb-4"
+            className="inline-block px-4 py-1.5 rounded-sm bg-white/10 text-[#0fbd94] font-display text-sm font-semibold mb-4 border border-white/10 uppercase tracking-widest"
           >
             {t('howItWorks.badge')}
           </motion.span>
@@ -30,7 +30,7 @@ export function HowItWorksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100"
           >
             {t('howItWorks.title')}
           </motion.h2>
@@ -39,7 +39,7 @@ export function HowItWorksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-lg text-muted-foreground"
+            className="mt-4 text-lg text-slate-400"
           >
             {t('howItWorks.subtitle')}
           </motion.p>
@@ -56,22 +56,22 @@ export function HowItWorksSection() {
               className="relative text-center"
             >
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-lime to-transparent" />
+                <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-[#0fbd94]/30" />
               )}
-              <div className="relative inline-flex items-center justify-center w-32 h-32 rounded-full bg-secondary mb-6">
-                <span className="font-display text-5xl font-bold text-primary/20">
+              <div className="relative inline-flex items-center justify-center w-32 h-32 rounded-full bg-white/5 mb-6">
+                <span className="font-display text-6xl font-black italic text-[#0fbd94]/30">
                   {step.number}
                 </span>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
-                    <step.icon className="h-8 w-8 text-primary-foreground" />
+                  <div className="w-16 h-16 rounded-full bg-[#0fbd94] flex items-center justify-center">
+                    <step.icon className="h-8 w-8 text-white" />
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+              <h3 className="font-display text-xl font-semibold text-slate-100 mb-3">
                 {t(`howItWorks.${step.titleKey}`)}
               </h3>
-              <p className="text-muted-foreground leading-relaxed max-w-xs mx-auto">
+              <p className="text-slate-400 leading-relaxed max-w-xs mx-auto">
                 {t(`howItWorks.${step.descKey}`)}
               </p>
             </motion.div>
@@ -90,7 +90,7 @@ export function HowItWorksSection() {
               <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="mt-4 text-sm text-slate-400">
             {t('howItWorks.noObligation')}
           </p>
         </motion.div>

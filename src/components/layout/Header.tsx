@@ -33,27 +33,25 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-stone-200/40 ${
         scrolled ? 'shadow-md' : ''
       }`}
     >
       <nav className="container-custom" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center">
             <Logo className="h-10 md:h-12" />
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`font-display text-sm font-medium transition-colors hover:text-primary ${
+                className={`font-display text-sm font-medium transition-colors hover:text-[#0fbd94] hover:underline underline-offset-4 ${
                   location.pathname === item.href
-                    ? 'text-primary'
-                    : 'text-foreground/80'
+                    ? 'text-[#0fbd94]'
+                    : 'text-slate-600'
                 }`}
               >
                 {item.name}
@@ -61,12 +59,11 @@ export function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
             <LanguageToggle />
             <a
               href="tel:+15142935662"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-[#0fbd94] transition-colors"
             >
               <Phone className="h-4 w-4" />
               {t('nav.phone')}
@@ -76,7 +73,6 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-3">
             <LanguageToggle />
             <button
@@ -95,14 +91,13 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-t border-border"
+            className="lg:hidden bg-[#f6f8f8] border-t border-border"
           >
             <div className="container-custom py-6 space-y-4">
               {navigation.map((item) => (
@@ -111,8 +106,8 @@ export function Header() {
                   to={item.href}
                   className={`block font-display text-lg font-medium py-2 transition-colors ${
                     location.pathname === item.href
-                      ? 'text-primary'
-                      : 'text-foreground/80 hover:text-primary'
+                      ? 'text-[#0fbd94]'
+                      : 'text-slate-600 hover:text-[#0fbd94]'
                   }`}
                 >
                   {item.name}
@@ -121,7 +116,7 @@ export function Header() {
               <div className="pt-4 border-t border-border space-y-4">
                 <a
                   href="tel:+15142935662"
-                  className="flex items-center gap-2 text-muted-foreground"
+                  className="flex items-center gap-2 text-slate-500"
                 >
                   <Phone className="h-5 w-5" />
                   {t('nav.phone')}
