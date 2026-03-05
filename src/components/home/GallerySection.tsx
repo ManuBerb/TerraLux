@@ -37,29 +37,6 @@ const galleryItems = [
   { id: 9, beforeImage: pressureWashingBefore2, afterImage: pressureWashingAfter2, category: 'Pressure Washing', title: 'Walkway Pressure Washing', location: 'Westmount' },
 ];
 
-function GalleryCard({ item }: { item: typeof galleryItems[0] }) {
-  const { t } = useTranslation();
-  return (
-    <div className="group relative overflow-hidden rounded-sm bg-card h-full">
-      <img
-        src={item.afterImage}
-        alt={`${item.title} - After`}
-        loading="lazy"
-        className="w-full h-full object-cover aspect-[4/3]"
-      />
-      <div className="absolute inset-0 bg-[#10221e]/0 group-hover:bg-[#10221e]/70 transition-all duration-300 flex items-end p-6 opacity-0 group-hover:opacity-100">
-        <div>
-          <span className="text-[#0fbd94] text-xs uppercase tracking-widest font-semibold">
-            {t(`gallery.categories.${item.category}`)}
-          </span>
-          <h3 className="font-display text-white text-lg font-semibold mt-1">{item.title}</h3>
-          <p className="text-white/60 text-sm">{item.location}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
@@ -78,19 +55,15 @@ export function GallerySection() {
     setVisibleCount(ITEMS_PER_PAGE);
   };
 
-  // Split items for asymmetric layout
-  const heroItems = visibleItems.slice(0, 3);
-  const remainingItems = visibleItems.slice(3);
-
   return (
-    <section className="section-padding bg-[#f6f8f8]">
+    <section className="section-padding bg-background">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 bg-secondary text-[#0fbd94] font-display text-sm font-semibold mb-4 uppercase tracking-widest border-b-2 border-[#0fbd94]"
+            className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary font-display text-sm font-semibold mb-4"
           >
             {t('gallery.badge')}
           </motion.span>
@@ -124,10 +97,10 @@ export function GallerySection() {
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-5 py-2.5 rounded-sm font-display text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full font-display text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-[#0fbd94] text-white shadow-lg'
-                  : 'bg-stone-100 text-slate-600 hover:bg-stone-200'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'bg-secondary text-foreground hover:bg-secondary/80'
               }`}
             >
               {t(`gallery.categories.${category}`)}
@@ -135,105 +108,41 @@ export function GallerySection() {
           ))}
         </motion.div>
 
-        {/* Asymmetric editorial layout for first 3 items */}
-        {heroItems.length >= 3 ? (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              {/* Large item — spans full height left */}
-              <motion.div
-                key={heroItems[0].id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                layout
-                className="md:row-span-2 min-h-[400px] md:min-h-[500px]"
-              >
-                <div className="group relative overflow-hidden rounded-sm bg-card h-full">
-                  <img
-                    src={heroItems[0].afterImage}
-                    alt={`${heroItems[0].title} - After`}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[#10221e]/0 group-hover:bg-[#10221e]/70 transition-all duration-300 flex items-end p-6 opacity-0 group-hover:opacity-100">
-                    <div>
-                      <span className="text-[#0fbd94] text-xs uppercase tracking-widest font-semibold">
-                        {t(`gallery.categories.${heroItems[0].category}`)}
-                      </span>
-                      <h3 className="font-display text-white text-lg font-semibold mt-1">{heroItems[0].title}</h3>
-                      <p className="text-white/60 text-sm">{heroItems[0].location}</p>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {visibleItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              layout
+              className="group rounded-2xl overflow-hidden shadow-card bg-card"
+            >
+              <div className="grid grid-cols-2 gap-1">
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-destructive/90 text-destructive-foreground text-xs font-semibold rounded">
+                    {t('gallery.before')}
+                  </span>
+                  <img src={item.beforeImage} alt={`${item.title} - Before`} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-              </motion.div>
-
-              {/* Two stacked items right */}
-              {heroItems.slice(1, 3).map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (index + 1) * 0.1 }}
-                  layout
-                  className="min-h-[240px]"
-                >
-                  <div className="group relative overflow-hidden rounded-sm bg-card h-full">
-                    <img
-                      src={item.afterImage}
-                      alt={`${item.title} - After`}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#10221e]/0 group-hover:bg-[#10221e]/70 transition-all duration-300 flex items-end p-6 opacity-0 group-hover:opacity-100">
-                      <div>
-                        <span className="text-[#0fbd94] text-xs uppercase tracking-widest font-semibold">
-                          {t(`gallery.categories.${item.category}`)}
-                        </span>
-                        <h3 className="font-display text-white text-lg font-semibold mt-1">{item.title}</h3>
-                        <p className="text-white/60 text-sm">{item.location}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Remaining items in standard 2-col grid */}
-            {remainingItems.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {remainingItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    layout
-                  >
-                    <GalleryCard item={item} />
-                  </motion.div>
-                ))}
+                <div className="relative aspect-[4/3]">
+                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded">
+                    {t('gallery.after')}
+                  </span>
+                  <img src={item.afterImage} alt={`${item.title} - After`} loading="lazy" className="w-full h-full object-cover" />
+                </div>
               </div>
-            )}
-          </>
-        ) : (
-          /* Fallback for fewer than 3 items */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {visibleItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                layout
-              >
-                <GalleryCard item={item} />
-              </motion.div>
-            ))}
-          </div>
-        )}
+              <div className="p-4">
+                <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded mb-2">
+                  {t(`gallery.categories.${item.category}`)}
+                </span>
+                <h3 className="font-display text-lg font-semibold text-foreground">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.location}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         {hasMore && (
           <motion.div
@@ -246,7 +155,7 @@ export function GallerySection() {
               variant="outline"
               size="lg"
               onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-              className="font-display font-semibold border-stone-300 text-slate-700 rounded-sm hover:bg-stone-100"
+              className="font-display font-semibold"
             >
               {t('gallery.showMore')}
             </Button>

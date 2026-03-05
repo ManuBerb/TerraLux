@@ -9,7 +9,7 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -18,7 +18,7 @@ export function HeroSection() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center calc(50% + 80px)' }}
         />
-        <div className="absolute inset-0 bg-[#10221e]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
       </div>
 
       {/* Content */}
@@ -27,9 +27,9 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-white/10 text-white font-display text-sm font-semibold mb-6 backdrop-blur-sm border border-white/20 uppercase tracking-widest">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/20 text-lime font-display text-sm font-semibold mb-6 backdrop-blur-sm">
               <CheckCircle2 className="h-4 w-4" />
               {t('hero.badge')}
             </span>
@@ -38,19 +38,19 @@ export function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
             {t('hero.title1')}
             <br />
-            <em className="text-[#0fbd94]">{t('hero.title2')}</em>
+            <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.2 }}
-            className="mt-6 text-lg sm:text-xl text-slate-200 font-light leading-relaxed max-w-xl"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 text-lg sm:text-xl text-primary-foreground/80 leading-relaxed max-w-xl"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -58,7 +58,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-col sm:flex-row gap-4"
           >
             <Button variant="hero" size="xl" asChild>
@@ -77,20 +77,20 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.4 }}
-            className="mt-12 bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-sm px-8 py-4 inline-flex flex-wrap items-center gap-8"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8"
           >
-            <div className="text-white text-center">
+            <div className="text-primary-foreground text-center">
               <div className="font-display text-2xl sm:text-3xl font-bold">100+</div>
-              <div className="text-xs sm:text-sm text-white/70">{t('hero.happyCustomers')}</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.happyCustomers')}</div>
             </div>
-            <div className="text-white text-center border-l border-white/20 pl-8">
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
               <div className="font-display text-2xl sm:text-3xl font-bold">7+</div>
-              <div className="text-xs sm:text-sm text-white/70">{t('hero.yearsExperience')}</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.yearsExperience')}</div>
             </div>
-            <div className="text-white text-center border-l border-white/20 pl-8">
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
               <div className="font-display text-2xl sm:text-3xl font-bold">4.9★</div>
-              <div className="text-xs sm:text-sm text-white/70">{t('hero.averageRating')}</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.averageRating')}</div>
             </div>
           </motion.div>
         </div>

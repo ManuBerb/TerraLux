@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,63 +6,65 @@
 
 @layer base {
   :root {
-    --background: 60 20% 97%;
-    --foreground: 170 15% 12%;
+    /* Welandscape Brand Colors - Fresh Green Palette */
+    --background: 120 20% 99%;
+    --foreground: 150 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 170 15% 12%;
+    --card-foreground: 150 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 170 15% 12%;
+    --popover-foreground: 150 10% 15%;
 
-    --primary: 163 80% 25%;
+    /* Primary: Rich Forest Green */
+    --primary: 152 45% 28%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 60 15% 93%;
-    --secondary-foreground: 170 15% 20%;
+    /* Secondary: Soft Sage */
+    --secondary: 140 25% 92%;
+    --secondary-foreground: 150 10% 15%;
 
-    --muted: 60 10% 92%;
-    --muted-foreground: 170 8% 42%;
+    /* Muted: Warm Gray */
+    --muted: 120 10% 95%;
+    --muted-foreground: 150 5% 45%;
 
-    --accent: 163 80% 25%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Vibrant Lime for CTAs */
+    --accent: 85 55% 50%;
+    --accent-foreground: 150 10% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 60 12% 85%;
-    --input: 60 12% 85%;
-    --ring: 163 80% 25%;
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 152 45% 28%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
-    /* Brand tokens */
-    --forest: 163 80% 25%;
-    --forest-light: 163 65% 35%;
-    --sage: 60 15% 90%;
-    --sage-light: 60 12% 95%;
-    --lime: 163 80% 40%;
-    --lime-light: 163 75% 55%;
-    --cream: 60 20% 97%;
-    --charcoal: 170 10% 18%;
-    --warm-gray: 40 8% 52%;
-
-    /* Dark sections background */
-    --dark-section: 163 35% 10%;
+    /* Custom Brand Tokens */
+    --forest: 152 45% 28%;
+    --forest-light: 152 35% 40%;
+    --sage: 140 25% 85%;
+    --sage-light: 140 20% 94%;
+    --lime: 85 55% 50%;
+    --lime-light: 85 60% 65%;
+    --cream: 45 30% 96%;
+    --charcoal: 150 10% 20%;
+    --warm-gray: 40 10% 55%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(rgba(16, 34, 30, 0.55), rgba(16, 34, 30, 0.55));
-    --gradient-cta: linear-gradient(135deg, hsl(163 35% 10%) 0%, hsl(163 30% 14%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(60 15% 97%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(60 20% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(152 45% 28%) 0%, hsl(140 35% 35%) 50%, hsl(85 40% 40%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(85 55% 50%) 0%, hsl(85 60% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(140 20% 98%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(140 25% 96%) 0%, hsl(0 0% 100%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(163 20% 20% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(163 20% 20% / 0.08), 0 2px 4px -2px hsl(163 20% 20% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(163 20% 20% / 0.08), 0 4px 6px -4px hsl(163 20% 20% / 0.06);
-    --shadow-xl: 0 20px 25px -5px hsl(163 20% 20% / 0.1), 0 8px 10px -6px hsl(163 20% 20% / 0.06);
-    --shadow-glow: 0 0 40px hsl(163 80% 25% / 0.25);
-    --shadow-card: 0 4px 20px hsl(163 20% 20% / 0.07);
+    --shadow-sm: 0 1px 2px 0 hsl(150 10% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(150 10% 20% / 0.1), 0 2px 4px -2px hsl(150 10% 20% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(150 10% 20% / 0.1), 0 4px 6px -4px hsl(150 10% 20% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(150 10% 20% / 0.1), 0 8px 10px -6px hsl(150 10% 20% / 0.1);
+    --shadow-glow: 0 0 40px hsl(85 55% 50% / 0.3);
+    --shadow-card: 0 4px 20px hsl(150 10% 20% / 0.08);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -75,48 +77,48 @@
   }
 
   .dark {
-    --background: 163 35% 10%;
-    --foreground: 60 10% 95%;
+    --background: 150 15% 8%;
+    --foreground: 120 10% 95%;
 
-    --card: 163 30% 14%;
-    --card-foreground: 60 10% 95%;
+    --card: 150 15% 12%;
+    --card-foreground: 120 10% 95%;
 
-    --popover: 163 30% 14%;
-    --popover-foreground: 60 10% 95%;
+    --popover: 150 15% 12%;
+    --popover-foreground: 120 10% 95%;
 
-    --primary: 163 80% 40%;
-    --primary-foreground: 170 15% 10%;
+    --primary: 85 55% 50%;
+    --primary-foreground: 150 10% 10%;
 
-    --secondary: 163 20% 18%;
-    --secondary-foreground: 60 10% 95%;
+    --secondary: 150 15% 18%;
+    --secondary-foreground: 120 10% 95%;
 
-    --muted: 163 15% 20%;
-    --muted-foreground: 60 5% 60%;
+    --muted: 150 10% 20%;
+    --muted-foreground: 120 5% 60%;
 
-    --accent: 163 65% 35%;
+    --accent: 152 45% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 163 15% 25%;
-    --input: 163 15% 25%;
-    --ring: 163 80% 40%;
+    --border: 150 10% 25%;
+    --input: 150 10% 25%;
+    --ring: 85 55% 50%;
 
-    --forest: 163 65% 40%;
-    --forest-light: 163 55% 50%;
-    --sage: 60 10% 25%;
-    --sage-light: 60 8% 18%;
-    --lime: 163 75% 55%;
-    --lime-light: 163 65% 65%;
-    --cream: 60 10% 15%;
-    --charcoal: 170 10% 85%;
-    --warm-gray: 40 8% 60%;
+    --forest: 152 40% 40%;
+    --forest-light: 152 35% 50%;
+    --sage: 140 20% 25%;
+    --sage-light: 140 15% 18%;
+    --lime: 85 55% 55%;
+    --lime-light: 85 50% 65%;
+    --cream: 45 15% 15%;
+    --charcoal: 150 10% 85%;
+    --warm-gray: 40 10% 60%;
 
-    --gradient-hero: linear-gradient(rgba(16, 34, 30, 0.7), rgba(16, 34, 30, 0.7));
-    --gradient-cta: linear-gradient(135deg, hsl(163 35% 8%) 0%, hsl(163 30% 12%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(163 30% 14%) 0%, hsl(163 25% 12%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(163 25% 12%) 0%, hsl(163 35% 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(150 15% 8%) 0%, hsl(152 20% 15%) 50%, hsl(140 15% 12%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(85 55% 45%) 0%, hsl(85 50% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(150 15% 12%) 0%, hsl(150 12% 10%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(150 12% 10%) 0%, hsl(150 15% 8%) 100%);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -139,12 +141,12 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Noto Sans', system-ui, sans-serif;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Serif', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     @apply font-semibold tracking-tight;
   }
 }
@@ -177,7 +179,7 @@
   }
 
   .btn-glow:hover {
-    box-shadow: 0 0 50px hsl(163 80% 25% / 0.4);
+    box-shadow: 0 0 50px hsl(85 55% 50% / 0.4);
   }
 }
 
