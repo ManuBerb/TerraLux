@@ -27,7 +27,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-charcoal text-parchment border-t-2 border-primary">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -35,23 +35,23 @@ export function Footer() {
             <Link to="/" className="inline-block">
               <Logo className="h-10 md:h-12" />
             </Link>
-            <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
+            <p className="mt-4 text-parchment/70 text-sm leading-relaxed">
               {t('footer.tagline')}
             </p>
-            <p className="mt-4 text-primary-foreground/70 text-sm">
+            <p className="mt-4 text-parchment/60 text-sm">
               {t('footer.description')}
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.servicesTitle')}</h3>
+            <h3 className="font-display text-lg font-semibold mb-4 text-parchment">{t('footer.servicesTitle')}</h3>
             <ul className="space-y-2">
               {serviceLinks.map((service) => (
                 <li key={service.key}>
                   <Link
                     to={service.href}
-                    className="text-sm text-primary-foreground/70 hover:text-lime transition-colors"
+                    className="text-sm text-warm-tan hover:text-parchment transition-colors"
                   >
                     {t(`footer.serviceLinks.${service.key}`)}
                   </Link>
@@ -62,13 +62,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.companyTitle')}</h3>
+            <h3 className="font-display text-lg font-semibold mb-4 text-parchment">{t('footer.companyTitle')}</h3>
             <ul className="space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.key}>
                   <Link
                     to={item.href}
-                    className="text-sm text-primary-foreground/70 hover:text-lime transition-colors"
+                    className="text-sm text-warm-tan hover:text-parchment transition-colors"
                   >
                     {t(`footer.companyLinks.${item.key}`)}
                   </Link>
@@ -79,12 +79,12 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-lg font-semibold mb-4">{t('footer.contactTitle')}</h3>
+            <h3 className="font-display text-lg font-semibold mb-4 text-parchment">{t('footer.contactTitle')}</h3>
             <ul className="space-y-4">
               <li>
                 <a
                   href="tel:+15142935662"
-                  className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-lime transition-colors"
+                  className="flex items-center gap-3 text-sm text-warm-tan hover:text-parchment transition-colors"
                 >
                   <Phone className="h-4 w-4 flex-shrink-0" />
                   (514) 293-5662
@@ -93,23 +93,23 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:info@terraluxlandscape.ca"
-                  className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-lime transition-colors"
+                  className="flex items-center gap-3 text-sm text-warm-tan hover:text-parchment transition-colors"
                 >
                   <Mail className="h-4 w-4 flex-shrink-0" />
                   info@terraluxlandscape.ca
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
+                <div className="flex items-start gap-3 text-sm text-warm-tan">
                   <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
                   <span>{t('footer.servingArea')}<br />{t('footer.servingArea2')}</span>
                 </div>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-sm text-primary-foreground/70">
+                <div className="flex items-start gap-3 text-sm text-warm-tan">
                   <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold text-primary-foreground block mb-1">{t('footer.businessHours')}</span>
+                    <span className="font-semibold text-parchment block mb-1">{t('footer.businessHours')}</span>
                     <span className="whitespace-nowrap">{t('footer.monFri')}</span><br />
                     <span className="whitespace-nowrap">{t('footer.satSun')}</span>
                   </div>
@@ -120,12 +120,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/20">
+        <div className="mt-12 pt-8 border-t border-warm-gray/30">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-primary-foreground/60">
+            <p className="text-sm text-parchment/50">
               {t('footer.copyright', { year: currentYear })}
             </p>
-            <p className="text-sm text-primary-foreground/60">
+            <p className="text-sm text-parchment/50">
               {t('footer.freeEstimates')}
             </p>
           </div>

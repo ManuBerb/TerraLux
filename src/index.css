@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,65 +6,70 @@
 
 @layer base {
   :root {
-    /* Welandscape Brand Colors - Fresh Green Palette */
-    --background: 120 20% 99%;
-    --foreground: 150 10% 15%;
+    /* Organic Heritage Palette */
+    --background: 38 33% 93%;          /* #F5F0E8 parchment */
+    --foreground: 60 5% 11%;           /* #1C1C1A dark charcoal */
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 10% 15%;
+    --card: 37 38% 96%;                /* #FAF7F2 creamy white */
+    --card-foreground: 60 5% 11%;      /* #1C1C1A */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 10% 15%;
+    --popover: 37 38% 96%;
+    --popover-foreground: 60 5% 11%;
 
-    /* Primary: Rich Forest Green */
-    --primary: 152 45% 28%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Deep Forest Green #2D4A2D */
+    --primary: 120 25% 23%;
+    --primary-foreground: 38 33% 93%;  /* parchment */
 
-    /* Secondary: Soft Sage */
-    --secondary: 140 25% 92%;
-    --secondary-foreground: 150 10% 15%;
+    /* Secondary: Earthy Brown #6B4C2A */
+    --secondary: 28 44% 29%;
+    --secondary-foreground: 38 33% 93%;
 
-    /* Muted: Warm Gray */
-    --muted: 120 10% 95%;
-    --muted-foreground: 150 5% 45%;
+    /* Muted */
+    --muted: 38 25% 88%;
+    --muted-foreground: 20 4% 40%;     /* #6B6560 warm gray */
 
-    /* Accent: Vibrant Lime for CTAs */
-    --accent: 85 55% 50%;
-    --accent-foreground: 150 10% 10%;
+    /* Accent: Earthy Brown */
+    --accent: 28 44% 29%;
+    --accent-foreground: 38 33% 93%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 140 15% 88%;
-    --input: 140 15% 88%;
-    --ring: 152 45% 28%;
+    --border: 38 27% 81%;              /* #D4C5A9 warm tan */
+    --input: 38 27% 81%;
+    --ring: 120 25% 23%;
 
-    --radius: 0.75rem;
+    --radius: 0.375rem;                /* 6px base radius */
 
-    /* Custom Brand Tokens */
-    --forest: 152 45% 28%;
-    --forest-light: 152 35% 40%;
-    --sage: 140 25% 85%;
-    --sage-light: 140 20% 94%;
-    --lime: 85 55% 50%;
-    --lime-light: 85 60% 65%;
-    --cream: 45 30% 96%;
-    --charcoal: 150 10% 20%;
-    --warm-gray: 40 10% 55%;
+    /* Brand Tokens */
+    --forest: 120 25% 23%;             /* #2D4A2D */
+    --forest-light: 120 20% 32%;
+    --forest-dark: 130 28% 14%;        /* #1A3020 hero bg */
+    --sage: 140 15% 70%;
+    --sage-light: 140 12% 85%;
+    --earth: 28 44% 29%;               /* #6B4C2A */
+    --earth-light: 28 38% 42%;
+    --lime: 28 44% 29%;                /* repurposed to earthy brown for consistency */
+    --lime-light: 28 38% 42%;
+    --cream: 37 38% 96%;               /* #FAF7F2 */
+    --parchment: 38 33% 93%;           /* #F5F0E8 */
+    --charcoal: 60 5% 11%;             /* #1C1C1A */
+    --warm-gray: 20 4% 40%;            /* #6B6560 */
+    --warm-tan: 38 27% 81%;            /* #D4C5A9 */
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(152 45% 28%) 0%, hsl(140 35% 35%) 50%, hsl(85 40% 40%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(85 55% 50%) 0%, hsl(85 60% 45%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(140 20% 98%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(140 25% 96%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(130 28% 14%) 0%, hsl(120 25% 20%) 50%, hsl(120 22% 18%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(28 44% 29%) 0%, hsl(28 40% 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(37 38% 96%) 0%, hsl(38 33% 93%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(38 33% 93%) 0%, hsl(37 38% 96%) 100%);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(150 10% 20% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(150 10% 20% / 0.1), 0 2px 4px -2px hsl(150 10% 20% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(150 10% 20% / 0.1), 0 4px 6px -4px hsl(150 10% 20% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(150 10% 20% / 0.1), 0 8px 10px -6px hsl(150 10% 20% / 0.1);
-    --shadow-glow: 0 0 40px hsl(85 55% 50% / 0.3);
-    --shadow-card: 0 4px 20px hsl(150 10% 20% / 0.08);
+    /* Shadows - warm tones */
+    --shadow-sm: 0 1px 2px 0 hsl(28 20% 30% / 0.06);
+    --shadow-md: 0 4px 6px -1px hsl(28 20% 30% / 0.08), 0 2px 4px -2px hsl(28 20% 30% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(28 20% 30% / 0.08), 0 4px 6px -4px hsl(28 20% 30% / 0.06);
+    --shadow-xl: 0 20px 25px -5px hsl(28 20% 30% / 0.1), 0 8px 10px -6px hsl(28 20% 30% / 0.08);
+    --shadow-glow: 0 0 30px hsl(28 44% 29% / 0.2);
+    --shadow-card: 0 2px 12px hsl(28 20% 30% / 0.06);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -73,60 +78,6 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 150 15% 8%;
-    --foreground: 120 10% 95%;
-
-    --card: 150 15% 12%;
-    --card-foreground: 120 10% 95%;
-
-    --popover: 150 15% 12%;
-    --popover-foreground: 120 10% 95%;
-
-    --primary: 85 55% 50%;
-    --primary-foreground: 150 10% 10%;
-
-    --secondary: 150 15% 18%;
-    --secondary-foreground: 120 10% 95%;
-
-    --muted: 150 10% 20%;
-    --muted-foreground: 120 5% 60%;
-
-    --accent: 152 45% 35%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 150 10% 25%;
-    --input: 150 10% 25%;
-    --ring: 85 55% 50%;
-
-    --forest: 152 40% 40%;
-    --forest-light: 152 35% 50%;
-    --sage: 140 20% 25%;
-    --sage-light: 140 15% 18%;
-    --lime: 85 55% 55%;
-    --lime-light: 85 50% 65%;
-    --cream: 45 15% 15%;
-    --charcoal: 150 10% 85%;
-    --warm-gray: 40 10% 60%;
-
-    --gradient-hero: linear-gradient(135deg, hsl(150 15% 8%) 0%, hsl(152 20% 15%) 50%, hsl(140 15% 12%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(85 55% 45%) 0%, hsl(85 50% 40%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(150 15% 12%) 0%, hsl(150 12% 10%) 100%);
-    --gradient-section: linear-gradient(180deg, hsl(150 12% 10%) 0%, hsl(150 15% 8%) 100%);
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -146,7 +97,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     @apply font-semibold tracking-tight;
   }
 }
@@ -157,7 +108,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-20 md:py-28 lg:py-36;
   }
 
   .text-gradient {
@@ -179,21 +130,34 @@
   }
 
   .btn-glow:hover {
-    box-shadow: 0 0 50px hsl(85 55% 50% / 0.4);
+    box-shadow: 0 0 40px hsl(28 44% 29% / 0.3);
+  }
+
+  /* Organic grain texture overlay */
+  .grain-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 1;
   }
 }
 
 @layer utilities {
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.72s ease-out forwards;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 0.72s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.5s ease-out forwards;
+    animation: scaleIn 0.6s ease-out forwards;
   }
 
   @keyframes fadeUp {
@@ -227,9 +191,9 @@
     }
   }
 
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-1 { animation-delay: 0.12s; }
+  .stagger-2 { animation-delay: 0.24s; }
+  .stagger-3 { animation-delay: 0.36s; }
+  .stagger-4 { animation-delay: 0.48s; }
+  .stagger-5 { animation-delay: 0.60s; }
 }

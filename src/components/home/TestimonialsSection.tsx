@@ -51,30 +51,30 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div className="bg-card rounded-2xl p-6 shadow-card hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+    <div className="bg-parchment rounded-lg p-8 border border-warm-tan hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0">
-          <Quote className="h-8 w-8 text-lime/30" />
+          <Quote className="h-10 w-10 text-earth/20 font-display" />
         </div>
         <div className="flex gap-0.5">
           {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="h-4 w-4 fill-lime text-lime" />
+            <Star key={i} className="h-4 w-4 fill-earth text-earth" />
           ))}
         </div>
       </div>
-      <p className="text-foreground/80 leading-relaxed mb-6 flex-1">
+      <p className="text-foreground/80 leading-relaxed mb-8 flex-1 italic">
         "{testimonial.text}"
       </p>
-      <div className="flex items-center justify-between pt-4 border-t border-border">
+      <div className="flex items-center justify-between pt-6 border-t border-warm-tan">
         <div>
-          <div className="font-display font-semibold text-foreground">
+          <div className="font-display font-semibold text-primary text-lg">
             {testimonial.name}
           </div>
           <div className="text-sm text-muted-foreground">
             {testimonial.location}
           </div>
         </div>
-        <span className="text-xs px-2 py-1 rounded-full bg-secondary text-primary font-medium">
+        <span className="text-xs px-3 py-1.5 rounded-lg bg-card text-earth font-medium border border-warm-tan">
           {testimonial.service}
         </span>
       </div>
@@ -105,14 +105,14 @@ export function TestimonialsSection() {
   }, [api, onSelect]);
 
   return (
-    <section className="section-padding bg-gradient-section overflow-hidden">
+    <section className="section-padding bg-cream overflow-hidden">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary font-display text-sm font-semibold mb-4"
+            className="inline-block px-4 py-1.5 rounded-lg bg-parchment text-primary font-display text-sm font-semibold mb-4 border border-warm-tan"
           >
             {t('testimonials.badge')}
           </motion.span>
@@ -120,7 +120,7 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.12 }}
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
           >
             {t('testimonials.title')}
@@ -129,7 +129,7 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.24 }}
             className="mt-4 text-lg text-muted-foreground"
           >
             {t('testimonials.subtitle')}
@@ -163,7 +163,7 @@ export function TestimonialsSection() {
                   <button
                     key={i}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      i === current ? 'w-6 bg-primary' : 'w-2 bg-muted-foreground/30'
+                      i === current ? 'w-6 bg-primary' : 'w-2 bg-warm-tan'
                     }`}
                     onClick={() => api?.scrollTo(i)}
                     aria-label={`Go to slide ${i + 1}`}
@@ -181,16 +181,16 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-card shadow-md">
+          <div className="inline-flex items-center gap-4 px-6 py-3 rounded-lg bg-parchment shadow-md border border-warm-tan">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-lime text-lime" />
+                <Star key={i} className="h-5 w-5 fill-earth text-earth" />
               ))}
             </div>
             <span className="text-foreground font-display font-semibold">
               {t('testimonials.averageRating')}
             </span>
-            <span className="text-muted-foreground">•</span>
+            <span className="text-warm-tan">•</span>
             <span className="text-muted-foreground">
               {t('testimonials.happyCustomers')}
             </span>

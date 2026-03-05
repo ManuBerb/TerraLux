@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,10 +61,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Welandscape Brand Colors
+        // Organic Heritage Brand Colors
         forest: {
           DEFAULT: "hsl(var(--forest))",
           light: "hsl(var(--forest-light))",
+          dark: "hsl(var(--forest-dark))",
+        },
+        earth: {
+          DEFAULT: "hsl(var(--earth))",
+          light: "hsl(var(--earth-light))",
         },
         sage: {
           DEFAULT: "hsl(var(--sage))",
@@ -75,8 +80,10 @@ export default {
           light: "hsl(var(--lime-light))",
         },
         cream: "hsl(var(--cream))",
+        parchment: "hsl(var(--parchment))",
         charcoal: "hsl(var(--charcoal))",
         "warm-gray": "hsl(var(--warm-gray))",
+        "warm-tan": "hsl(var(--warm-tan))",
       },
       borderRadius: {
         lg: "var(--radius)",

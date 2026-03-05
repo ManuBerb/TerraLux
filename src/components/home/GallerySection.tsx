@@ -21,20 +21,23 @@ import pressureWashingAfter1 from '@/assets/gallery/pressure-washing-after-1.jpg
 import pressureWashingBefore2 from '@/assets/gallery/pressure-washing-before-2.jpg';
 import pressureWashingAfter2 from '@/assets/gallery/pressure-washing-after-2.jpg';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 12;
 
 const categoryKeys = ['All', 'Lawn Care', 'Hedging', 'Overseeding', 'Window Cleaning', 'Pressure Washing'];
 
 const galleryItems = [
-  { id: 1, beforeImage: lawnCareBefore1, afterImage: lawnCareAfter1, category: 'Lawn Care', title: 'Front Yard Transformation', location: 'Ville Saint-Laurent' },
-  { id: 2, beforeImage: lawnCareBefore2, afterImage: lawnCareAfter2, category: 'Lawn Care', title: 'Backyard Cleanup', location: 'Ville Saint-Laurent' },
-  { id: 3, beforeImage: lawnCareBefore3, afterImage: lawnCareAfter3, category: 'Lawn Care', title: 'Front Lawn Mowing', location: 'Ville Saint-Laurent' },
-  { id: 4, beforeImage: hedgingBefore1, afterImage: hedgingAfter1, category: 'Hedging', title: 'Hedge Trimming', location: 'Ville Saint-Laurent' },
-  { id: 5, beforeImage: overseedingBefore1, afterImage: overseedingAfter1, category: 'Overseeding', title: 'Lawn Restoration', location: 'Ville Saint-Laurent' },
-  { id: 6, beforeImage: windowCleaningBefore1, afterImage: windowCleaningAfter1, category: 'Window Cleaning', title: 'Window Cleaning', location: 'Mont-Royal' },
-  { id: 7, beforeImage: windowCleaningBefore2, afterImage: windowCleaningAfter2, category: 'Window Cleaning', title: 'Window Cleaning', location: 'Downtown Montreal' },
-  { id: 8, beforeImage: pressureWashingBefore1, afterImage: pressureWashingAfter1, category: 'Pressure Washing', title: 'Patio Pressure Washing', location: 'Westmount' },
-  { id: 9, beforeImage: pressureWashingBefore2, afterImage: pressureWashingAfter2, category: 'Pressure Washing', title: 'Walkway Pressure Washing', location: 'Westmount' },
+  { id: 1, image: lawnCareAfter1, category: 'Lawn Care', title: 'Front Yard Transformation', tall: true },
+  { id: 2, image: lawnCareAfter2, category: 'Lawn Care', title: 'Backyard Cleanup', tall: false },
+  { id: 3, image: hedgingAfter1, category: 'Hedging', title: 'Hedge Trimming', tall: false },
+  { id: 4, image: lawnCareAfter3, category: 'Lawn Care', title: 'Front Lawn Mowing', tall: true },
+  { id: 5, image: overseedingAfter1, category: 'Overseeding', title: 'Lawn Restoration', tall: false },
+  { id: 6, image: windowCleaningAfter1, category: 'Window Cleaning', title: 'Window Cleaning', tall: true },
+  { id: 7, image: pressureWashingAfter1, category: 'Pressure Washing', title: 'Patio Pressure Washing', tall: false },
+  { id: 8, image: windowCleaningAfter2, category: 'Window Cleaning', title: 'Window Cleaning', tall: false },
+  { id: 9, image: pressureWashingAfter2, category: 'Pressure Washing', title: 'Walkway Pressure Washing', tall: true },
+  { id: 10, image: lawnCareBefore1, category: 'Lawn Care', title: 'Before - Front Yard', tall: false },
+  { id: 11, image: hedgingBefore1, category: 'Hedging', title: 'Before - Hedge', tall: true },
+  { id: 12, image: pressureWashingBefore1, category: 'Pressure Washing', title: 'Before - Patio', tall: false },
 ];
 
 export function GallerySection() {
@@ -56,14 +59,14 @@ export function GallerySection() {
   };
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-earth">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-secondary text-primary font-display text-sm font-semibold mb-4"
+            className="inline-block px-4 py-1.5 rounded-lg bg-parchment/10 text-warm-tan font-display text-sm font-semibold mb-4 border border-warm-tan/20"
           >
             {t('gallery.badge')}
           </motion.span>
@@ -71,8 +74,8 @@ export function GallerySection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+            transition={{ delay: 0.12 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-cream"
           >
             {t('gallery.title')}
           </motion.h2>
@@ -80,8 +83,8 @@ export function GallerySection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-lg text-muted-foreground"
+            transition={{ delay: 0.24 }}
+            className="mt-4 text-lg text-parchment/70"
           >
             {t('gallery.subtitle')}
           </motion.p>
@@ -97,10 +100,10 @@ export function GallerySection() {
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`px-5 py-2.5 rounded-full font-display text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-lg font-sans text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'bg-secondary text-foreground hover:bg-secondary/80'
+                  ? 'bg-parchment text-primary shadow-lg'
+                  : 'bg-parchment/10 text-parchment/80 hover:bg-parchment/20 border border-warm-tan/20'
               }`}
             >
               {t(`gallery.categories.${category}`)}
@@ -108,37 +111,32 @@ export function GallerySection() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Masonry Grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {visibleItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              layout
-              className="group rounded-2xl overflow-hidden shadow-card bg-card"
+              transition={{ delay: index * 0.06 }}
+              className="break-inside-avoid group relative overflow-hidden rounded-lg cursor-pointer"
             >
-              <div className="grid grid-cols-2 gap-1">
-                <div className="relative aspect-[4/3]">
-                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-destructive/90 text-destructive-foreground text-xs font-semibold rounded">
-                    {t('gallery.before')}
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                  item.tall ? 'h-80 sm:h-96' : 'h-52 sm:h-64'
+                }`}
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-center">
+                  <span className="font-display text-lg text-cream font-semibold">
+                    {t(`gallery.categories.${item.category}`)}
                   </span>
-                  <img src={item.beforeImage} alt={`${item.title} - Before`} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-                <div className="relative aspect-[4/3]">
-                  <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded">
-                    {t('gallery.after')}
-                  </span>
-                  <img src={item.afterImage} alt={`${item.title} - After`} loading="lazy" className="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div className="p-4">
-                <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded mb-2">
-                  {t(`gallery.categories.${item.category}`)}
-                </span>
-                <h3 className="font-display text-lg font-semibold text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.location}</p>
               </div>
             </motion.div>
           ))}
@@ -152,10 +150,10 @@ export function GallerySection() {
             className="flex justify-center mt-10"
           >
             <Button
-              variant="outline"
+              variant="hero-outline"
               size="lg"
               onClick={() => setVisibleCount((prev) => prev + ITEMS_PER_PAGE)}
-              className="font-display font-semibold"
+              className="font-sans font-semibold"
             >
               {t('gallery.showMore')}
             </Button>
