@@ -12,7 +12,7 @@ export function MobileCTA({ className }: MobileCTAProps) {
 
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden ${className}`}>
-      <div className="bg-parchment/95 backdrop-blur-md border-t border-warm-tan p-4 safe-area-inset-bottom">
+      <div className="bg-background/95 backdrop-blur-md border-t border-border p-4 safe-area-inset-bottom">
         <Button variant="cta" size="lg" className="w-full" asChild>
           <Link to="/quote">
             {t('mobileCTA.button')}

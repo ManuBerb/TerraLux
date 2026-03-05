@@ -33,25 +33,27 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-parchment/95 backdrop-blur-md border-b border-warm-tan/50 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md ${
         scrolled ? 'shadow-md' : ''
       }`}
     >
       <nav className="container-custom" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
+          {/* Logo */}
           <Link to="/" className="flex items-center">
             <Logo className="h-10 md:h-12" />
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`font-sans text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 ${
+                className={`font-display text-sm font-medium transition-colors hover:text-primary ${
                   location.pathname === item.href
-                    ? 'text-primary after:w-full'
-                    : 'text-foreground/80 hover:text-primary after:w-0 hover:after:w-full'
+                    ? 'text-primary'
+                    : 'text-foreground/80'
                 }`}
               >
                 {item.name}
@@ -59,6 +61,7 @@ export function Header() {
             ))}
           </div>
 
+          {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
             <LanguageToggle />
             <a
@@ -68,11 +71,12 @@ export function Header() {
               <Phone className="h-4 w-4" />
               {t('nav.phone')}
             </a>
-            <Button variant="default" size="lg" className="rounded-lg" asChild>
+            <Button variant="cta" size="lg" asChild>
               <Link to="/quote">{t('nav.getQuote')}</Link>
             </Button>
           </div>
 
+          {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-3">
             <LanguageToggle />
             <button
@@ -91,13 +95,14 @@ export function Header() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-parchment border-t border-warm-tan"
+            className="lg:hidden bg-background border-t border-border"
           >
             <div className="container-custom py-6 space-y-4">
               {navigation.map((item) => (
@@ -113,7 +118,7 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-warm-tan space-y-4">
+              <div className="pt-4 border-t border-border space-y-4">
                 <a
                   href="tel:+15142935662"
                   className="flex items-center gap-2 text-muted-foreground"
@@ -121,7 +126,7 @@ export function Header() {
                   <Phone className="h-5 w-5" />
                   {t('nav.phone')}
                 </a>
-                <Button variant="default" size="lg" className="w-full rounded-lg" asChild>
+                <Button variant="cta" size="lg" className="w-full" asChild>
                   <Link to="/quote">{t('nav.getQuote')}</Link>
                 </Button>
               </div>

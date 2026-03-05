@@ -9,19 +9,17 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-forest-dark">
-      {/* Background Image with dark overlay */}
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Beautiful professionally maintained lawn with crisp edges"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover"
           style={{ objectPosition: 'center calc(50% + 80px)' }}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
       </div>
-
-      {/* Grain texture overlay */}
-      <div className="absolute inset-0 z-[1] grain-texture" />
 
       {/* Content */}
       <div className="relative z-10 container-custom py-32">
@@ -29,9 +27,9 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.72 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-earth/30 text-warm-tan font-sans text-sm font-semibold mb-6 backdrop-blur-sm border border-warm-tan/20">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/20 text-lime font-display text-sm font-semibold mb-6 backdrop-blur-sm">
               <CheckCircle2 className="h-4 w-4" />
               {t('hero.badge')}
             </span>
@@ -40,19 +38,19 @@ export function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.72, delay: 0.12 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream leading-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
             {t('hero.title1')}
             <br />
-            <span className="text-warm-tan">{t('hero.title2')}</span>
+            <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.72, delay: 0.24 }}
-            className="mt-6 text-lg sm:text-xl text-warm-tan/80 leading-relaxed max-w-xl"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 text-lg sm:text-xl text-primary-foreground/80 leading-relaxed max-w-xl"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -60,7 +58,7 @@ export function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.72, delay: 0.36 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-col sm:flex-row gap-4"
           >
             <Button variant="hero" size="xl" asChild>
@@ -76,26 +74,23 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          {/* Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.72, delay: 0.48 }}
-            className="mt-12 inline-flex items-center gap-6 sm:gap-8 px-6 py-4 rounded-lg bg-parchment/10 backdrop-blur-sm border border-warm-tan/20"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 grid grid-cols-3 gap-4 sm:flex sm:items-center sm:gap-8"
           >
-            <div className="text-center">
-              <div className="font-display text-2xl sm:text-3xl font-bold text-cream">100+</div>
-              <div className="text-xs sm:text-sm text-warm-tan/70">{t('hero.happyCustomers')}</div>
+            <div className="text-primary-foreground text-center">
+              <div className="font-display text-2xl sm:text-3xl font-bold">100+</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.happyCustomers')}</div>
             </div>
-            <div className="w-px h-10 bg-warm-tan/30" />
-            <div className="text-center">
-              <div className="font-display text-2xl sm:text-3xl font-bold text-cream">7+</div>
-              <div className="text-xs sm:text-sm text-warm-tan/70">{t('hero.yearsExperience')}</div>
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
+              <div className="font-display text-2xl sm:text-3xl font-bold">7+</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.yearsExperience')}</div>
             </div>
-            <div className="w-px h-10 bg-warm-tan/30" />
-            <div className="text-center">
-              <div className="font-display text-2xl sm:text-3xl font-bold text-cream">4.9★</div>
-              <div className="text-xs sm:text-sm text-warm-tan/70">{t('hero.averageRating')}</div>
+            <div className="text-primary-foreground text-center sm:border-l sm:border-primary-foreground/20 sm:pl-8">
+              <div className="font-display text-2xl sm:text-3xl font-bold">4.9★</div>
+              <div className="text-xs sm:text-sm text-primary-foreground/70">{t('hero.averageRating')}</div>
             </div>
           </motion.div>
         </div>
