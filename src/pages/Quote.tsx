@@ -102,7 +102,7 @@ const QuotePage = () => {
         }
       }
 
-      const { data, error } = await supabase.functions.invoke('send-quote-email', {
+      const response = await supabase.functions.invoke('send-quote-email', {
         body: {
           fullName: validatedData.fullName, email: validatedData.email, phone: validatedData.phone,
           serviceRequested: validatedData.service, propertyType: validatedData.propertyType || undefined,
@@ -114,19 +114,28 @@ const QuotePage = () => {
         },
       });
 
-      if (error) throw new Error(error.message);
+      if (response.error) {
+        const errorBody = response.data;
+        if (errorBody?.error?.includes('Too many requests')) {
+          throw Object.assign(new Error('Rate limited'), { status: 429 });
+        }
+        throw new Error(response.error.message);
+      }
+      const data = response.data;
       if (!data?.success) throw new Error(data?.error || 'Failed to submit quote');
 
       setFormData({ fullName: '', email: '', phone: '', service: '', address: '', propertyType: 'residential', contactMethod: 'phone', details: '' });
       setAttachedImages([]);
       setIsSubmitted(true);
       toast({ title: t('quotePage.submitted'), description: t('quotePage.submittedDesc') });
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Partial<Record<keyof QuoteFormData, string>> = {};
         error.errors.forEach((err) => { if (err.path[0]) fieldErrors[err.path[0] as keyof QuoteFormData] = err.message; });
         setErrors(fieldErrors);
         toast({ title: t('quotePage.checkForm'), description: t('quotePage.checkFormDesc'), variant: 'destructive' });
+      } else if (error?.message?.includes('429') || error?.status === 429) {
+        toast({ title: t('quotePage.somethingWrong'), description: t('errors.rateLimit'), variant: 'destructive' });
       } else {
         toast({ title: t('quotePage.somethingWrong'), description: t('quotePage.somethingWrongDesc'), variant: 'destructive' });
       }

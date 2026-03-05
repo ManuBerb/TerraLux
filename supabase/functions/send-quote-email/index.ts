@@ -33,6 +33,9 @@ const ALLOWED_SERVICES = [
   "Multiple Services",
 ];
 
+const RATE_LIMIT_QUOTE = 3;
+const WINDOW_MINUTES = 60;
+
 const handler = async (req: Request): Promise<Response> => {
   console.log("send-quote-email function invoked");
 
@@ -50,6 +53,30 @@ const handler = async (req: Request): Promise<Response> => {
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
     }
+
+    // --- Rate Limiting ---
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+    const windowStart = new Date(Date.now() - WINDOW_MINUTES * 60 * 1000).toISOString();
+
+    const { count } = await supabaseAdmin
+      .from("rate_limits")
+      .select("*", { count: "exact", head: true })
+      .eq("ip", ip)
+      .gte("created_at", windowStart);
+
+    if ((count ?? 0) >= RATE_LIMIT_QUOTE) {
+      return new Response(JSON.stringify({ error: "Too many requests. Please try again later." }), {
+        status: 429,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    await supabaseAdmin.from("rate_limits").insert({ ip });
+    // --- End Rate Limiting ---
 
     // Extract and sanitize fields
     const fullName = String(body.fullName || "").trim();
@@ -92,19 +119,22 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(JSON.stringify({ error: "Details are too long (max 2000)" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
 
-    // Create Supabase client
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
     const extraData = imagePaths.length > 0 ? { image_paths: imagePaths } : null;
 
-    const imageUrls = imagePaths.map(path =>
-      `${supabaseUrl}/storage/v1/object/public/quotes/${path}`
-    );
+    // Generate signed URLs for images (private bucket)
+    const imageUrls: string[] = [];
+    for (const path of imagePaths) {
+      const { data: signedData, error: signError } = await supabaseAdmin
+        .storage
+        .from("quotes")
+        .createSignedUrl(path, 60 * 60 * 24 * 7); // 7-day expiry
+      if (!signError && signedData?.signedUrl) {
+        imageUrls.push(signedData.signedUrl);
+      }
+    }
 
     // Insert quote into database
-    const { data: insertedQuote, error: insertError } = await supabase
+    const { data: insertedQuote, error: insertError } = await supabaseAdmin
       .from("quotes")
       .insert({
         full_name: fullName,
@@ -213,6 +243,7 @@ const handler = async (req: Request): Promise<Response> => {
               </a>
             `).join('')}
           </div>
+          <p style="color: #888; font-size: 12px; margin-top: 8px;">⏳ Image links expire in 7 days.</p>
           ` : ''}
         </div>
 
