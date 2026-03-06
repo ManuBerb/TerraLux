@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,8 @@ interface MobileCTAProps {
 
 export function MobileCTA({ className }: MobileCTAProps) {
   const { t } = useTranslation();
-
+  const location = useLocation();
+  if (location.pathname === '/quote') return null;
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden ${className}`}>
       <div className="bg-background/95 backdrop-blur-md border-t border-border p-4 safe-area-inset-bottom">
