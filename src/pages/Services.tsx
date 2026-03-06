@@ -92,14 +92,14 @@ const ServicesPage = () => {
                 return (
                   <AccordionItem key={service.id} value={service.key} id={`mobile-${service.id}`}>
                     <AccordionTrigger className="py-4 px-5">
-                      <div className="flex items-center gap-3 flex-1 min-w-0">
+                      <div className="flex items-center gap-3 flex-1">
                         <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
                           <service.icon className="h-5 w-5 text-primary" />
                         </div>
-                        <span className="font-display font-semibold text-foreground text-left truncate">{title}</span>
-                      </div>
-                      <div className="flex items-center gap-2 flex-shrink-0 ml-2">
-                        <SeasonBadges seasons={service.seasons} />
+                        <div className="flex flex-col items-start gap-1 flex-1">
+                          <span className="font-display font-semibold text-foreground text-left">{title}</span>
+                          <SeasonBadges seasons={service.seasons} />
+                        </div>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent>
