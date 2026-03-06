@@ -8,7 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
-  Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Droplets, ArrowRight, CheckCircle2, Snowflake
+  Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Layers, Grid3x3, Zap, ArrowRight, CheckCircle2, Snowflake
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
@@ -22,12 +22,12 @@ const serviceKeys: {
   { id: 'lawn-mowing', key: 'lawnMowing', icon: Leaf, seasons: ['spring', 'summer', 'fall'] },
   { id: 'overseeding', key: 'overseeding', icon: Sprout, seasons: ['spring', 'fall'] },
   { id: 'flower-beds', key: 'flowerBeds', icon: Flower2, seasons: ['spring', 'fall'] },
-  { id: 'mulch-beds', key: 'mulchBeds', icon: TreeDeciduous, seasons: ['spring', 'summer', 'fall'] },
-  { id: 'sod', key: 'sodInstallation', icon: Droplets, seasons: ['spring', 'fall'] },
+  { id: 'mulch-beds', key: 'mulchBeds', icon: Layers, seasons: ['spring', 'summer', 'fall'] },
+  { id: 'sod', key: 'sodInstallation', icon: Grid3x3, seasons: ['spring', 'fall'] },
   { id: 'leaf-removal', key: 'leafRemoval', icon: Leaf, seasons: ['fall'] },
   { id: 'hedging', key: 'hedging', icon: TreeDeciduous, seasons: ['spring', 'fall'] },
   { id: 'window-cleaning', key: 'windowCleaning', icon: Sparkles, seasons: ['year-round'] },
-  { id: 'pressure-washing', key: 'pressureWashing', icon: Droplets, seasons: ['spring', 'summer', 'fall'] },
+  { id: 'pressure-washing', key: 'pressureWashing', icon: Zap, seasons: ['spring', 'summer', 'fall'] },
   { id: 'snow-removal', key: 'snowRemoval', icon: Snowflake, seasons: ['coming-soon'] },
 ];
 

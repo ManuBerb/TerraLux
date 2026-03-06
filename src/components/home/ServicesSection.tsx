@@ -3,11 +3,7 @@ import { Button } from '@/components/ui/button';
 import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
   Leaf, 
-  Sprout, 
-  Flower2, 
-  TreeDeciduous, 
-  Sparkles, 
-  Droplets,
+  Grid3x3,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
@@ -16,8 +12,8 @@ import { useTranslation } from 'react-i18next';
 
 const serviceKeys = [
   { key: 'lawnMowing', icon: Leaf, featured: true, seasons: ['spring', 'summer', 'fall'] as Season[] },
-  { key: 'leafRemoval', icon: TreeDeciduous, featured: false, seasons: ['fall'] as Season[] },
-  { key: 'sodInstallation', icon: Droplets, featured: false, seasons: ['spring', 'fall'] as Season[] },
+  { key: 'leafRemoval', icon: Leaf, featured: false, seasons: ['fall'] as Season[] },
+  { key: 'sodInstallation', icon: Grid3x3, featured: false, seasons: ['spring', 'fall'] as Season[] },
 ];
 
 const containerVariants = {
