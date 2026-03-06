@@ -8,9 +8,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
-  Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Layers, Grid3x3, Zap, ArrowRight, CheckCircle2, Snowflake
+  Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Layers, Grid3x3, ArrowRight, CheckCircle2, Snowflake
 } from 'lucide-react';
-import { GiGrass } from 'react-icons/gi';
+import { GiGrass, GiWaterDrop } from 'react-icons/gi';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
@@ -29,7 +29,7 @@ const serviceKeys: {
   { id: 'leaf-removal', key: 'leafRemoval', icon: Leaf, seasons: ['fall'] },
   { id: 'hedging', key: 'hedging', icon: TreeDeciduous, seasons: ['spring', 'fall'] },
   { id: 'window-cleaning', key: 'windowCleaning', icon: Sparkles, seasons: ['year-round'] },
-  { id: 'pressure-washing', key: 'pressureWashing', icon: Zap, seasons: ['spring', 'summer', 'fall'] },
+  { id: 'pressure-washing', key: 'pressureWashing', icon: GiWaterDrop, seasons: ['spring', 'summer', 'fall'] },
   { id: 'snow-removal', key: 'snowRemoval', icon: Snowflake, seasons: ['coming-soon'] },
 ];
 
