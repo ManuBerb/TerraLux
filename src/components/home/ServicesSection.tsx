@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
+  Leaf,
   Grid3x3,
   ArrowRight,
   CheckCircle2
