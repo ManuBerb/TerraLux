@@ -10,7 +10,8 @@ import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
   Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Layers, Grid3x3, ArrowRight, CheckCircle2, Snowflake
 } from 'lucide-react';
-import { GiGrass, GiWaterDrop } from 'react-icons/gi';
+import { GiGrass } from 'react-icons/gi';
+import { RiWaterFlashLine } from 'react-icons/ri';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
@@ -29,7 +30,7 @@ const serviceKeys: {
   { id: 'leaf-removal', key: 'leafRemoval', icon: Leaf, seasons: ['fall'] },
   { id: 'hedging', key: 'hedging', icon: TreeDeciduous, seasons: ['spring', 'fall'] },
   { id: 'window-cleaning', key: 'windowCleaning', icon: Sparkles, seasons: ['year-round'] },
-  { id: 'pressure-washing', key: 'pressureWashing', icon: GiWaterDrop, seasons: ['spring', 'summer', 'fall'] },
+  { id: 'pressure-washing', key: 'pressureWashing', icon: RiWaterFlashLine, seasons: ['spring', 'summer', 'fall'] },
   { id: 'snow-removal', key: 'snowRemoval', icon: Snowflake, seasons: ['coming-soon'] },
 ];
 

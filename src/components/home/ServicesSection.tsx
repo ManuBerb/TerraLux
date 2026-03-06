@@ -7,7 +7,7 @@ import {
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
-import { GiGrass, GiWaterDrop } from 'react-icons/gi';
+import { GiGrass } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
