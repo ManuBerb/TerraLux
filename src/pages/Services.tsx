@@ -80,7 +80,59 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="section-padding bg-background">
+        {/* Mobile Accordion Layout */}
+        <section className="section-padding bg-background lg:hidden">
+          <div className="container-custom">
+            <Accordion type="single" collapsible defaultValue="lawnMowing" className="rounded-2xl overflow-hidden border border-border shadow-sm bg-white">
+              {serviceKeys.map((service) => {
+                const title = t(`servicesPage.${service.key}.title`);
+                const description = t(`servicesPage.${service.key}.description`);
+                const features = t(`servicesPage.${service.key}.features`, { returnObjects: true }) as string[];
+
+                return (
+                  <AccordionItem key={service.id} value={service.key} id={`mobile-${service.id}`}>
+                    <AccordionTrigger className="py-4 px-5">
+                      <div className="flex items-center gap-3 flex-1 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center flex-shrink-0">
+                          <service.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <span className="font-display font-semibold text-foreground text-left truncate">{title}</span>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0 ml-2">
+                        <SeasonBadges seasons={service.seasons} />
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{description}</p>
+                      <h4 className="font-display text-sm font-semibold text-foreground mb-3">
+                        {t('servicesPage.whatsIncluded')}
+                      </h4>
+                      <ul className="space-y-2.5 mb-5">
+                        {features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="h-4 w-4 text-lime flex-shrink-0 mt-0.5" />
+                            <span className="text-foreground/80 text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {!service.seasons.includes('coming-soon') && (
+                        <Button variant="cta" size="lg" className="w-full" asChild>
+                          <Link to="/quote">
+                            {t('servicesPage.getQuote')}
+                            <ArrowRight className="h-5 w-5" />
+                          </Link>
+                        </Button>
+                      )}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Desktop Zigzag Layout */}
+        <section className="section-padding bg-background hidden lg:block">
           <div className="container-custom space-y-24">
             {serviceKeys.map((service, index) => {
               const title = t(`servicesPage.${service.key}.title`);
