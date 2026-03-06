@@ -190,8 +190,7 @@ export function TestimonialsSection() {
             <span className="text-foreground font-display font-semibold">
               {t('testimonials.averageRating')}
             </span>
-            <span className="text-muted-foreground">
-</span>
+            <span className="text-muted-foreground">•</span>
             
 
             
