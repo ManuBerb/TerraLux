@@ -83,7 +83,7 @@ const ServicesPage = () => {
         {/* Mobile Accordion Layout */}
         <section className="section-padding bg-background lg:hidden">
           <div className="container-custom">
-            <Accordion type="single" collapsible defaultValue="lawnMowing" className="rounded-2xl overflow-hidden border border-border shadow-sm bg-white">
+            <Accordion type="single" collapsible className="rounded-2xl overflow-hidden border border-border shadow-sm bg-white">
               {serviceKeys.map((service) => {
                 const title = t(`servicesPage.${service.key}.title`);
                 const description = t(`servicesPage.${service.key}.description`);
@@ -97,7 +97,7 @@ const ServicesPage = () => {
                           <service.icon className="h-5 w-5 text-primary" />
                         </div>
                         <div className="flex flex-col items-start gap-1 flex-1">
-                          <span className="font-display font-semibold text-foreground text-left">{title}</span>
+                          <span className="text-lg font-display font-semibold text-foreground text-left">{title}</span>
                           <SeasonBadges seasons={service.seasons} />
                         </div>
                       </div>
