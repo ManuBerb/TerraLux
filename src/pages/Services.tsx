@@ -11,6 +11,7 @@ import {
   Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Droplets, ArrowRight, CheckCircle2, Snowflake
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 const serviceKeys: {
   id: string;
