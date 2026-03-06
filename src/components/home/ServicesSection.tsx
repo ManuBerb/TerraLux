@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
-  Leaf, 
   Grid3x3,
   ArrowRight,
   CheckCircle2
 } from 'lucide-react';
+import { GiGrass } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 const serviceKeys = [
-  { key: 'lawnMowing', icon: Leaf, featured: true, seasons: ['spring', 'summer', 'fall'] as Season[] },
+  { key: 'lawnMowing', icon: GiGrass, featured: true, seasons: ['spring', 'summer', 'fall'] as Season[] },
   { key: 'leafRemoval', icon: Leaf, featured: false, seasons: ['fall'] as Season[] },
   { key: 'sodInstallation', icon: Grid3x3, featured: false, seasons: ['spring', 'fall'] as Season[] },
 ];

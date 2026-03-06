@@ -10,6 +10,7 @@ import { SeasonBadges, type Season } from '@/components/SeasonBadge';
 import { 
   Leaf, Sprout, Flower2, TreeDeciduous, Sparkles, Layers, Grid3x3, Zap, ArrowRight, CheckCircle2, Snowflake
 } from 'lucide-react';
+import { GiGrass } from 'react-icons/gi';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
@@ -19,7 +20,7 @@ const serviceKeys: {
   icon: typeof Leaf;
   seasons: Season[];
 }[] = [
-  { id: 'lawn-mowing', key: 'lawnMowing', icon: Leaf, seasons: ['spring', 'summer', 'fall'] },
+  { id: 'lawn-mowing', key: 'lawnMowing', icon: GiGrass, seasons: ['spring', 'summer', 'fall'] },
   { id: 'overseeding', key: 'overseeding', icon: Sprout, seasons: ['spring', 'fall'] },
   { id: 'flower-beds', key: 'flowerBeds', icon: Flower2, seasons: ['spring', 'fall'] },
   { id: 'mulch-beds', key: 'mulchBeds', icon: Layers, seasons: ['spring', 'summer', 'fall'] },
