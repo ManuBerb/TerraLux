@@ -14,10 +14,11 @@ import { GiGrass } from 'react-icons/gi';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const serviceKeys: {
   id: string;
   key: string;
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+  icon: any;
   seasons: Season[];
 }[] = [
   { id: 'lawn-mowing', key: 'lawnMowing', icon: GiGrass, seasons: ['spring', 'summer', 'fall'] },
