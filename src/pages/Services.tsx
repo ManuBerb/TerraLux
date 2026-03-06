@@ -17,7 +17,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 const serviceKeys: {
   id: string;
   key: string;
-  icon: typeof Leaf;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
   seasons: Season[];
 }[] = [
   { id: 'lawn-mowing', key: 'lawnMowing', icon: GiGrass, seasons: ['spring', 'summer', 'fall'] },
