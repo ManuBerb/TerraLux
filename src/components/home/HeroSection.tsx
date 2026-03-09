@@ -9,9 +9,9 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
+      <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Beautiful professionally maintained lawn with crisp edges"
