@@ -33,15 +33,17 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md ${
-        scrolled ? 'shadow-md' : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-background/95 backdrop-blur-md shadow-md' 
+          : 'bg-transparent'
       }`}
     >
       <nav className="container-custom" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <Logo className="h-10 md:h-12" />
+            <Logo className="h-10 md:h-12" variant={scrolled ? 'dark' : 'light'} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -50,10 +52,14 @@ export function Header() {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`font-display text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.href
-                    ? 'text-primary'
-                    : 'text-foreground/80'
+                className={`font-display text-sm font-medium transition-colors ${
+                  scrolled
+                    ? location.pathname === item.href
+                      ? 'text-primary'
+                      : 'text-foreground/80 hover:text-primary'
+                    : location.pathname === item.href
+                      ? 'text-white'
+                      : 'text-white/90 hover:text-white'
                 }`}
               >
                 {item.name}
@@ -63,10 +69,14 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
-            <LanguageToggle />
+            <LanguageToggle variant={scrolled ? 'default' : 'light'} />
             <a
               href="tel:+15142935662"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+                scrolled
+                  ? 'text-muted-foreground hover:text-primary'
+                  : 'text-white/80 hover:text-white'
+              }`}
             >
               <Phone className="h-4 w-4" />
               {t('nav.phone')}
@@ -78,10 +88,10 @@ export function Header() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-3">
-            <LanguageToggle />
+            <LanguageToggle variant={scrolled ? 'default' : 'light'} />
             <button
               type="button"
-              className="p-2 -m-2 text-foreground"
+              className={`p-2 -m-2 transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Toggle menu</span>

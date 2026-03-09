@@ -3,11 +3,14 @@ import { useTranslation } from 'react-i18next';
 interface LogoProps {
   className?: string;
   iconOnly?: boolean;
+  variant?: 'dark' | 'light';
 }
 
-export function Logo({ className = '', iconOnly = false }: LogoProps) {
+export function Logo({ className = '', iconOnly = false, variant = 'dark' }: LogoProps) {
   const { i18n } = useTranslation();
   const isFr = i18n.language?.startsWith('fr');
+  const textFill = variant === 'light' ? '#ffffff' : '#404245';
+
   if (iconOnly) {
     return (
       <svg
@@ -48,7 +51,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="72"
-          fill="#404245"
+          fill={textFill}
           textAnchor={isFr ? "middle" : "start"}
           letterSpacing="0.05em"
         >
@@ -60,7 +63,7 @@ export function Logo({ className = '', iconOnly = false }: LogoProps) {
           fontFamily='"Segoe UI", Roboto, Helvetica, Arial, sans-serif'
           fontWeight="800"
           fontSize="42"
-          fill="#404245"
+          fill={textFill}
           textAnchor={isFr ? "middle" : "start"}
           letterSpacing="0.12em"
         >

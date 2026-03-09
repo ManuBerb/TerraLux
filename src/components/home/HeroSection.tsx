@@ -9,7 +9,7 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -22,7 +22,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom py-32">
+      <div className="relative z-10 container-custom pt-0 pb-32">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
