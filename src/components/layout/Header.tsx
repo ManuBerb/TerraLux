@@ -12,6 +12,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { t } = useTranslation();
+  const isHomePage = location.pathname === '/';
+  const isTransparent = isHomePage && !scrolled;
 
   const navigation = [
     { name: t('nav.home'), href: '/' },
@@ -34,7 +36,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
+        scrolled || !isHomePage
           ? 'bg-background/95 backdrop-blur-md shadow-md' 
           : 'bg-transparent'
       }`}
@@ -43,7 +45,7 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <Logo className="h-10 md:h-12" variant={scrolled ? 'dark' : 'light'} />
+            <Logo className="h-10 md:h-12" variant={isTransparent ? 'light' : 'dark'} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,13 +55,13 @@ export function Header() {
                 key={item.href}
                 to={item.href}
                 className={`font-display text-sm font-medium transition-colors ${
-                  scrolled
+                  isTransparent
                     ? location.pathname === item.href
-                      ? 'text-primary'
-                      : 'text-foreground/80 hover:text-primary'
-                    : location.pathname === item.href
                       ? 'text-white'
                       : 'text-white/90 hover:text-white'
+                    : location.pathname === item.href
+                      ? 'text-primary'
+                      : 'text-foreground/80 hover:text-primary'
                 }`}
               >
                 {item.name}
@@ -69,13 +71,13 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
-            <LanguageToggle variant={scrolled ? 'default' : 'light'} />
+            <LanguageToggle variant={isTransparent ? 'light' : 'default'} />
             <a
               href="tel:+15142935662"
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                scrolled
-                  ? 'text-muted-foreground hover:text-primary'
-                  : 'text-white/80 hover:text-white'
+                isTransparent
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
             >
               <Phone className="h-4 w-4" />
@@ -88,10 +90,10 @@ export function Header() {
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-3">
-            <LanguageToggle variant={scrolled ? 'default' : 'light'} />
+            <LanguageToggle variant={isTransparent ? 'light' : 'default'} />
             <button
               type="button"
-              className={`p-2 -m-2 transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}
+              className={`p-2 -m-2 transition-colors ${isTransparent ? 'text-white' : 'text-foreground'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Toggle menu</span>
