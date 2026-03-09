@@ -39,9 +39,9 @@ export function Logo({ className = '', iconOnly = false, variant = 'dark' }: Log
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto shrink-0"
       >
-        <path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill="#90a991" />
-        <path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill="#707b7c" />
-        <path d="M250 310L50 410V495L250 395L450 495V410L250 310Z" fill="#4d5459" />
+        <path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill={chevronFills[0]} />
+        <path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill={chevronFills[1]} />
+        <path d="M250 310L50 410V495L250 395L450 495V410L250 310Z" fill={chevronFills[2]} />
       </svg>
       {/* Text */}
       <svg
