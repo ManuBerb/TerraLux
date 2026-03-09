@@ -1,5 +1,6 @@
-<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M250 50L50 150V235L250 135L450 235V150L250 50Z" fill="#90a991"/>
-<path d="M250 180L50 280V365L250 265L450 365V280L250 180Z" fill="#707b7c"/>
-<path d="M250 310L50 410V495L250 395L450 495V410L250 310Z" fill="#4d5459"/>
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#ffffff"/>
+  <path d="M50 10L10 30V47L50 27L90 47V30L50 10Z" fill="#90a991"/>
+  <path d="M50 36L10 56V73L50 53L90 73V56L50 36Z" fill="#707b7c"/>
+  <path d="M50 62L10 82V99L50 79L90 99V82L50 62Z" fill="#4d5459"/>
 </svg>
