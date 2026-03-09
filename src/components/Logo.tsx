@@ -9,7 +9,11 @@ interface LogoProps {
 export function Logo({ className = '', iconOnly = false, variant = 'dark' }: LogoProps) {
   const { i18n } = useTranslation();
   const isFr = i18n.language?.startsWith('fr');
-  const textFill = variant === 'light' ? '#ffffff' : '#404245';
+  const isLight = variant === 'light';
+  const textFill = isLight ? '#ffffff' : '#404245';
+  const chevronFills = isLight
+    ? ['white', 'rgba(255,255,255,0.75)', 'rgba(255,255,255,0.5)']
+    : ['#90a991', '#707b7c', '#4d5459'];
 
   if (iconOnly) {
     return (
