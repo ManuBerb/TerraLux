@@ -13,7 +13,7 @@ export function MobileCTA({ className }: MobileCTAProps) {
   if (location.pathname === '/quote') return null;
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden ${className}`}>
-      <div className="bg-background/95 backdrop-blur-md border-t border-border p-4 safe-area-inset-bottom">
+      <div className="bg-background/95 backdrop-blur-md border-t border-border p-2 pb-3 safe-area-inset-bottom">
         <Button variant="cta" size="lg" className="w-full" asChild>
           <Link to="/quote">
             {t('mobileCTA.button')}
