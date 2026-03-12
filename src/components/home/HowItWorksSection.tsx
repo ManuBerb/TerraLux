@@ -68,12 +68,9 @@ export function HowItWorksSection() {
                   </div>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+              <h3 className="font-display text-xl font-semibold text-foreground">
                 {t(`howItWorks.${step.titleKey}`)}
               </h3>
-              <p className="text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                {t(`howItWorks.${step.descKey}`)}
-              </p>
             </motion.div>
           ))}
         </div>
