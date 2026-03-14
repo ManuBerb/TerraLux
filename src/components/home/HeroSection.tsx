@@ -105,9 +105,9 @@ export function HeroSection() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" as const }}
-                style={{ display: "inline-block" }}
+                style={{ display: "inline-block", marginLeft: "0.25em" }}
               >
-                {` ${restOfTitle}`}
+                {restOfTitle}
               </motion.span>
             ) : null}
             <br />
