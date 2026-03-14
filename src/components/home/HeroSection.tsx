@@ -68,18 +68,19 @@ export function HeroSection() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              aria-label={titleWord}
+              aria-label={firstWord}
             >
-              {titleWord.split("").map((letter, i) => (
+              {firstWord.split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   variants={letterVariants}
                   style={{ display: "inline-block" }}
                 >
-                  {letter === " " ? "\u00A0" : letter}
+                  {letter}
                 </motion.span>
               ))}
             </motion.span>
+            {restOfTitle ? ` ${restOfTitle}` : ""}
             <br />
             <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
