@@ -57,7 +57,17 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            {t('hero.title1')}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={words[wordIndex]}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {words[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
             <br />
             <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
