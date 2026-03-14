@@ -11,6 +11,7 @@ export function HeroSection() {
   const titleWord = t('hero.title1');
   const firstWord = titleWord.split(" ")[0];
   const restOfTitle = titleWord.split(" ").slice(1).join(" ");
+  const title2Word = t('hero.title2');
 
   const containerVariants = {
     hidden: {},
@@ -28,6 +29,25 @@ export function HeroSection() {
       opacity: 1, 
       y: 0,
       transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
+
+  const title2ContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 1.2,
+      }
+    }
+  };
+
+  const title2LetterVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const }
     }
   };
 
