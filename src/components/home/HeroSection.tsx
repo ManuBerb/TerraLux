@@ -6,7 +6,7 @@ import heroImage from '@/assets/hero-lawn.jpg';
 import { useTranslation } from 'react-i18next';
 
 export function HeroSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const titleWord = t('hero.title1');
   const firstWord = titleWord.split(" ")[0];
