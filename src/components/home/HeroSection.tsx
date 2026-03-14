@@ -41,16 +41,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            <motion.span className="relative inline-block">
-              <motion.span
-                className="absolute inset-0 bg-lime/30 -skew-x-3 rounded"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-                style={{ originX: 0 }}
-              />
-              <span className="relative">{t('hero.title1')}</span>
-            </motion.span>
+            {t('hero.title1')}
             <br />
             <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
