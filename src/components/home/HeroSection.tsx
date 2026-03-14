@@ -9,6 +9,8 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   const titleWord = t('hero.title1');
+  const firstWord = titleWord.split(" ")[0];
+  const restOfTitle = titleWord.split(" ").slice(1).join(" ");
 
   const containerVariants = {
     hidden: {},
