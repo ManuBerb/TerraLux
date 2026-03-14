@@ -1,12 +1,28 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import heroImage from '@/assets/hero-lawn.jpg';
 import { useTranslation } from 'react-i18next';
 
+const cyclingWords: Record<string, string[]> = {
+  en: ['Elevate', 'Transform'],
+  fr: ['Sublimez', 'Transformez'],
+};
+
 export function HeroSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [wordIndex, setWordIndex] = useState(0);
+  const lang = i18n.language.startsWith('fr') ? 'fr' : 'en';
+  const words = cyclingWords[lang];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [words.length]);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
