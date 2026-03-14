@@ -6,7 +6,7 @@ import heroImage from '@/assets/hero-lawn.jpg';
 import { useTranslation } from 'react-i18next';
 
 export function HeroSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const titleWord = t('hero.title1');
   const firstWord = titleWord.split(" ")[0];
@@ -79,6 +79,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
+            key={i18n.language}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
