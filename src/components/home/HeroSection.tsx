@@ -8,6 +8,27 @@ import { useTranslation } from 'react-i18next';
 export function HeroSection() {
   const { t } = useTranslation();
 
+  const titleWord = t('hero.title1');
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.06,
+        delayChildren: 0.3,
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
@@ -41,7 +62,22 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            {t('hero.title1')}
+            <motion.span
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              aria-label={titleWord}
+            >
+              {titleWord.split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  variants={letterVariants}
+                  style={{ display: "inline-block" }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.span>
             <br />
             <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
