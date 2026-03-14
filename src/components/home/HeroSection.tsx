@@ -100,9 +100,34 @@ export function HeroSection() {
                 </motion.span>
               ))}
             </motion.span>
-            {restOfTitle ? ` ${restOfTitle}` : ""}
+            {restOfTitle ? (
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" as const }}
+                style={{ display: "inline-block" }}
+              >
+                {` ${restOfTitle}`}
+              </motion.span>
+            ) : null}
             <br />
-            <span className="text-lime">{t('hero.title2')}</span>
+            <motion.span
+              variants={title2ContainerVariants}
+              initial="hidden"
+              animate="visible"
+              aria-label={title2Word}
+              className="text-lime block"
+            >
+              {title2Word.split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  variants={title2LetterVariants}
+                  style={{ display: "inline-block" }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.span>
           </motion.h1>
 
           <motion.p
