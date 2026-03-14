@@ -11,6 +11,7 @@ export function HeroSection() {
   const titleWord = t('hero.title1');
   const firstWord = titleWord.split(" ")[0];
   const restOfTitle = titleWord.split(" ").slice(1).join(" ");
+  const title2Word = t('hero.title2');
 
   const containerVariants = {
     hidden: {},
@@ -28,6 +29,25 @@ export function HeroSection() {
       opacity: 1, 
       y: 0,
       transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
+
+  const title2ContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 1.2,
+      }
+    }
+  };
+
+  const title2LetterVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" as const }
     }
   };
 
@@ -80,9 +100,34 @@ export function HeroSection() {
                 </motion.span>
               ))}
             </motion.span>
-            {restOfTitle ? ` ${restOfTitle}` : ""}
+            {restOfTitle ? (
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" as const }}
+                style={{ display: "inline-block" }}
+              >
+                {` ${restOfTitle}`}
+              </motion.span>
+            ) : null}
             <br />
-            <span className="text-lime">{t('hero.title2')}</span>
+            <motion.span
+              variants={title2ContainerVariants}
+              initial="hidden"
+              animate="visible"
+              aria-label={title2Word}
+              className="text-lime block"
+            >
+              {title2Word.split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  variants={title2LetterVariants}
+                  style={{ display: "inline-block" }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.span>
           </motion.h1>
 
           <motion.p
