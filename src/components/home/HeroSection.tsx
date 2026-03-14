@@ -1,28 +1,12 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-lawn.jpg';
 import { useTranslation } from 'react-i18next';
 
-const cyclingWords: Record<string, string[]> = {
-  en: ['Elevate', 'Transform'],
-  fr: ['Sublimez', 'Transformez'],
-};
-
 export function HeroSection() {
-  const { t, i18n } = useTranslation();
-  const [wordIndex, setWordIndex] = useState(0);
-  const lang = i18n.language.startsWith('fr') ? 'fr' : 'en';
-  const words = cyclingWords[lang];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [words.length]);
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -57,17 +41,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
           >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={words[wordIndex]}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                {words[wordIndex]}
-              </motion.span>
-            </AnimatePresence>
+            {t('hero.title1')}
             <br />
             <span className="text-lime">{t('hero.title2')}</span>
           </motion.h1>
